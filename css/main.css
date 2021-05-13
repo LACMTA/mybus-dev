@@ -83,32 +83,6 @@ section#section-signup {
     padding: 50px 0px;
 }
 
-._form_75 {
-    /* font-family: 'Open Sans' !important; */
-    margin: 0px auto 0 !important;
-    width: 100% !important;
-    max-width: 500px !important;
-}
-
-._form_75 ._form_element {
-    margin-bottom: 20px !important;
-}
-
-._form_75 ._form-content {
-    font-family: 'Open Sans' !important;
-}
-
-
-
-._form_75 #email::placeholder {
-    color: #fff;
-    font-family: 'Open Sans';
-}
-
-._form_75 button._submit {
-    font-family: 'Open Sans' !important;
-    width: 100%;
-}
 
 /************ Footer ************/
 footer {
