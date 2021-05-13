@@ -1,5 +1,5 @@
 #_form_75_ {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   font-family: 'Open Sans', arial, helvetica, sans-serif;
   margin: 0;
@@ -35,7 +35,7 @@
   border: #979797 1px solid;
   border-radius: 4px;
   color: #fff ;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -131,7 +131,7 @@
   max-width: 100%;
 }
 #_form_75_ ._form_element * {
-  font-size: 14px;
+  font-size: 16px;
 }
 #_form_75_ ._form_element._clear {
   clear: both;
@@ -186,15 +186,15 @@
 }
 #_form_75_ input[type="text"]._has_error,
 #_form_75_ textarea._has_error {
-  border: #f37c7b 1px solid;
+  border: #E16710 1px solid;
 }
 #_form_75_ input[type="checkbox"]._has_error {
-  outline: #f37c7b 1px solid;
+  outline: #E16710 1px solid;
 }
 #_form_75_ ._error {
   display: block;
   position: absolute;
-  font-size: 14px;
+  font-size: 16px;
   z-index: 10000001;
 }
 #_form_75_ ._error._above {
@@ -212,19 +212,19 @@
   right: 15px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #f37c7b;
+  border-top: 5px solid #E16710;
 }
 #_form_75_ ._error._below ._error-arrow {
   top: 0;
   right: 15px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid #f37c7b;
+  border-bottom: 5px solid #E16710;
 }
 #_form_75_ ._error-inner {
   padding: 8px 12px;
-  background-color: #f37c7b;
-  font-size: 14px;
+  background-color: #E16710;
+  font-size: 16px;
   font-family: 'Open Sans', arial, sans-serif;
   color: #fff;
   text-align: center;
@@ -356,7 +356,7 @@
   }
   #_form_75_ button[type="submit"] {
     padding: 20px;
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
   #_form_75_ ._inline-style {
     margin: 20px 0 0 !important;
@@ -365,7 +365,7 @@
 #_form_75_ {
   position: relative;
   text-align: left;
-  margin: 25px auto 0;
+  margin: 50px auto;
   padding: 20px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -442,6 +442,6 @@
 }
 
 ._form_75 #email::placeholder {
-    color: #fff;
+    color: #888;
     font-family: 'Open Sans';
 }
