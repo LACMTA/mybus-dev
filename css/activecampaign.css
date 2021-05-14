@@ -32,8 +32,6 @@
 #_form_75_ textarea {
   padding: 6px;
   height: auto;
-  border: #979797 1px solid;
-  border-radius: 4px;
   color: #fff ;
   font-size: 16px;
   -webkit-box-sizing: border-box;
@@ -155,6 +153,7 @@
 #_form_75_ ._field-wrapper {
   position: relative;
 }
+/*
 #_form_75_ ._inline-style {
   float: left;
 }
@@ -173,6 +172,7 @@
   margin: 0;
   min-width: 0;
 }
+*/
 #_form_75_ ._clear-element {
   clear: left;
 }
@@ -254,6 +254,7 @@
 .pika-single {
   z-index: 10000001 !important;
 }
+/*
 #_form_75_ input[type="text"].datetime_date {
   width: 69%;
   display: inline;
@@ -263,6 +264,7 @@
   display: inline;
   height: 32px;
 }
+*/
 @media all and (min-width: 320px) and (max-width: 667px) {
   ::-webkit-scrollbar {
     display: none;
@@ -312,15 +314,18 @@
     display: block;
     width: 100%;
   }
+  /*
   #_form_75_ ._row._checkbox-radio label {
     display: inline;
   }
+  */
   #_form_75_ ._row,
   #_form_75_ p,
   #_form_75_ label {
     margin-bottom: 0.7em;
     width: 100%;
   }
+  /*
   #_form_75_ ._row input[type="checkbox"],
   #_form_75_ ._row input[type="radio"] {
     margin: 0 !important;
@@ -338,6 +343,7 @@
     max-width: 100%;
     height: auto !important;
   }
+  */
   #_form_75_ input[type="text"] {
     padding-left: 10px;
     padding-right: 10px;
@@ -345,6 +351,7 @@
     line-height: 1.3em;
     -webkit-appearance: none;
   }
+  /*
   #_form_75_ input[type="radio"],
   #_form_75_ input[type="checkbox"] {
     display: inline-block;
@@ -354,13 +361,16 @@
     margin: 0 0.3em 0 0;
     vertical-align: baseline;
   }
+  */
   #_form_75_ button[type="submit"] {
     padding: 20px;
     font-size: 1.3em;
   }
+  /*
   #_form_75_ ._inline-style {
     margin: 20px 0 0 !important;
   }
+  */
 }
 #_form_75_ {
   position: relative;
@@ -380,12 +390,14 @@
   border-radius: 0px !important;
   color: #fff !important;
 }
+/*
 #_form_75_._inline-form,
 #_form_75_._inline-form ._form-content,
 #_form_75_._inline-form input,
 #_form_75_._inline-form ._submit {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif, ;
 }
+*/
 #_form_75_ ._form-title {
   font-size: 22px;
   line-height: 22px;
@@ -400,6 +412,7 @@
 #_form_75_:after {
   clear: both;
 }
+/*
 #_form_75_._inline-style {
   width: auto;
   display: inline-block;
@@ -419,6 +432,7 @@
   position: relative;
   margin: 27px 12.5px 0 20px;
 }
+*/
 #_form_75_ ._form-thank-you {
   position: relative;
   left: 0;
