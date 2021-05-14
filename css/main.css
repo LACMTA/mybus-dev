@@ -397,10 +397,6 @@ h4.l-footer-info__head {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    #section-bus-image {
-        height: 500px;
-    }
-
     .l-container {
         padding: 28px 56px;
     }
