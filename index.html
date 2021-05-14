@@ -23,10 +23,10 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-WKN9J9K');</script>
     <!-- End Google Tag Manager -->
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>Is my bus line changing?</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -63,18 +63,26 @@
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKN9J9K" height="0" width="0"
-        style="display:none;visibility:hidden"></iframe></noscript>
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <header class="mybus-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
-        <div class="container-fluid d-flex align-items-center">
-            <a href="https://www.metro.net"><img class="d-flex align-items-center logo" src="img/M-Metro_reversed_128h.png" height="36" alt="logo"></a>
+        <div class="header-container container-fluid d-flex align-items-center">
+            <a href="https://www.metro.net"><img class="d-flex align-items-center logo"
+                    src="img/M-Metro_reversed_128h.png" height="36" alt="logo"></a>
 
-            <span class="d-flex align-items ms-auto link-light translate"><svg class="svg-icon" role="img" height="28"
+            <div class="nav-translate d-flex align-items ms-auto link-light ">
+                <div class="nav-translate__clickable">
+                    <div class="l-footer__translate" style="display:none" id="google_translate_element_desktop"></div>
+                </div>
+                <div class="nav-translate__presentation">
+                    <svg class="svg-icon" role="img" height="28"
                     width="34" focusable="false" viewBox="0 0 24 24">
                     <path
                         d="M17 1c3.309 0 6 2.691 6 6v6a6.01 6.01 0 0 1-5 5.917V23a.997.997 0 0 1-1 1c-.189 0-.379-.054-.544-.161L8.989 19H7c-3.309 0-6-2.691-6-6V7c0-3.309 2.691-6 6-6zm0 2H7C4.794 3 3 4.794 3 7v6c0 2.206 1.794 4 4 4h2.285c.194 0 .382.056.544.161L16 21.16V18a1 1 0 0 1 1-1c2.206 0 4-1.794 4-4V7c0-2.206-1.794-4-4-4zm-5 .75A6.257 6.257 0 0 1 18.25 10 6.257 6.257 0 0 1 12 16.25 6.257 6.257 0 0 1 5.75 10 6.257 6.257 0 0 1 12 3.75zm1.517 7h-3.033c.134 2.253.837 3.699 1.342 3.982l.174.018c.06 0 .116-.016.174-.018.506-.283 1.208-1.729 1.343-3.982zm3.157 0H14.93c-.066 1.245-.3 2.452-.69 3.413a4.731 4.731 0 0 0 2.434-3.413zm-7.603 0H7.326a4.735 4.735 0 0 0 2.435 3.413c-.392-.962-.624-2.168-.69-3.413zm5.169-4.913c.39.961.624 2.168.69 3.413h1.744a4.731 4.731 0 0 0-2.434-3.413zM12 5.25c-.06 0-.115.016-.174.018-.505.283-1.208 1.729-1.342 3.982h3.033c-.135-2.253-.837-3.699-1.343-3.982-.058-.002-.114-.018-.174-.018zm-2.24.587A4.735 4.735 0 0 0 7.327 9.25H9.07c.066-1.245.298-2.452.69-3.413z"
                         fill="#DCDCDC" fill-rule="evenodd"></path>
-                </svg> Translate</span>
+                    </svg> Translate
+                </div>
+            </div>
         </div>
     </header>
 
@@ -415,6 +423,7 @@
     <script src="js/activecampaign.js"></script>
 
     <script>
+        /****** Footer ******/
         document.querySelector('a.l-footer--top').addEventListener("click", (e) => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -428,7 +437,191 @@
                 }
             });
         });
+    </script>
 
+    <!-- Google Translate -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        defer></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            window.tis = new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                // includedLanguages: 'da,de,en,es,fr,hmn,hy,it,ja,km,ko,pt,ru,th,tl,vi,zh-CN,zh-TW',
+                includedLanguages: 'en,es,zh-CN,zh-TW,ko,vi,ja,ru,hy',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false,
+                gaTrack: true,
+                gaId: 'UA-10002990-14',
+            }, isMobile() ? 'google_translate_element_mobile' : 'google_translate_element_desktop');
+        }
+
+        function styleGT() {
+            const googleFrame = document.querySelector('.goog-te-menu-frame');
+
+            googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
+                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+                <style type="text/css">
+                .goog-te-menu2 {
+                    background-color: #212529;
+                    border: none;
+                    overflow: auto;
+                    padding:0;
+                }
+                table,tbody,tr,td{
+                    display: block;
+                }
+                a.goog-te-menu2-item {
+                    font-family: 'Open Sans', helvetica, arial, sans-serif !important;
+                }
+                .goog-te-menu2-item div,
+                .goog-te-menu2-item:link div,
+                .goog-te-menu2-item:visited div,
+                .goog-te-menu2-item:active div,
+                .goog-te-menu2-item-selected div,
+                .goog-te-menu2-item-selected:link div,
+                .goog-te-menu2-item-selected:visited div,
+                .goog-te-menu2-item-selected:active div{
+                    background: transparent;
+                    font-size: 16px;
+                    letter-spacing: .35px;
+                    line-height: 1.75;
+                    color: #DCDCDC;
+                    padding: 16px;
+                    border-bottom: 1px solid #545454;
+                }
+                .goog-te-menu2-item:hover div{
+                    color: #ECECEC;
+                    background: #555;
+                }
+                </style>`
+            );
+
+            if (isMobile()) {
+                googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
+                    <style type="text/css">
+                    .goog-te-menu2 {
+                        width: 100% !important;
+                    }
+                    </style>`);
+            } else {
+                googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
+                <style type="text/css">
+                .goog-te-menu2 {
+                    width: 225px !important;
+                }
+                </style>`);
+            }
+        }
+
+        function updateLanguageNames() {
+            const googleFrame = document.querySelector('.goog-te-menu-frame');
+
+            let langItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item,.goog-te-menu2-item-selected');
+            let langItemsNew = [];
+
+            for (var i = 0; i < langItems.length; i++) {
+                let langItem_text = langItems[i].querySelector('.text');
+                switch (langItem_text.textContent) {
+                    case 'Spanish':
+                        langItem_text.textContent = 'Español (Spanish)';
+                        langItemsNew[1] = langItems[i];
+                        break;
+                    case 'Chinese (Simplified)':
+                        langItem_text.textContent = '中文 (Chinese Simplified)';
+                        langItemsNew[3] = langItems[i];
+                        break;
+                    case 'Chinese (Traditional)':
+                        langItem_text.textContent = '中文 (Chinese Traditional)';
+                        langItemsNew[2] = langItems[i];
+                        break;
+                    case 'Korean':
+                        langItem_text.textContent = '한국어 (Korean)';
+                        langItemsNew[4] = langItems[i];
+                        break;
+                    case 'Vietnamese':
+                        langItem_text.textContent = 'Tiếng Việt (Vietnamese)';
+                        langItemsNew[5] = langItems[i];
+                        break;
+                    case 'Japanese':
+                        langItem_text.textContent = '日本語 (Japanese)';
+                        langItemsNew[6] = langItems[i];
+                        break;
+                    case 'Russian':
+                        langItem_text.textContent = 'русский (Russian)';
+                        langItemsNew[7] = langItems[i];
+                        break;
+                    case 'Armenian':
+                        langItem_text.textContent = 'Армянский (Armenian)';
+                        langItemsNew[8] = langItems[i];
+                        break;
+                    case 'Select Language':
+                        langItem_text.textContent = 'English';
+                        langItemsNew[0] = langItems[i];
+                        break;
+                }
+            }
+
+            for (var i = 0; i < langItems.length; i++) {
+                langItems[i] = langItemsNew[i];
+            }
+        }
+
+        function isMobile() {
+            return window.innerWidth < 767; // Media breakpoint is at 768px wide.
+        }
+        
+        window.onload = function () {
+            const googleFrame = document.querySelector('.goog-te-menu-frame');
+            const navTranslate = document.querySelector('.nav-translate');
+            styleGT();
+
+            setInterval(function () {
+                if (googleFrame.offsetWidth != 0 && googleFrame.offsetHeight != 0)  {
+                    navTranslate.classList.add('nav-translate--is-open');
+                } else {
+                    navTranslate.classList.remove('nav-translate--is-open');
+                }
+            }, 1);
+
+            navTranslate.addEventListener('click', (e) => {
+                if (googleFrame.offsetWidth != 0 && googleFrame.offsetHeight != 0) {
+                    googleFrame.style.display = 'none';
+                    if (!navTranslate.classList.contains('nav-translate--is-open')) {
+                        googleFrame.style.display = '';
+                    }
+                }
+                e.stopImmediatePropagation();
+            });
+
+            window.addEventListener('click', (e) => {
+                googleFrame.style.display = 'none';
+            });
+
+            function hideIframeOnClick() {
+                setTimeout(function () {
+                    googleFrame.style.display = 'none';
+                }, 100);
+            }
+
+            setInterval(function () {
+                updateLanguageNames();
+
+                const selected = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
+                const allItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item');
+
+                selected.removeEventListener('click', hideIframeOnClick);
+                selected.removeEventListener('touch', hideIframeOnClick);
+                selected.addEventListener('click', hideIframeOnClick);
+                selected.addEventListener('touch', hideIframeOnClick);
+
+                for (var i = 0; i < allItems.length; i++) {
+                    allItems[i].removeEventListener('click', hideIframeOnClick);
+                    allItems[i].removeEventListener('touch', hideIframeOnClick);
+                    allItems[i].addEventListener('click', hideIframeOnClick);
+                    allItems[i].addEventListener('touch', hideIframeOnClick);
+                }
+            }, 1000);
+        };
     </script>
 </body>
 

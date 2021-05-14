@@ -49,23 +49,57 @@ a {
     left: 0;
     grid-column: 1 / span 3;
 }
-header div {
+
+.header-container {
     margin: 10px;
 }
 
-header .logo {
+.logo {
     padding-left: 20px;
 }
 
-header .translate {
+.nav-translate {
+    position: relative;
     font-size: 16px;
     font-weight: 700;
     line-height: 28px;
     padding-right: 20px;
+    height: 100%;
 }
 
-header .translate svg {
+.nav-translate.nav-translate--mobile.nav-translate--is-open {
+    display: block;
+}
+
+.nav-translate svg {
     margin-right: 10px;
+}
+
+.nav-translate__clickable .goog-te-gadget, .nav-translate__clickable .goog-te-gadget-simple, .nav-translate__clickable .l-footer__translate {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: block!important;
+}
+
+.nav-translate__clickable {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-translate__presentation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.goog-te-menu-frame {
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    top: 89px !important;
 }
 
 /************ Bus Image ************/
