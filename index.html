@@ -34,8 +34,9 @@
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/activecampaign.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <!-- <link href="css/activecampaign.css" rel="stylesheet"> -->
 
     <!-- Facebook Pixel Code -->
     <script>
@@ -140,7 +141,21 @@
         </div>
     </section>-->
 
-    <section id="section-select"></section>
+    <section id="section-select">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="btn-group col-12" id="dropdownLines">
+                        <button class="btn dropdown-toggle col-12" type="button" id="dropdownLinesButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select your line
+                        </button>
+                            <ul class="dropdown-menu col-12" aria-labelledby="dropdownLinesButton">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="section-nextgen"></section>
 
     <!---------------------- START FOOTER ---------------------->
@@ -429,7 +444,8 @@
     <!-- Google Translate -->
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         defer></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <!-- <script type="text/javascript" src="js/activecampaign.js"></script> -->
 </body>
 </html>
