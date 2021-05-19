@@ -1,40 +1,95 @@
-const LINE_NUMBERS_URL = 'data/line-numbers.json';
-let AJAX = [];
+const DATA_PATH = 'data/';
+const LINE_NUMBERS_FILENAME = 'line-numbers.json';
+
 let line_numbers = [];
+let stop_names = [];
 
-function getData(url) {
-    return $.getJSON(url);
-}
+$.getJSON(DATA_PATH + LINE_NUMBERS_FILENAME, populateLines);
 
-AJAX.push(getData(LINE_NUMBERS_URL));
+function populateLines(data) {
+    $.each(data, 
+        function(key, val) {
+            line_numbers.push(val);
+        }
+    );
 
-$(function() {
-    $.when.apply($, AJAX).done(function() {
-        line_numbers = arguments[0];
-        populateLines();
-    });
-});
-
-
-function populateLines() {
-    let dropdown = document.querySelector('#dropdownLines ul');
-    let dropdown_item = '';
+    let lines_dropdown = document.querySelector('#dropdownLines ul');
+    let lines_dropdown_item = '';
 
     line_numbers.forEach(line => {
-        dropdown_item = document.createElement('button');
-        dropdown_item.classList.add('dropdown-item');
-        dropdown_item.value = line.route_id;
-        dropdown_item.textContent = line.route_short_name;
-        dropdown_item.type = "button";
-        dropdown_item.addEventListener('click', function(e) {
-            let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
-            selected_value.value = e.target.value;
-            selected_value.textContent = e.target.textContent;
-        });
+        lines_dropdown_item = document.createElement('button');
+        lines_dropdown_item.classList.add('dropdown-item');
+        lines_dropdown_item.type = "button";
+        lines_dropdown_item.value = line.route_id;
+        lines_dropdown_item.textContent = line.route_short_name;
+        lines_dropdown_item.addEventListener('click', clickLineDropdown);
 
-        dropdown_item_li = document.createElement('li');
-        dropdown_item_li.appendChild(dropdown_item);
+        let lines_dropdown_item_li = document.createElement('li');
+        lines_dropdown_item_li.appendChild(lines_dropdown_item);
 
-        dropdown.appendChild(dropdown_item_li);
+        lines_dropdown.appendChild(lines_dropdown_item_li);
     });
+}
+
+function populateStops(data) {
+    $.each(data, 
+        function(key, val) {
+            stop_names.push(val);
+        }
+    );
+
+    let stops1_dropdown = document.querySelector('#dropdownStops1 ul');
+    let stops2_dropdown = document.querySelector('#dropdownStops2 ul');
+    let stops1_item = '';
+    let stops2_item = '';
+
+    stop_names.forEach(stop => {
+        stops1_item = document.createElement('button');
+        stops1_item.classList.add('dropdown-item');
+        stops1_item.type = "button";
+        stops1_item.value = stop.stop_id;
+        stops1_item.textContent = stop.stop_name;
+
+        stops2_item = stops1_item.cloneNode(true);
+        stops2_item.addEventListener('click', clickStop2Dropdown);
+
+        stops1_item.addEventListener('click', clickStop1Dropdown);
+
+        let stops1_dropdown_item_li = document.createElement('li');
+        stops1_dropdown_item_li.appendChild(stops1_item);
+        stops1_dropdown.appendChild(stops1_dropdown_item_li);
+
+        let stops2_dropdown_item_li = document.createElement('li');
+        stops2_dropdown_item_li.appendChild(stops2_item);
+        stops2_dropdown.appendChild(stops2_dropdown_item_li);
+    });
+
+    document.querySelector('#dropdownStopsButton1').classList.remove('disabled');
+}
+
+function clickLineDropdown(e) {
+    let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
+    selected_value.value = e.target.value;
+    selected_value.textContent = e.target.textContent;
+    $.getJSON(DATA_PATH + e.target.value + '.json', populateStops);
+}
+
+function clickStop1Dropdown(e) {
+    let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
+    selected_value.value = e.target.value;
+    selected_value.textContent = e.target.textContent;
+    document.querySelector('#dropdownStopsButton2').classList.remove('disabled');
+}
+
+function clickStop2Dropdown(e) {
+    let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
+    selected_value.value = e.target.value;
+    selected_value.textContent = e.target.textContent;
+
+    document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
+    document.querySelector('#requestLineStops').classList.remove('disabled');
+}
+
+function clickRequestLineStop(e) {
+
 }

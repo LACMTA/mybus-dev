@@ -3,30 +3,9 @@ body {
     font-weight: 300;
 }
 
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
-    font-weight: 400;
-    line-height: 1.15;
-    color: inherit;
+h1 {
+    font-weight: 700;
 }
-
-.h4, .h5, .h6, h4, h5, h6 {
-    margin-top: 28px;
-    margin-bottom: 7px;
-}
-
-a {
-    outline: 0;
-    color: #105EDA;
-    text-decoration: none;
-}
-
-.svg-icon {
-    line-height: 1em;
-    vertical-align: text-bottom;
-}
-
 
 /************ Accessibility ************/
 
@@ -111,6 +90,25 @@ footer {
     font-size: 13px;
 }
 
+footer .h4 {
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.15;
+    color: inherit;
+    margin-top: 28px;
+    margin-bottom: 7px;
+}
+
+footer a {
+    outline: 0;
+    color: #105EDA;
+    text-decoration: none;
+}
+
+footer .svg-icon {
+    line-height: 1em;
+    vertical-align: text-bottom;
+}
 
 footer .btn {
     border: 2px solid;

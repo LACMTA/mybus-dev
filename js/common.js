@@ -12,61 +12,67 @@ function googleTranslateElementInit() {
 }
 
 function styleGT() {
-    const googleFrame = document.querySelector('.goog-te-menu-frame');
+    // let gframe = setInterval(function() {
+        const googleFrame = document.querySelector('.goog-te-menu-frame');
 
-    googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-        <style type="text/css">
-        .goog-te-menu2 {
-            background-color: #212529;
-            border: none;
-            overflow: auto;
-            padding:0;
-        }
-        table,tbody,tr,td{
-            display: block;
-        }
-        a.goog-te-menu2-item {
-            font-family: 'Open Sans', helvetica, arial, sans-serif !important;
-        }
-        .goog-te-menu2-item div,
-        .goog-te-menu2-item:link div,
-        .goog-te-menu2-item:visited div,
-        .goog-te-menu2-item:active div,
-        .goog-te-menu2-item-selected div,
-        .goog-te-menu2-item-selected:link div,
-        .goog-te-menu2-item-selected:visited div,
-        .goog-te-menu2-item-selected:active div{
-            background: transparent;
-            font-size: 16px;
-            letter-spacing: .35px;
-            line-height: 1.75;
-            color: #DCDCDC;
-            padding: 16px;
-            border-bottom: 1px solid #545454;
-        }
-        .goog-te-menu2-item:hover div{
-            color: #ECECEC;
-            background: #555;
-        }
-        </style>`
-    );
-
-    if (isMobile()) {
-        googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
-            <style type="text/css">
-            .goog-te-menu2 {
-                width: 100% !important;
+        // if (googleFrame != null) {
+            googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
+                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+                <style type="text/css">
+                .goog-te-menu2 {
+                    background-color: #212529;
+                    border: none;
+                    overflow: auto;
+                    padding:0;
+                }
+                table,tbody,tr,td{
+                    display: block;
+                }
+                a.goog-te-menu2-item {
+                    font-family: 'Open Sans', helvetica, arial, sans-serif !important;
+                }
+                .goog-te-menu2-item div,
+                .goog-te-menu2-item:link div,
+                .goog-te-menu2-item:visited div,
+                .goog-te-menu2-item:active div,
+                .goog-te-menu2-item-selected div,
+                .goog-te-menu2-item-selected:link div,
+                .goog-te-menu2-item-selected:visited div,
+                .goog-te-menu2-item-selected:active div{
+                    background: transparent;
+                    font-size: 16px;
+                    letter-spacing: .35px;
+                    line-height: 1.75;
+                    color: #DCDCDC;
+                    padding: 16px;
+                    border-bottom: 1px solid #545454;
+                }
+                .goog-te-menu2-item:hover div{
+                    color: #ECECEC;
+                    background: #555;
+                }
+                </style>`
+            );
+        
+            if (isMobile()) {
+                googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
+                    <style type="text/css">
+                    .goog-te-menu2 {
+                        width: 100% !important;
+                    }
+                    </style>`);
+            } else {
+                googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
+                <style type="text/css">
+                .goog-te-menu2 {
+                    width: 225px !important;
+                }
+                </style>`);
             }
-            </style>`);
-    } else {
-        googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
-        <style type="text/css">
-        .goog-te-menu2 {
-            width: 225px !important;
-        }
-        </style>`);
-    }
+
+    //         clearInterval(gframe);
+    //     }
+    // }, 1000);
 }
 
 function updateLanguageNames() {

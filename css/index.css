@@ -3,8 +3,12 @@ ul.dropdown-menu {
     overflow-y: auto;
 }
 
-#dropdownLinesButton {
+.dropdown-toggle {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.btn {
+    border: solid 1px;
 }
