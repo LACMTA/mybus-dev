@@ -1,5 +1,5 @@
 const DATA_PATH = 'data/';
-const LINE_NUMBERS_FILENAME = 'line-numbers.json';
+const LINE_NUMBERS_FILENAME = 'lines.json';
 
 let line_numbers = [];
 let stop_names = [];
