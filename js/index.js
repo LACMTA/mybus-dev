@@ -2,7 +2,6 @@ const DATA_PATH = 'data/';
 const LINE_NUMBERS_FILENAME = 'lines.json';
 
 let line_numbers = [];
-let stop_names = [];
 
 $.getJSON(DATA_PATH + LINE_NUMBERS_FILENAME, populateLines);
 
@@ -32,16 +31,38 @@ function populateLines(data) {
 }
 
 function populateStops(data) {
+    let stops1 = document.querySelector('#dropdownStops1');
+    let stops2 = document.querySelector('#dropdownStops2');
+    let stops1_dropdown = stops1.querySelector('ul');
+    let stops2_dropdown = stops2.querySelector('ul');
+    let stops1_button = stops1.querySelector('button');
+    let stops2_button = stops2.querySelector('button');
+    let stops1_item = '';
+    let stops2_item = '';
+    let stop_names = [];
+
+    // Reset Dropdowns
+    stops1_button.value = '';
+    stops1_button.innerText = 'Select your stop A';
+    
+    stops2_button.value = '';
+    stops2_button.innerText = 'Select your stop B';
+    
+    stops2_button.classList.add('disabled');
+
+    while (stops1_dropdown.childNodes.length > 0) {
+        stops1_dropdown.removeChild(stops1_dropdown.firstChild);
+    }
+
+    while (stops2_dropdown.childNodes.length > 0) {
+        stops2_dropdown.removeChild(stops2_dropdown.firstChild);
+    }
+
     $.each(data, 
         function(key, val) {
             stop_names.push(val);
         }
     );
-
-    let stops1_dropdown = document.querySelector('#dropdownStops1 ul');
-    let stops2_dropdown = document.querySelector('#dropdownStops2 ul');
-    let stops1_item = '';
-    let stops2_item = '';
 
     stop_names.forEach(stop => {
         stops1_item = document.createElement('button');
@@ -71,7 +92,10 @@ function clickLineDropdown(e) {
     let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
     selected_value.value = e.target.value;
     selected_value.textContent = e.target.textContent;
-    $.getJSON(DATA_PATH + e.target.value + '.json', populateStops);
+
+    // Get file with list of stops for each line.
+    // Filename is route_short_name (which populated the textContent of the line selection button).
+    $.getJSON(DATA_PATH + e.target.textContent + '.json', populateStops);
 }
 
 function clickStop1Dropdown(e) {
