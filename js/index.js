@@ -1,5 +1,6 @@
 const DATA_PATH = 'data/';
 const LINE_NUMBERS_FILENAME = 'lines.json';
+const RESULTS_PAGE = 'bus.html';
 
 let line_numbers = [];
 
@@ -115,5 +116,10 @@ function clickStop2Dropdown(e) {
 }
 
 function clickRequestLineStop(e) {
-
+    let lineID = document.querySelector('#dropdownLinesButton').value;
+    let line = document.querySelector('#dropdownLinesButton').innerText;
+    let stop1 = document.querySelector('#dropdownStopsButton1').value;
+    let stop2 = document.querySelector('#dropdownStopsButton2').value;
+    
+    window.location = RESULTS_PAGE + '?lineID=' + lineID + '&line=' + line + '&stop1=' + stop1 + '&stop2=' + stop2; 
 }

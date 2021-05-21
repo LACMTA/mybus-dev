@@ -32,10 +32,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    <!-- <link href="css/activecampaign.css" rel="stylesheet"> -->
+    <link href="css/activecampaign.css" rel="stylesheet">
 
     <!-- Facebook Pixel Code -->
     <script>
@@ -79,11 +80,10 @@
                     <div class="l-footer__translate" style="display:none" id="google_translate_element_desktop"></div>
                 </div>
                 <div class="nav-translate__presentation">
-                    <svg class="svg-icon" role="img" height="28"
-                    width="34" focusable="false" viewBox="0 0 24 24">
-                    <path
-                        d="M17 1c3.309 0 6 2.691 6 6v6a6.01 6.01 0 0 1-5 5.917V23a.997.997 0 0 1-1 1c-.189 0-.379-.054-.544-.161L8.989 19H7c-3.309 0-6-2.691-6-6V7c0-3.309 2.691-6 6-6zm0 2H7C4.794 3 3 4.794 3 7v6c0 2.206 1.794 4 4 4h2.285c.194 0 .382.056.544.161L16 21.16V18a1 1 0 0 1 1-1c2.206 0 4-1.794 4-4V7c0-2.206-1.794-4-4-4zm-5 .75A6.257 6.257 0 0 1 18.25 10 6.257 6.257 0 0 1 12 16.25 6.257 6.257 0 0 1 5.75 10 6.257 6.257 0 0 1 12 3.75zm1.517 7h-3.033c.134 2.253.837 3.699 1.342 3.982l.174.018c.06 0 .116-.016.174-.018.506-.283 1.208-1.729 1.343-3.982zm3.157 0H14.93c-.066 1.245-.3 2.452-.69 3.413a4.731 4.731 0 0 0 2.434-3.413zm-7.603 0H7.326a4.735 4.735 0 0 0 2.435 3.413c-.392-.962-.624-2.168-.69-3.413zm5.169-4.913c.39.961.624 2.168.69 3.413h1.744a4.731 4.731 0 0 0-2.434-3.413zM12 5.25c-.06 0-.115.016-.174.018-.505.283-1.208 1.729-1.342 3.982h3.033c-.135-2.253-.837-3.699-1.343-3.982-.058-.002-.114-.018-.174-.018zm-2.24.587A4.735 4.735 0 0 0 7.327 9.25H9.07c.066-1.245.298-2.452.69-3.413z"
-                        fill="#DCDCDC" fill-rule="evenodd"></path>
+                    <svg class="svg-icon" role="img" height="28" width="34" focusable="false" viewBox="0 0 24 24">
+                        <path
+                            d="M17 1c3.309 0 6 2.691 6 6v6a6.01 6.01 0 0 1-5 5.917V23a.997.997 0 0 1-1 1c-.189 0-.379-.054-.544-.161L8.989 19H7c-3.309 0-6-2.691-6-6V7c0-3.309 2.691-6 6-6zm0 2H7C4.794 3 3 4.794 3 7v6c0 2.206 1.794 4 4 4h2.285c.194 0 .382.056.544.161L16 21.16V18a1 1 0 0 1 1-1c2.206 0 4-1.794 4-4V7c0-2.206-1.794-4-4-4zm-5 .75A6.257 6.257 0 0 1 18.25 10 6.257 6.257 0 0 1 12 16.25 6.257 6.257 0 0 1 5.75 10 6.257 6.257 0 0 1 12 3.75zm1.517 7h-3.033c.134 2.253.837 3.699 1.342 3.982l.174.018c.06 0 .116-.016.174-.018.506-.283 1.208-1.729 1.343-3.982zm3.157 0H14.93c-.066 1.245-.3 2.452-.69 3.413a4.731 4.731 0 0 0 2.434-3.413zm-7.603 0H7.326a4.735 4.735 0 0 0 2.435 3.413c-.392-.962-.624-2.168-.69-3.413zm5.169-4.913c.39.961.624 2.168.69 3.413h1.744a4.731 4.731 0 0 0-2.434-3.413zM12 5.25c-.06 0-.115.016-.174.018-.505.283-1.208 1.729-1.342 3.982h3.033c-.135-2.253-.837-3.699-1.343-3.982-.058-.002-.114-.018-.174-.018zm-2.24.587A4.735 4.735 0 0 0 7.327 9.25H9.07c.066-1.245.298-2.452.69-3.413z"
+                            fill="#DCDCDC" fill-rule="evenodd"></path>
                     </svg> Translate
                 </div>
             </div>
@@ -93,8 +93,76 @@
 
     <section id="section-bus-image" role="img" aria-label="Image of a Metro bus driving down a street">
     </section>
-    
-    <!--
+
+    <section id="section-select">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="mt-4">Is my bus line changing?</h1>
+                    <p>Metro periodically updates bus service to improve your ride experience.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <!-- Select Line -->
+                    <div class="btn-group col-12" id="dropdownLines">
+                        <button class="btn dropdown-toggle col-12 mb-4" type="button" id="dropdownLinesButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select your line
+                        </button>
+                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownLinesButton">
+                        </ul>
+                    </div>
+
+                    <!-- Select Stop 1 -->
+                    <div class="btn-group col-12" id="dropdownStops1">
+                        <button class="btn dropdown-toggle col-12 mb-4 disabled" type="button" id="dropdownStopsButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select your stop A
+                        </button>
+                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton1">
+                        </ul>
+                    </div>
+
+                    <!-- Select Stop 2 -->
+                    <div class="btn-group col-12" id="dropdownStops2">
+                        <button class="btn dropdown-toggle col-12 mb-4 disabled" type="button" id="dropdownStopsButton2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select your stop B
+                        </button>
+                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton2">
+                        </ul>
+                    </div>
+
+                    <div>
+                        <button type="button" class="btn btn-dark col-12 mb-4 disabled" id="requestLineStops">Request
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-bus-image" role="img" aria-label="Image of a Metro bus driving down a street">
+    </section>
+
+    <section id="section-nextgen">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="mt-4">Fast, Frequent, Reliable Buses</h2>
+                    <p><strong>You spoke, we listened.<br>
+                    Together we're creating a better bus system.</strong></p>
+                    <p>Metro has redesigned its bus system for the first time in 25 years. The goal is a faster, more frequent and more reliable way to get to all the places you need to be.</p>
+
+                    <div>
+                        <button type="button" class="btn btn-dark col-12 mb-4" id="requestNextgenInfo">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="section-signup">
         <div class="_form_75">
             <form method="POST" action="https://metro77073.activehosted.com/proc.php" id="_form_75_"
@@ -109,14 +177,13 @@
                 <div class="_form-content">
                     <div class="_form_element _x53876572 _full_width _clear">
                         <div class="_form-title">
-                            Get Notified About Bus Service Updates
+                            Get Updates on Future Improvements
                         </div>
                     </div>
                     <div class="_form_element _x55195754 _full_width _clear">
                         <div class="_html-code">
                             <p>
-                                Metro will be making updates to bus service on Sunday, June 27. Sign up to be notified
-                                about changes to your line.
+                                Metro is relentlessly focused on making your bus system better. Get advanced notice of future improvements to your bus line.
                             </p>
                         </div>
                     </div>
@@ -139,53 +206,7 @@
                 </div>
             </form>
         </div>
-    </section>-->
-
-    <section id="section-select">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 class="mt-4">Is my bus line changing?</h1>
-                    <p>Metro periodically updates bus service to improve your ride experience.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <!-- Select Line -->
-                    <div class="btn-group col-12" id="dropdownLines">
-                        <button class="btn dropdown-toggle col-12 mb-4" type="button" id="dropdownLinesButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            Select your line
-                        </button>
-                            <ul class="dropdown-menu col-12" aria-labelledby="dropdownLinesButton">
-                        </ul>
-                    </div>
-
-                    <!-- Select Stop 1 -->
-                    <div class="btn-group col-12" id="dropdownStops1">
-                        <button class="btn dropdown-toggle col-12 mb-4 disabled" type="button" id="dropdownStopsButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Select your stop A
-                        </button>
-                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton1">
-                        </ul>
-                    </div>
-
-                    <!-- Select Stop 2 -->
-                    <div class="btn-group col-12" id="dropdownStops2">
-                        <button class="btn dropdown-toggle col-12 mb-4 disabled" type="button" id="dropdownStopsButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                            Select your stop B
-                        </button>
-                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton2">
-                        </ul>
-                    </div>
-
-                    <div>
-                        <button type="button" class="btn btn-dark col-12 mb-4 disabled"  id="requestLineStops">Request Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
-    <section id="section-nextgen"></section>
 
     <!---------------------- START FOOTER ---------------------->
     <footer>
@@ -475,6 +496,7 @@
         defer></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <!-- <script type="text/javascript" src="js/activecampaign.js"></script> -->
+    <script type="text/javascript" src="js/activecampaign.js"></script>
 </body>
+
 </html>
