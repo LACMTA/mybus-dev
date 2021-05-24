@@ -1,6 +1,7 @@
 const DATA_PATH = 'data/';
 const LINE_NUMBERS_FILENAME = 'lines.json';
 const RESULTS_PAGE = 'bus.html';
+const TAKEONE_PAGE = 'all-changes.html';
 
 let line_numbers = [];
 
@@ -15,18 +16,31 @@ function populateLines(data) {
 
     let lines_dropdown = document.querySelector('#dropdownLines ul');
     let lines_dropdown_item = '';
+    let lines_dropdown_item_li = '';
+
+    lines_dropdown_item = document.createElement('button');
+    lines_dropdown_item.classList.add('dropdown-item');
+    lines_dropdown_item.classList.add('notranslate');
+    lines_dropdown_item.type = "button";
+    lines_dropdown_item.value = "all";
+    lines_dropdown_item.textContent = "View All Lines";
+    lines_dropdown_item.addEventListener('click', clickLineDropdown);
+
+    lines_dropdown_item_li = document.createElement('li');
+    lines_dropdown_item_li.appendChild(lines_dropdown_item);
+    lines_dropdown.appendChild(lines_dropdown_item_li);
 
     line_numbers.forEach(line => {
         lines_dropdown_item = document.createElement('button');
         lines_dropdown_item.classList.add('dropdown-item');
+        lines_dropdown_item.classList.add('notranslate');
         lines_dropdown_item.type = "button";
         lines_dropdown_item.value = line.route_id;
         lines_dropdown_item.textContent = line.route_short_name;
         lines_dropdown_item.addEventListener('click', clickLineDropdown);
 
-        let lines_dropdown_item_li = document.createElement('li');
+        lines_dropdown_item_li = document.createElement('li');
         lines_dropdown_item_li.appendChild(lines_dropdown_item);
-
         lines_dropdown.appendChild(lines_dropdown_item_li);
     });
 }
@@ -68,6 +82,7 @@ function populateStops(data) {
     stop_names.forEach(stop => {
         stops1_item = document.createElement('button');
         stops1_item.classList.add('dropdown-item');
+        stops1_item.classList.add('notranslate');
         stops1_item.type = "button";
         stops1_item.value = stop.stop_id;
         stops1_item.textContent = stop.stop_name;
@@ -94,9 +109,20 @@ function clickLineDropdown(e) {
     selected_value.value = e.target.value;
     selected_value.textContent = e.target.textContent;
 
-    // Get file with list of stops for each line.
-    // Filename is route_short_name (which populated the textContent of the line selection button).
-    $.getJSON(DATA_PATH + e.target.textContent + '.json', populateStops);
+    if (e.target.value == 'all') {
+        document.querySelector('#dropdownStops1').classList.add('d-none');
+        document.querySelector('#dropdownStops2').classList.add('d-none');
+
+        document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
+        document.querySelector('#requestLineStops').classList.remove('disabled');
+    } else {
+        document.querySelector('#dropdownStops1').classList.remove('d-none');
+        document.querySelector('#dropdownStops2').classList.remove('d-none');
+
+        // Get file with list of stops for each line.
+        // Filename is route_short_name (which populated the textContent of the line selection button).
+        $.getJSON(DATA_PATH + e.target.textContent + '.json', populateStops);
+    }
 }
 
 function clickStop1Dropdown(e) {
@@ -117,9 +143,14 @@ function clickStop2Dropdown(e) {
 
 function clickRequestLineStop(e) {
     let lineID = document.querySelector('#dropdownLinesButton').value;
-    let line = document.querySelector('#dropdownLinesButton').innerText;
-    let stop1 = document.querySelector('#dropdownStopsButton1').value;
-    let stop2 = document.querySelector('#dropdownStopsButton2').value;
-    
-    window.location = RESULTS_PAGE + '?lineID=' + lineID + '&line=' + line + '&stop1=' + stop1 + '&stop2=' + stop2; 
+
+    if (lineID == 'all') {
+        window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
+    } else {
+        let line = document.querySelector('#dropdownLinesButton').innerText;
+        let stop1 = document.querySelector('#dropdownStopsButton1').value;
+        let stop2 = document.querySelector('#dropdownStopsButton2').value;
+        
+        window.location = RESULTS_PAGE + '?lineID=' + lineID + '&line=' + line + '&stop1=' + stop1 + '&stop2=' + stop2; 
+    }
 }
