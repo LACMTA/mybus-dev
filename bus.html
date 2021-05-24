@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
-    <!-- <link href="css/activecampaign.css" rel="stylesheet"> -->
+    <link href="css/bus.css" rel="stylesheet">
 
     <!-- Facebook Pixel Code -->
     <script>
@@ -90,56 +90,80 @@
     </header>
     <!---------------------- End Header ---------------------->
 
-    <section id="results-header">
+    <section id="results-header" class="py-4">
         <div class="container">
             <div class="row">
-                <h1>Line Number</h1>
-                <p>Line Description</p>
+                <h1>16/17</h1>
+                <p>Downtown LA - West Hollywood via West 3rd St</p>
             </div>
         </div>
 
     </section>
 
-    <section id="results-stops">
+    <section id="results-stops" class="py-4">
         <div class="container">
             <div class="row">
-                <h2>Stop 1 Name</h2>
-                <div>Stop 1 changes</div>
-                <h2>Stop 2 Name</h2>
-                <div>Stop 2 changes</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="results-line">
-        <div class="container">
-            <div class="row">
-                <div>
-                    <h2>Change Type</h2>
-                    <p>Change</p>
+                <h2>3rd / Hudson</h2>
+                <hr>
+                <div class='d-flex justify-content-between'>
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                      </svg> Stop Cancelled</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                      </svg>
+                </div>
+                <h2 class='mt-4'>3rd / Norton</h2>
+                <hr>
+                <div class='d-flex justify-content-between'>
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                      </svg> Stop Cancelled</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="results-timetable">
+    <section id="results-line" class="py-4">
         <div class="container">
             <div class="row">
-                <h2>Timetables</h2>
-                <p>View timetable for specific schedule and route information.</p>
+                <div>
+                    <p><strong>4 Major Changes</strong></p>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Lines Merged</li>
+                        <li class="list-group-item">New Weekend Service</li>
+                        <li class="list-group-item">More Trips Weekdays, Saturdays, & Sundays</li>
+                        <li class="list-group-item">Route Changed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results-timetable" class="py-4">
+        <div class="container">
+            <div class="row">
+                <h2>Schedule</h2>
+                <p>Download PDF for specific schedule and route information.</p>
                 <p>Call 323.GO.METRO for additional inquiries.</p>
                 <div>
-                    <button type="button" class="btn btn-dark col-12 mb-4" id="btnDownloadTimetables">Download PDF</button>
+                    <button type="button" class="btn btn-dark col-12 mb-4" id="btnDownloadTimetables">Download Schedule PDF</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="results-details">
+    <section id="results-details" class="py-4">
         <div class="container">
             <div class="row">
                 <h2>Details</h2>
-                <p>Blah blah details details...</p>
+                <p>Lines 16 and 17 merge to become the new Line 16, which operates via Line 16/17 normal route between downtown LA and 3rd St/San Vicente via 3rd St, then north on San Vicente to Santa Monica Bl. </p>
+                <p>Line 16 west of 3rd St/San Vicente on Burton Way in Beverly Hills is replaced by new Line 617, which operates from E Line (Expo) Culver City Station to Cedars-Sinai Medical Center/Beverly Center via Robertson Bl, then west on Burton Way and Beverly Dr to Pico Bl. This includes new weekend service for Robertson Bl. Bus stop consolidation.</p>
             </div>
         </div>
     </section>
