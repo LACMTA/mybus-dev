@@ -72,10 +72,10 @@
     <!---------------------- START HEADER ---------------------->
     <header class="mybus-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
         <div class="header-container container-fluid d-flex align-items-center">
-            <a href="https://www.metro.net"><img class="d-flex align-items-center logo"
+            <a href="https://www.metro.net"><img class="d-flex align-items-center logo pl-3"
                     src="img/M-Metro_reversed_128h.png" height="36" alt="logo"></a>
 
-            <div class="nav-translate d-flex align-items ms-auto link-light ">
+            <div class="nav-translate d-flex align-items ms-auto link-light pr-3">
                 <div class="nav-translate__clickable">
                     <div class="l-footer__translate" style="display:none" id="google_translate_element_desktop"></div>
                 </div>
@@ -91,75 +91,80 @@
     </header>
     <!---------------------- END HEADER ---------------------->
 
-    <section id="section-bus-image" role="img" aria-label="Image of a Metro bus driving down a street">
-    </section>
-
-    <section id="section-select" class='py-5'>
-        <div class="container">
+    <section id="section-select">
+        <img class="img-fluid d-lg-none" src="img/metro-local-bus.jpg" alt="photo of Metro buses" />
+        <div class="container-fluid">
             <div class="row">
-                <div class="col">
-                    <h1 class="mt-4">Is my bus line changing?</h1>
-                    <p>Metro periodically updates bus service to improve your ride experience.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <!-- Select Line -->
-                    <div class="btn-group col-12" id="dropdownLines">
-                        <button class="btn dropdown-toggle col-12 mb-4 notranslate" type="button" id="dropdownLinesButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Select your line
-                        </button>
-                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownLinesButton">
-                        </ul>
-                    </div>
+                <div class="offset-lg-1 col-lg-5 col-xxl-4">
+                    <div class="select-wrapper">
+                        <div class="select-content">
+                            <div class="pt-4 px-3">
+                                <h1>Is my bus line changing?</h1>
+                                <p>Metro periodically updates bus service to improve your ride experience.</p>
+                            </div>
+                            <hr>
+                            <div class="pb-4 px-3">
+                                <div class="btn-group col-12" id="dropdownLines">
+                                    <button class="btn dropdown-toggle col-12 mb-4 notranslate" type="button" id="dropdownLinesButton"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select your line
+                                    </button>
+                                    <ul class="dropdown-menu col-12" aria-labelledby="dropdownLinesButton">
+                                    </ul>
+                                </div>
 
-                    <!-- Select Stop 1 -->
-                    <div class="btn-group col-12" id="dropdownStops1">
-                        <button class="btn dropdown-toggle col-12 mb-4 disabled notranslate" type="button" id="dropdownStopsButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Select your stop A
-                        </button>
-                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton1">
-                        </ul>
-                    </div>
+                                <!-- Select Stop 1 -->
+                                <div class="btn-group col-12" id="dropdownStops1">
+                                    <button class="btn dropdown-toggle col-12 mb-4 disabled notranslate" type="button" id="dropdownStopsButton1"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select your stop A
+                                    </button>
+                                    <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton1">
+                                    </ul>
+                                </div>
 
-                    <!-- Select Stop 2 -->
-                    <div class="btn-group col-12" id="dropdownStops2">
-                        <button class="btn dropdown-toggle col-12 mb-4 disabled notranslate" type="button" id="dropdownStopsButton2"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Select your stop B
-                        </button>
-                        <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton2">
-                        </ul>
-                    </div>
+                                <!-- Select Stop 2 -->
+                                <div class="btn-group col-12" id="dropdownStops2">
+                                    <button class="btn dropdown-toggle col-12 mb-4 disabled notranslate" type="button" id="dropdownStopsButton2"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select your stop B
+                                    </button>
+                                    <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton2">
+                                    </ul>
+                                </div>
 
-                    <div>
-                        <button type="button" class="btn btn-dark col-12 mb-4 disabled" id="requestLineStops">Request
-                            Now</button>
-                    </div>
-                    <div>
-                        Metro bus lines will be updated on Sunday, June 27 to improve your ride experience.
+                                <div>
+                                    <button type="button" class="btn btn-dark col-12 mb-4 disabled" id="requestLineStops">Request
+                                        Now</button>
+                                </div>
+                                <div>
+                                    Updates to Metro bus lines will be go into effect on Sunday, June 27, 2021.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="section-bus-image" role="img" aria-label="Image of a Metro bus driving down a street">
-    </section>
-
     <section id="section-nextgen">
-        <div class="container">
+        <img class="img-fluid d-lg-none" src="img/metro-bus-vertical.jpg" alt="photo of Metro buses" />
+        <div class="container-fluid d-flex align-items-center">
             <div class="row">
-                <div class="col">
-                    <h2 class="mt-4">Fast, Frequent, Reliable Buses</h2>
-                    <p><strong>You spoke, we listened.<br>
-                    Together we're creating a better bus system.</strong></p>
-                    <p>Metro has redesigned its bus system for the first time in 25 years. The goal is a faster, more frequent and more reliable way to get to all the places you need to be.</p>
+                <div class="offset-lg-1 col-lg-4">
+                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" src="img/metro-bus-vertical.jpg" alt="photo of Metro buses" />
+                </div>
+                <div class="offset-lg-1 col-lg-5 d-flex align-items-center">
+                    <div class="px-3">
+                        <h1 class="mt-4">Fast, Frequent, Reliable Buses</h1>
+                        <p style="font-weight: 600;">You spoke, we listened.<br>
+                        Together we're creating a better bus system.</p>
+                        <p>Metro has redesigned its bus system for the first time in 25 years. The goal is a faster, more frequent and more reliable way to get to all the places you need to be.</p>
 
-                    <div>
-                        <button type="button" class="btn btn-dark col-12 mb-4" id="requestNextgenInfo">Learn More</button>
+                        <div>
+                            <button type="button" class="btn btn-dark col-12 mb-4" id="requestNextgenInfo">Learn More</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -167,47 +172,50 @@
     </section>
 
     <section id="section-signup">
-        <div class="_form_75">
-            <form method="POST" action="https://metro77073.activehosted.com/proc.php" id="_form_75_"
-                class="_form _form_75 _inline-form  " novalidate>
-                <input type="hidden" name="u" value="75" />
-                <input type="hidden" name="f" value="75" />
-                <input type="hidden" name="s" />
-                <input type="hidden" name="c" value="0" />
-                <input type="hidden" name="m" value="0" />
-                <input type="hidden" name="act" value="sub" />
-                <input type="hidden" name="v" value="2" />
-                <div class="_form-content">
-                    <div class="_form_element _x53876572 _full_width _clear">
-                        <div class="_form-title">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+                <div class="offset-lg-1 col-lg-4">
+                    <div class="px-3">
+                        <h1>
                             Get Updates on Future Improvements
-                        </div>
-                    </div>
-                    <div class="_form_element _x55195754 _full_width _clear">
-                        <div class="_html-code">
-                            <p>
-                                Metro is relentlessly focused on making your bus system better. Get advanced notice of future improvements to your bus line.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="_form_element _x68633660 _full_width ">
-                        <label for="email" class="_form-label">
-                        </label>
-                        <div class="_field-wrapper">
-                            <input type="text" id="email" name="email" placeholder="Enter email address" required />
-                        </div>
-                    </div>
-                    <div class="_button-wrapper _full_width">
-                        <button id="_form_75_submit" class="_submit" type="submit">
-                            Sign up
-                        </button>
-                    </div>
-                    <div class="_clear-element">
+                        </h1>
                     </div>
                 </div>
-                <div class="_form-thank-you" style="display:none;">
+            
+                <div class="_form_75 offset-lg-1 col-lg-5">
+                    <p class="px-3">
+                        Metro is relentlessly focused on making your bus system better. Get advanced notice of future improvements to your bus line.
+                    </p>
+                    <form method="POST" action="https://metro77073.activehosted.com/proc.php" id="_form_75_"
+                        class="_form _form_75 _inline-form  px-3" novalidate>
+                        <input type="hidden" name="u" value="75" />
+                        <input type="hidden" name="f" value="75" />
+                        <input type="hidden" name="s" />
+                        <input type="hidden" name="c" value="0" />
+                        <input type="hidden" name="m" value="0" />
+                        <input type="hidden" name="act" value="sub" />
+                        <input type="hidden" name="v" value="2" />
+                        <div class="_form-content">
+                            <div class="_form_element _x68633660 _full_width ">
+                                <label for="email" class="_form-label">
+                                </label>
+                                <div class="_field-wrapper">
+                                    <input type="text" id="email" name="email" placeholder="Enter email address" required />
+                                </div>
+                            </div>
+                            <div class="_button-wrapper _full_width">
+                                <button id="_form_75_submit" class="_submit" type="submit">
+                                    Sign up
+                                </button>
+                            </div>
+                            <div class="_clear-element">
+                            </div>
+                        </div>
+                        <div class="_form-thank-you" style="display:none;">
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 

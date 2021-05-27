@@ -377,8 +377,8 @@
 #_form_75_ {
   position: relative;
   text-align: left;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 0 28px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -386,7 +386,7 @@
   background: #030000 !important;
   border: 0px solid #b0b0b0 !important;
   width: 100%;
-  max-width: 500px;
+  /*max-width: 500px;*/
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   border-radius: 0px !important;

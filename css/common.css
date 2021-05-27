@@ -7,6 +7,10 @@ h1 {
     font-weight: 700;
 }
 
+h2 {
+    font-weight: 700;
+}
+
 /************ Accessibility ************/
 
 /************ Header ************/
@@ -22,7 +26,7 @@ h1 {
 }
 
 .logo {
-    padding-left: 20px;
+    
 }
 
 .nav-translate {
@@ -30,7 +34,6 @@ h1 {
     font-size: 16px;
     font-weight: 700;
     line-height: 28px;
-    padding-right: 20px;
     height: 100%;
 }
 
@@ -69,19 +72,10 @@ h1 {
     top: 89px !important;
 }
 
-/************ Bus Image ************/
-#section-bus-image {
-    height: 200px;
-    background-image: url('../img/metro-local-bus.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: none;
-}
-
 /************ Email Signup ************/
 #section-signup {
     background: #000;
-    padding: 50px 0px;
+    padding: 50px 0;
 }
 
 
@@ -348,9 +342,7 @@ h4.l-footer-info__head {
  */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    #section-bus-image {
-        height: 300px;
-    }
+
 
     .l-container {
         padding: 12px 24px;
@@ -359,9 +351,7 @@ h4.l-footer-info__head {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    #section-bus-image {
-        height: 400px;
-    }
+
 
     .l-container {
         padding: 20px 40px;
