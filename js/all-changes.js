@@ -3,7 +3,7 @@ const URLPARAMS = new URLSearchParams(QUERYSTRING);
 const LANG = URLPARAMS.get('lang');
 const DATA_PATH = 'data/';
 
-if (LANG == null || LANG == 'undefined') {
+if (LANG == null || LANG == 'undefined' || LANG == '') {
     $.getJSON(DATA_PATH + 'takeone-en.json', loadContent);
 
 } else {

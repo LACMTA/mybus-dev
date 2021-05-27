@@ -3,7 +3,7 @@
 function googleTranslateElementInit() {
     window.tis = new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'en,es,zh-CN,zh-TW,ko,vi,ja,ru,hy',
+        includedLanguages: 'en,es,zh-TW,ko,vi,ja,ru,hy',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false,
         gaTrack: true,
@@ -12,10 +12,10 @@ function googleTranslateElementInit() {
 }
 
 function styleGT() {
-    // let gframe = setInterval(function() {
+    let gframe = setInterval(function() {
         const googleFrame = document.querySelector('.goog-te-menu-frame');
 
-        // if (googleFrame != null) {
+        if (googleFrame != null) {
             googleFrame.contentDocument.querySelector('head').insertAdjacentHTML('beforeend', `
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
                 <style type="text/css">
@@ -70,62 +70,44 @@ function styleGT() {
                 </style>`);
             }
 
-    //         clearInterval(gframe);
-    //     }
-    // }, 1000);
+            clearInterval(gframe);
+        }
+    }, 1000);
 }
 
 function updateLanguageNames() {
     const googleFrame = document.querySelector('.goog-te-menu-frame');
+    let langItemsParent = googleFrame.contentDocument.querySelector('td');
+    let newLangItemsParent = document.createElement('td');
+    let languages = [
+        ['Select Language', 'English'],
+        ['Spanish', 'Español (Spanish)'], 
+        ['Chinese (Traditional)', '中文 (Chinese Traditional)'], 
+        ['Korean', '한국어 (Korean)'],
+        ['Vietnamese', 'Tiếng Việt (Vietnamese)'],
+        ['Japanese', '日本語 (Japanese)'],
+        ['Russian', 'русский (Russian)'],
+        ['Armenian', 'Армянский (Armenian)']
+    ];
 
-    let langItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item,.goog-te-menu2-item-selected');
-    let langItemsNew = [];
+    // let langItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item,.goog-te-menu2-item-selected');
+    var langItemsNew = [];
 
-    for (var i = 0; i < langItems.length; i++) {
-        let langItem_text = langItems[i].querySelector('.text');
-        switch (langItem_text.textContent) {
-            case 'Spanish':
-                langItem_text.textContent = 'Español (Spanish)';
-                langItemsNew[1] = langItems[i];
-                break;
-            case 'Chinese (Simplified)':
-                langItem_text.textContent = '中文 (Chinese Simplified)';
-                langItemsNew[3] = langItems[i];
-                break;
-            case 'Chinese (Traditional)':
-                langItem_text.textContent = '中文 (Chinese Traditional)';
-                langItemsNew[2] = langItems[i];
-                break;
-            case 'Korean':
-                langItem_text.textContent = '한국어 (Korean)';
-                langItemsNew[4] = langItems[i];
-                break;
-            case 'Vietnamese':
-                langItem_text.textContent = 'Tiếng Việt (Vietnamese)';
-                langItemsNew[5] = langItems[i];
-                break;
-            case 'Japanese':
-                langItem_text.textContent = '日本語 (Japanese)';
-                langItemsNew[6] = langItems[i];
-                break;
-            case 'Russian':
-                langItem_text.textContent = 'русский (Russian)';
-                langItemsNew[7] = langItems[i];
-                break;
-            case 'Armenian':
-                langItem_text.textContent = 'Армянский (Armenian)';
-                langItemsNew[8] = langItems[i];
-                break;
-            case 'Select Language':
-                langItem_text.textContent = 'English';
-                langItemsNew[0] = langItems[i];
-                break;
-        }
+    if (langItemsParent.childNodes[1].querySelector('.text').textContent == languages[1][1]) {
+        return;
     }
 
-    for (var i = 0; i < langItems.length; i++) {
-        langItems[i] = langItemsNew[i];
-    }
+    languages.forEach(lang => {
+        langItemsParent.childNodes.forEach(node => {
+            let langItemText = node.querySelector('.text');    
+            if (langItemText.textContent == lang[0]) {
+                langItemText.textContent = lang[1];
+                newLangItemsParent.appendChild(node);
+            }
+        });
+    });
+
+    langItemsParent.replaceWith(newLangItemsParent);
 }
 
 function isMobile() {

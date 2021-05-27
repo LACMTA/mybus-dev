@@ -143,9 +143,19 @@ function clickStop2Dropdown(e) {
 
 function clickRequestLineStop(e) {
     let lineID = document.querySelector('#dropdownLinesButton').value;
+    let selectedLanguage = document.querySelector('.goog-te-menu-frame').contentDocument.querySelector('.goog-te-menu2-item-selected');
+    let lang = '';
+
+    if (selectedLanguage != null) {
+        lang = selectedLanguage.value;
+    }
+    
+    
 
     if (lineID == 'all') {
-        window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
+        window.location = TAKEONE_PAGE + "?lang=" + lang;
+        
+        // window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
     } else {
         let line = document.querySelector('#dropdownLinesButton').innerText;
         let stop1 = document.querySelector('#dropdownStopsButton1').value;
