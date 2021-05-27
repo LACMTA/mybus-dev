@@ -55,7 +55,7 @@
   -webkit-border-radius: 4px !important;
   border-radius: 4px !important;
   color: #000 !important;
-  padding: 12px !important;
+  padding: .375rem .75rem;
 }
 #_form_75_ ._close-icon {
   cursor: pointer;
@@ -364,10 +364,9 @@
     vertical-align: baseline;
   }
   */
-  #_form_75_ button[type="submit"] {
-    padding: 20px;
-    font-size: 1.3em;
-  }
+  /* #_form_75_ button[type="submit"] {
+    
+  } */
   /*
   #_form_75_ ._inline-style {
     margin: 20px 0 0 !important;

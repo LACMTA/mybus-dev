@@ -13,8 +13,16 @@ ul.dropdown-menu {
     border: solid 1px;
 }
 
+button#requestLineStops, button#requestNextgenInfo {
+    font-weight: 600;
+}
+
 #section-signup {
     color: #FFF;
+}
+
+.select-content>div {
+    padding: 0 16px;
 }
 
 /*
@@ -45,6 +53,10 @@ ul.dropdown-menu {
     background: #FFF;
     margin-top: 48px;
     margin-bottom: 48px;
+}
+
+.select-content>div {
+    padding: 0 48px;
 }
 
 }
