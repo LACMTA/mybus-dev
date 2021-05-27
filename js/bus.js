@@ -8,11 +8,15 @@ const STOP2 = URLPARAMS.get('stop2');
 const DATA_LINES = 'data/line_changes.json';
 const DATA_STOPS = 'data/stop_changes.json';
 
-$.getJSON(DATA_LINES, showLineChanges);
-$.getJSON(DATA_STOPS, showStopChanges);
+let THIS_LINE = {};
+let THIS_STOP1 = {};
+let THIS_STOP2 = {};
+
+$.getJSON(DATA_LINES, showLineData);
+$.getJSON(DATA_STOPS, showstopData);
 
 
-function showStopChanges(data) {
+function showstopData(data) {
     $.each(data, 
         function(key, val) {
             
@@ -20,12 +24,16 @@ function showStopChanges(data) {
     );
 }
 
-function showLineChanges(data) {
-    $.each(data, 
-        function(key, val) {
-            
+function showLineData(data) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]["Line Number"] == LINE) {
+            THIS_LINE = data[i];
+
+            document.querySelector('#lineNumber').textContent = THIS_LINE['Line Number'];
+            document.querySelector('#lineDescription').textContent = THIS_LINE['Line Description'];
+            break;
         }
-    );
+    }
 }
 
 
