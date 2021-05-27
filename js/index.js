@@ -114,6 +114,7 @@ function clickLineDropdown(e) {
         document.querySelector('#dropdownStops2').classList.add('d-none');
 
         document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
+        document.querySelector('#requestLineStops').addEventListener('touch', clickRequestLineStop);
         document.querySelector('#requestLineStops').classList.remove('disabled');
     } else {
         document.querySelector('#dropdownStops1').classList.remove('d-none');
@@ -150,10 +151,8 @@ function clickRequestLineStop(e) {
         lang = selectedLanguage.value;
     }
     
-    
-
     if (lineID == 'all') {
-        window.location = TAKEONE_PAGE + "?lang=" + lang;
+        window.location = TAKEONE_PAGE + '?lang=' + lang;
         
         // window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
     } else {
@@ -163,4 +162,10 @@ function clickRequestLineStop(e) {
         
         window.location = RESULTS_PAGE + '?lineID=' + lineID + '&line=' + line + '&stop1=' + stop1 + '&stop2=' + stop2; 
     }
+}
+
+document.querySelector('#requestNextgenInfo').addEventListener('click', clickRequestNextgenInfo);
+
+function clickRequestNextgenInfo() {
+    window.location = "https://www.metro.net/projects/nextgen/";
 }
