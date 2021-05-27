@@ -1,6 +1,7 @@
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 300;
+    overflow-x: hidden; /*  HORRIBLE STOPGAP. Something is making the page show a horizontal scrollbar!  */
 }
 
 h1 {
@@ -23,10 +24,6 @@ h2 {
 
 .header-container {
     margin: 10px;
-}
-
-.logo {
-    
 }
 
 .nav-translate {
@@ -255,14 +252,13 @@ h4.l-footer-info__head {
 }
 
 /************ Footer Row 2 ************/
-.l-footer__row-2 {
-    padding-top: 20px;
+.footer_row-2 {
     background: #262626;
     color: #979797;
     text-align: center;
 }
 
-.l-footer__row-2 .row-flex {
+.footer_row-2 .row-flex {
     flex-direction: column;
 }
 
@@ -297,7 +293,7 @@ h4.l-footer-info__head {
 }
 
 .l-footer-linkset--row-2 {
-    padding: 10px 0 0;
+    /* padding: 10px 0 0; */
 }
 
 .l-footer-linkset--row-2>ul {
@@ -312,21 +308,21 @@ h4.l-footer-info__head {
     top: 10px;
 }
 
-.l-footer__row-2 a {
+.footer_row-2 a {
     font-size: 12px;
     color: #DCDCDC;
     margin-bottom: 0;
     line-height: 28px;
 }
 
-.l-footer__row-2 a:hover {
+.footer_row-2 a:hover {
     background: #666;
     color: #fff;
 }
 
 .l-footer-linkset a:active, .l-footer-linkset a:focus, .l-footer-linkset a:hover {
     outline: 0;
-    background: #fff;
+    background: #666;
     text-decoration: none;
 }
 
@@ -341,8 +337,6 @@ h4.l-footer-info__head {
  */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-
-
     .l-container {
         padding: 12px 24px;
     }
@@ -405,11 +399,11 @@ h4.l-footer-info__head {
     }
 
     /************ Footer Row 2 ************/
-    .l-footer__row-2 {
+    .footer_row-2 {
         padding-top: 0;
     }
 
-    .l-footer__row-2 .row-flex {
+    .footer_row-2 .row-flex {
         flex-direction: row;
     }
 
