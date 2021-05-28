@@ -10,28 +10,35 @@ const STOP2_NAME = URLPARAMS.get('stop2name');
 const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINEID + '-changes.json';
 
+const STOP_CHANGE_CATEGORY_LABELS = {
+    'service_canceled': 'Service Canceled',
+    'service_changed': 'Service Changed', 
+    'service_replaced': 'Service Replaced',
+    'stop_canceled': 'Stop Canceled',
+    'stop_relocated': 'Stop Relocated',
+    'route_changed': 'Route Changed',
+    'owl_service_canceled': 'Owl Service Canceled'
+}
+
 let STOP1_CHANGES = {
-    'service_canceled': '',
-    'service_changed': '', 
-    'service_replaced': '', 
-    'stop_canceled': '', 
-    'stop_relocated': '', 
-    'route_changed': '', 
-    'owl_service_canceled': ''
+    'service_canceled': false,
+    'service_changed': false, 
+    'service_replaced': false,
+    'stop_canceled': false,
+    'stop_relocated': false,
+    'route_changed': false,
+    'owl_service_canceled': false
 };
 let STOP2_CHANGES = {
-    'service_canceled': '',
-    'service_changed': '', 
-    'service_replaced': '', 
-    'stop_canceled': '', 
-    'stop_relocated': '', 
-    'route_changed': '', 
-    'owl_service_canceled': ''
+    'service_canceled': false,
+    'service_changed': false,
+    'service_replaced': false,
+    'stop_canceled': false,
+    'stop_relocated': false,
+    'route_changed': false,
+    'owl_service_canceled': false
 };
 
-
-{/* <h2 id="stop-1">3rd / Hudson</h2>
-<h2 id="stop-2" class='mt-4'>3rd / Norton</h2> */}
 document.querySelector('#lineNumber').textContent = LINE;
 
 let stop1Heading = document.createElement('h2');
@@ -47,23 +54,82 @@ let THIS_LINE = {};
 let THIS_STOP1 = {};
 let THIS_STOP2 = {};
 
+/* Only try to line line change data if LINE param is provided */
+if (LINE != null && STOP1 != 'undefined' && STOP1 != '') {
+    $.getJSON(DATA_LINE_CHANGES, showLineData);
+}
 
-$.getJSON(DATA_LINE_CHANGES, showLineData);
-
-$.getJSON(DATA_STOP_CHANGES)
-    .done(showStopData)
-    .fail(noStopData);
+/* Only try to load stop changes data if STOP1 and STOP2 params are provided */
+if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
+    STOP2 != null && STOP2 != 'undefined' && STOP2 != '') {
+    $.getJSON(DATA_STOP_CHANGES)
+        .done(showStopData)
+        .fail(noStopData);
+}
 
 function showStopData(data) {
+    var stop1Found = false;
+    var stop2Found = false;
+
     $.each(data, 
         function(key, val) {
-            if (val.stop_id == STOP1) {
-                STOP1_CHANGES.service_canceled = val.service_canceled;
-            } else if (val.stop_id == STOP2) {
+            // Aggregate all stop change categories for the stops.
+            if (val.stop_id.toString() == STOP1) {
+                for (let category in STOP1_CHANGES) {
+                    STOP1_CHANGES[category] = STOP1_CHANGES[category] || val[category];
+                }
 
+                stop1Found = true;
+            } else if (val.stop_id.toString() == STOP2) {
+                for (let category in STOP2_CHANGES) {
+                    STOP2_CHANGES[category] = STOP2_CHANGES[category] || val[category];
+                }
+                stop2Found = true;
             }
         }
     );
+
+    let stopSection = {};
+    let title = {};
+    let content = {};
+
+    if (stop1Found || stop2Found) {
+        stopSection = document.querySelector('#results-stops .col');
+        title = document.createElement('h3');
+        title.textContent = 'Stops';
+        content = document.createElement('div');
+
+        if (stop1Found) {
+            content.appendChild(stopChangesHelper(STOP1_NAME, STOP1_CHANGES));
+        }
+        if (stop2Found) {
+            content.appendChild(stopChangesHelper(STOP2_NAME, STOP2_CHANGES));
+        }
+
+        stopSection.appendChild(cardHelper(title, content));
+    }
+}
+
+/* Return a node */
+function stopChangesHelper(stopName, stopChanges) {
+    let resultNode = document.createElement('div');
+    let label = document.createElement('p');
+
+    label.textContent = stopName + ' has the following updates:';
+    resultNode.appendChild(label);
+
+    let list = document.createElement('ul');
+
+    for (let category in stopChanges) {
+        if (stopChanges[category]) {
+            let listItem = document.createElement('li');
+            listItem.textContent = STOP_CHANGE_CATEGORY_LABELS[category];
+            list.appendChild(listItem);
+        }
+    }
+    resultNode.appendChild(list);
+
+    return resultNode;
 }
 
 function noStopData(jqxhr, textStatus, error) {
@@ -79,24 +145,43 @@ function showLineData(data) {
             document.querySelector('#lineDescription').textContent = THIS_LINE['line-description'];
 
             let lineSection = document.querySelector('#results-line .col');
-            
+            let title = document.createElement('h3');
+            let content = document.createElement('p');
+
             // show card 1
             if (THIS_LINE['lines-merged']) {
-                lineSection.appendChild(cardHelper('Line Merged', THIS_LINE['card-1']));
+                title.textContent = 'Line Merged';
+                content.textContent = THIS_LINE['card-1'];
+
+                lineSection.appendChild(cardHelper(title, content));
             } else if (THIS_LINE['line-discontinued']) {
-                lineSection.appendChild(cardHelper('Line Discontinued', THIS_LINE['card-1']));
+                title.textContent = 'Line Discontinued';
+                content.textContent = THIS_LINE['card-1'];
+
+                lineSection.appendChild(cardHelper(title, content));
             } else if (THIS_LINE['service-restored']) {
-                lineSection.appendChild(cardHelper('Service Restored', THIS_LINE['card-1']));
+                title.textContent = 'Service Restored';
+                content.textContent = THIS_LINE['card-1'];
+
+                lineSection.appendChild(cardHelper(title, content));
             }
 
+            title = document.createElement('h3');
+            content = document.createElement('p');
             // show card 2
             if (THIS_LINE['card-2'] != '') {
-                lineSection.appendChild(cardHelper('Route', THIS_LINE['card-2']));
+                title.textContent = 'Route';
+                content.textContent = THIS_LINE['card-2'];
+                lineSection.appendChild(cardHelper(title, content));
             }
 
+            title = document.createElement('h3');
+            content = document.createElement('p');
             // show card 3
             if (THIS_LINE['card-3'] != '') {
-                lineSection.appendChild(cardHelper('Schedule', THIS_LINE['card-3']));
+                title.textContent = 'Schedule';
+                content.textContent = THIS_LINE['card-3'];
+                lineSection.appendChild(cardHelper(title, content));
             }
 
             // link to schedule
@@ -135,20 +220,23 @@ function showLineData(data) {
     }
 }
 
-
+/* provide title & content as nodes */
 function cardHelper(title, content) {
-    let cardContent = document.createElement('p');
-    cardContent.classList.add('card-text');
-    cardContent.textContent = content;
+    // let cardContent = document.createElement('p');
+    // cardContent.classList.add('card-text');
+    // cardContent.textContent = content;
 
-    let cardTitle = document.createElement('h3');
-    cardTitle.classList.add('card-title');
-    cardTitle.textContent = title;
+    // let cardTitle = document.createElement('h3');
+    // cardTitle.classList.add('card-title');
+    // cardTitle.textContent = title;
+    
+    content.classList.add('card-text');
+    title.classList.add('card-title');
 
     let cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
-    cardBody.appendChild(cardTitle);
-    cardBody.appendChild(cardContent);
+    cardBody.appendChild(title);
+    cardBody.appendChild(content);
 
     let newCard = document.createElement('div');
     newCard.classList.add('card');
