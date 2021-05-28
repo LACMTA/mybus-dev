@@ -41,15 +41,6 @@ let STOP2_CHANGES = {
 
 document.querySelector('#lineNumber').textContent = LINE;
 
-let stop1Heading = document.createElement('h2');
-stop1Heading.textContent = STOP1_NAME;
-let stop2Heading = document.createElement('h2');
-stop2Heading.textContent = STOP2_NAME;
-
-let stopsSection = document.querySelector('#results-stops .col');
-stopsSection.appendChild(stop1Heading);
-stopsSection.appendChild(stop2Heading);
-
 let THIS_LINE = {};
 let THIS_STOP1 = {};
 let THIS_STOP2 = {};
@@ -62,6 +53,35 @@ if (LINE != null && STOP1 != 'undefined' && STOP1 != '') {
 /* Only try to load stop changes data if STOP1 and STOP2 params are provided */
 if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     STOP2 != null && STOP2 != 'undefined' && STOP2 != '') {
+    let header = document.querySelector('#results-header .col');
+
+    let stop1Heading = document.createElement('div');
+    stop1Heading.textContent = STOP1_NAME;
+    stop1Heading.style.fontWeight = 700;
+    stop1Heading.style.color = '#FFF';
+
+    let stop2Heading = document.createElement('div');
+    stop2Heading.textContent = STOP2_NAME;
+    stop2Heading.style.fontWeight = 700;
+    stop2Heading.style.color = '#FFF';
+
+    let content = document.createElement('div');
+    content.classList.add('card-text');
+    content.appendChild(stop1Heading);
+    content.appendChild(stop2Heading);
+
+    let cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+    cardBody.appendChild(content);
+
+    let newCard = document.createElement('div');
+    newCard.classList.add('card');
+    newCard.classList.add('mb-3');
+    newCard.classList.add('card-blue');
+    newCard.appendChild(cardBody);
+
+    header.appendChild(newCard);
+
     $.getJSON(DATA_STOP_CHANGES)
         .done(showStopData)
         .fail(noStopData);
@@ -115,7 +135,7 @@ function stopChangesHelper(stopName, stopChanges) {
     let resultNode = document.createElement('div');
     let label = document.createElement('p');
 
-    label.textContent = stopName + ' has the following updates:';
+    label.textContent = 'The ' + stopName + ' stop has the following updates:';
     resultNode.appendChild(label);
 
     let list = document.createElement('ul');
@@ -241,7 +261,6 @@ function cardHelper(title, content) {
     let newCard = document.createElement('div');
     newCard.classList.add('card');
     newCard.classList.add('text-dark');
-    newCard.classList.add('bg-light');
     newCard.classList.add('mb-3');
     newCard.appendChild(cardBody);
     

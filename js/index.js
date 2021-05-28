@@ -130,6 +130,7 @@ function clickStop1Dropdown(e) {
     let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
     selected_value.value = e.target.value;
     selected_value.textContent = e.target.textContent;
+
     document.querySelector('#dropdownStopsButton2').classList.remove('disabled');
 }
 

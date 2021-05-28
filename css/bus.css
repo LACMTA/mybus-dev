@@ -9,3 +9,17 @@ h2 {
 #results-stops a {
     color: #35393F;
 }
+
+.card-title {
+    font-weight: 700;
+}
+
+.card {
+    border-color: #FFF;
+    background-color: #F5F7FB;
+}
+
+.card-blue {
+    background-color: #105EDA;
+}
+

@@ -1,6 +1,6 @@
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     overflow-x: hidden; /*  HORRIBLE STOPGAP. Something is making the page show a horizontal scrollbar!  */
 }
 
@@ -10,6 +10,10 @@ h1 {
 
 h2 {
     font-weight: 700;
+}
+
+.btn {
+    border-radius: 0;
 }
 
 /************ Accessibility ************/
