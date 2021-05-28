@@ -10,6 +10,25 @@ const STOP2_NAME = URLPARAMS.get('stop2name');
 const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINEID + '-changes.json';
 
+let STOP1_CHANGES = {
+    'service_canceled': '',
+    'service_changed': '', 
+    'service_replaced': '', 
+    'stop_canceled': '', 
+    'stop_relocated': '', 
+    'route_changed': '', 
+    'owl_service_canceled': ''
+};
+let STOP2_CHANGES = {
+    'service_canceled': '',
+    'service_changed': '', 
+    'service_replaced': '', 
+    'stop_canceled': '', 
+    'stop_relocated': '', 
+    'route_changed': '', 
+    'owl_service_canceled': ''
+};
+
 
 {/* <h2 id="stop-1">3rd / Hudson</h2>
 <h2 id="stop-2" class='mt-4'>3rd / Norton</h2> */}
@@ -38,7 +57,11 @@ $.getJSON(DATA_STOP_CHANGES)
 function showStopData(data) {
     $.each(data, 
         function(key, val) {
-            
+            if (val.stop_id == STOP1) {
+                STOP1_CHANGES.service_canceled = val.service_canceled;
+            } else if (val.stop_id == STOP2) {
+
+            }
         }
     );
 }
