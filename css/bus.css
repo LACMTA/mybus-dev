@@ -23,3 +23,12 @@ h2 {
     background-color: #105EDA;
 }
 
+button#btnAllChanges, button#btnDownloadSchedule {
+    font-weight: 700;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.stop1-name, .stop2-name {
+    line-height: 40px;
+}

@@ -54,13 +54,16 @@ if (LINE != null && STOP1 != 'undefined' && STOP1 != '') {
 if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     STOP2 != null && STOP2 != 'undefined' && STOP2 != '') {
     let header = document.querySelector('#results-header .col');
+    let stopPath = document.querySelector('#stopPath');
 
     let stop1Heading = document.createElement('div');
+    stop1Heading.classList.add('stop1-name');
     stop1Heading.textContent = STOP1_NAME;
     stop1Heading.style.fontWeight = 700;
     stop1Heading.style.color = '#FFF';
 
     let stop2Heading = document.createElement('div');
+    stop2Heading.classList.add('stop2-name');
     stop2Heading.textContent = STOP2_NAME;
     stop2Heading.style.fontWeight = 700;
     stop2Heading.style.color = '#FFF';
@@ -72,8 +75,14 @@ if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
 
     let cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
+    cardBody.classList.add('d-flex');
+    cardBody.classList.add('flex-row');
+    cardBody.classList.add('align-items-center');
+    
+    stopPath.remove();
+    cardBody.appendChild(stopPath);
     cardBody.appendChild(content);
-
+    
     let newCard = document.createElement('div');
     newCard.classList.add('card');
     newCard.classList.add('mb-3');
@@ -81,6 +90,7 @@ if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     newCard.appendChild(cardBody);
 
     header.appendChild(newCard);
+    
 
     $.getJSON(DATA_STOP_CHANGES)
         .done(showStopData)
@@ -209,8 +219,6 @@ function showLineData(data) {
             if (THIS_LINE['schedule-url'] != '') {                
                 let scheduleExists1 = document.createElement('p');
                 scheduleExists1.textContent = 'Download PDF for specific schedule and route information.';
-                let scheduleExists2 = document.createElement('p');
-                scheduleExists2.textContent = 'Call 323.GO.METRO for additional inquiries.';
                 
                 let buttonDiv = document.createElement('div');
                 let button = document.createElement('button');
@@ -221,13 +229,14 @@ function showLineData(data) {
                 button.id = 'btnDownloadSchedule';
                 button.type = 'button';
                 button.textContent = 'Download Schedule PDF';
+                button.classList.add('offset-lg-3');
+                button.classList.add('col-lg-6');
                 button.addEventListener('click', (e) => {
                     window.location = THIS_LINE['schedule-url'];
                 });
                 buttonDiv.appendChild(button);
                 
                 scheduleSection.appendChild(scheduleExists1);
-                scheduleSection.appendChild(scheduleExists2);
                 scheduleSection.appendChild(buttonDiv);
             } else {
                 let schedulesDontExist = document.createElement('p');
@@ -266,6 +275,10 @@ function cardHelper(title, content) {
     
     return newCard;
 }
+
+document.querySelector('#btnAllChanges').addEventListener('click', function() {
+    document.location = 'all-changes.html';
+});
 
 // var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
 // var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

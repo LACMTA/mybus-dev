@@ -96,10 +96,17 @@
                 <div class="col px-4">
                     <h1 id="lineNumber" class="mt-4"></h1>
                     <p id="lineDescription" class="fw-bold mb-4"></p>
+                    
+                    <div id="stopPath">
+                        <svg width='30px' height='60px'>
+                            <circle cx='9' cy='10' r='4' fill='white' />
+                            <line x1='9' y1='16' x2='9' y2='44' stroke='white' stroke-width='2' stroke-linecamp='square' stroke-dasharray='4' />
+                            <circle cx='9' cy='50' r='4' fill='white' />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
-
     </section>
 
     <section id="results-stops" class="">
@@ -123,9 +130,12 @@
     <section id="results-all-changes" class="py-4">
         <img class="img-fluid d-md-none" src="img/service-changes.jpg" alt="an illustration showing people waiting at a bus stop">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col px-4">
-                    <div class="py-5">
+            <div class="row d-flex align-items-center">
+                <div class="offset-lg-1 col-lg-4">
+                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" src="img/service-changes.jpg" alt="an illustration showing people waiting at a bus stop" />
+                </div>
+                <div class="offset-lg-1 col-lg-5 d-flex align-items-center">
+                    <div class="px-3 py-5">
                         <h2>All Bus Service Updates</h2>
                         <p>To improve  your bus service we've updated routes, stops, and schedules across the entire bus system.</p>
                         <p>See all of those changes in an easy to read PDF you can download and print.</p>
@@ -139,8 +149,8 @@
     <section id="results-timetable" class="py-4">
         <div class="container-fluid">
             <div class="row">
-                <div class="col px-4">
-                    <div class="py-5">
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="px-3 py-5">
                         <h2>New Schedule</h2>
                         <div id="timetable-content"></div>
                     </div>
