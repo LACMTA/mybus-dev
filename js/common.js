@@ -77,37 +77,39 @@ function styleGT() {
 
 function updateLanguageNames() {
     const googleFrame = document.querySelector('.goog-te-menu-frame');
-    let langItemsParent = googleFrame.contentDocument.querySelector('td');
-    let newLangItemsParent = document.createElement('td');
-    let languages = [
-        ['Select Language', 'English'],
-        ['Spanish', 'Español (Spanish)'], 
-        ['Chinese (Traditional)', '中文 (Chinese Traditional)'], 
-        ['Korean', '한국어 (Korean)'],
-        ['Vietnamese', 'Tiếng Việt (Vietnamese)'],
-        ['Japanese', '日本語 (Japanese)'],
-        ['Russian', 'русский (Russian)'],
-        ['Armenian', 'Армянский (Armenian)']
-    ];
+    if (googleFrame != null) {
+        let langItemsParent = googleFrame.contentDocument.querySelector('td');
+        let newLangItemsParent = document.createElement('td');
+        let languages = [
+            ['Select Language', 'English'],
+            ['Spanish', 'Español (Spanish)'], 
+            ['Chinese (Traditional)', '中文 (Chinese Traditional)'], 
+            ['Korean', '한국어 (Korean)'],
+            ['Vietnamese', 'Tiếng Việt (Vietnamese)'],
+            ['Japanese', '日本語 (Japanese)'],
+            ['Russian', 'русский (Russian)'],
+            ['Armenian', 'Армянский (Armenian)']
+        ];
 
-    // let langItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item,.goog-te-menu2-item-selected');
-    var langItemsNew = [];
+        // let langItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item,.goog-te-menu2-item-selected');
+        var langItemsNew = [];
 
-    if (langItemsParent.childNodes[1].querySelector('.text').textContent == languages[1][1]) {
-        return;
-    }
+        if (langItemsParent.childNodes[1].querySelector('.text').textContent == languages[1][1]) {
+            return;
+        }
 
-    languages.forEach(lang => {
-        langItemsParent.childNodes.forEach(node => {
-            let langItemText = node.querySelector('.text');    
-            if (langItemText.textContent == lang[0]) {
-                langItemText.textContent = lang[1];
-                newLangItemsParent.appendChild(node);
-            }
+        languages.forEach(lang => {
+            langItemsParent.childNodes.forEach(node => {
+                let langItemText = node.querySelector('.text');    
+                if (langItemText.textContent == lang[0]) {
+                    langItemText.textContent = lang[1];
+                    newLangItemsParent.appendChild(node);
+                }
+            });
         });
-    });
 
-    langItemsParent.replaceWith(newLangItemsParent);
+        langItemsParent.replaceWith(newLangItemsParent);
+    }
 }
 
 function isMobile() {
@@ -115,31 +117,38 @@ function isMobile() {
 }
 
 window.onload = function () {
-    const googleFrame = document.querySelector('.goog-te-menu-frame');
-    const navTranslate = document.querySelector('.nav-translate');
+    let googleFrame = document.querySelector('.goog-te-menu-frame');
+    let navTranslate = document.querySelector('.nav-translate');
     styleGT();
 
     setInterval(function () {
-        if (googleFrame.offsetWidth != 0 && googleFrame.offsetHeight != 0)  {
-            navTranslate.classList.add('nav-translate--is-open');
+        if (googleFrame != null && navTranslate != null) {
+            if (googleFrame.offsetWidth != 0 && googleFrame.offsetHeight != 0)  {
+                navTranslate.classList.add('nav-translate--is-open');
+            } else {
+                navTranslate.classList.remove('nav-translate--is-open');
+            }
         } else {
-            navTranslate.classList.remove('nav-translate--is-open');
+            googleFrame = document.querySelector('.goog-te-menu-frame');
+            navTranslate = document.querySelector('.nav-translate');
         }
     }, 1);
 
-    navTranslate.addEventListener('click', (e) => {
-        if (googleFrame.offsetWidth != 0 && googleFrame.offsetHeight != 0) {
-            googleFrame.style.display = 'none';
-            if (!navTranslate.classList.contains('nav-translate--is-open')) {
-                googleFrame.style.display = '';
+    if (googleFrame != null && navTranslate != null) {
+        navTranslate.addEventListener('click', (e) => {
+            if (googleFrame.offsetWidth != 0 && googleFrame.offsetHeight != 0) {
+                googleFrame.style.display = 'none';
+                if (!navTranslate.classList.contains('nav-translate--is-open')) {
+                    googleFrame.style.display = '';
+                }
             }
-        }
-        e.stopImmediatePropagation();
-    });
+            e.stopImmediatePropagation();
+        });
 
-    window.addEventListener('click', (e) => {
-        googleFrame.style.display = 'none';
-    });
+        window.addEventListener('click', (e) => {
+            googleFrame.style.display = 'none';
+        });
+    }
 
     function hideIframeOnClick() {
         setTimeout(function () {
@@ -150,19 +159,21 @@ window.onload = function () {
     setInterval(function () {
         updateLanguageNames();
 
-        const selected = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
-        const allItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item');
+        if (googleFrame != null) {
+            const selected = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
+            const allItems = googleFrame.contentDocument.querySelectorAll('.goog-te-menu2-item');
 
-        selected.removeEventListener('click', hideIframeOnClick);
-        selected.removeEventListener('touch', hideIframeOnClick);
-        selected.addEventListener('click', hideIframeOnClick);
-        selected.addEventListener('touch', hideIframeOnClick);
+            selected.removeEventListener('click', hideIframeOnClick);
+            selected.removeEventListener('touch', hideIframeOnClick);
+            selected.addEventListener('click', hideIframeOnClick);
+            selected.addEventListener('touch', hideIframeOnClick);
 
-        for (var i = 0; i < allItems.length; i++) {
-            allItems[i].removeEventListener('click', hideIframeOnClick);
-            allItems[i].removeEventListener('touch', hideIframeOnClick);
-            allItems[i].addEventListener('click', hideIframeOnClick);
-            allItems[i].addEventListener('touch', hideIframeOnClick);
+            for (var i = 0; i < allItems.length; i++) {
+                allItems[i].removeEventListener('click', hideIframeOnClick);
+                allItems[i].removeEventListener('touch', hideIframeOnClick);
+                allItems[i].addEventListener('click', hideIframeOnClick);
+                allItems[i].addEventListener('touch', hideIframeOnClick);
+            }
         }
     }, 1000);
 };

@@ -35,7 +35,7 @@ function populateLines(data) {
         lines_dropdown_item.classList.add('dropdown-item');
         lines_dropdown_item.classList.add('notranslate');
         lines_dropdown_item.type = "button";
-        lines_dropdown_item.value = line.route_id;
+        lines_dropdown_item.value = line.route_short_name;
         lines_dropdown_item.textContent = line.route_short_name;
         lines_dropdown_item.addEventListener('click', clickLineDropdown);
 
@@ -122,7 +122,7 @@ function clickLineDropdown(e) {
 
         // Get file with list of stops for each line.
         // Filename is route_short_name (which populated the textContent of the line selection button).
-        $.getJSON(DATA_PATH + e.target.textContent + '.json', populateStops);
+        $.getJSON(DATA_PATH + 'line-stops/' + e.target.textContent + '.json', populateStops);
     }
 }
 
@@ -144,11 +144,16 @@ function clickStop2Dropdown(e) {
 
 function clickRequestLineStop(e) {
     let lineID = document.querySelector('#dropdownLinesButton').value;
-    let selectedLanguage = document.querySelector('.goog-te-menu-frame').contentDocument.querySelector('.goog-te-menu2-item-selected');
+    let googleFrame = document.querySelector('.goog-te-menu-frame');
+    let selectedLanguage = '';
     let lang = '';
+    
+    if (googleFrame != null) {
+        selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
 
-    if (selectedLanguage != null) {
-        lang = selectedLanguage.value;
+        if (selectedLanguage != null) {
+            lang = selectedLanguage.value;
+        }
     }
     
     if (lineID == 'all') {
@@ -156,11 +161,17 @@ function clickRequestLineStop(e) {
         
         // window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
     } else {
-        let line = document.querySelector('#dropdownLinesButton').innerText;
-        let stop1 = document.querySelector('#dropdownStopsButton1').value;
-        let stop2 = document.querySelector('#dropdownStopsButton2').value;
+        let line = document.querySelector('#dropdownLinesButton');
+        let stop1 = document.querySelector('#dropdownStopsButton1');
+        let stop2 = document.querySelector('#dropdownStopsButton2');
         
-        window.location = RESULTS_PAGE + '?lineID=' + lineID + '&line=' + line + '&stop1=' + stop1 + '&stop2=' + stop2; 
+        window.location = RESULTS_PAGE + 
+            '?lineID=' + lineID + 
+            '&line=' + line.innerText + 
+            '&stop1=' + stop1.value + 
+            '&stop1name=' + stop1.innerText + 
+            '&stop2=' + stop2.value + 
+            '&stop2name=' + stop2.innerText; 
     }
 }
 

@@ -1,7 +1,7 @@
 const QUERYSTRING = window.location.search;
 const URLPARAMS = new URLSearchParams(QUERYSTRING);
 const LANG = URLPARAMS.get('lang');
-const DATA_PATH = 'data/';
+const DATA_PATH = 'data/takeones/';
 
 if (LANG == null || LANG == 'undefined' || LANG == '') {
     $.getJSON(DATA_PATH + 'takeone-en.json', loadContent);
