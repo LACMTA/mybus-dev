@@ -93,16 +93,41 @@
     <section id="results-header" class="">
         <div class="container-fluid">
             <div class="row">
-                <div class="col px-4">
-                    <h1 id="lineNumber" class="mt-4"></h1>
-                    <p id="lineDescription" class="fw-bold mb-4"></p>
-                    
-                    <div id="stopPath">
-                        <svg width='30px' height='60px'>
-                            <circle cx='9' cy='10' r='4' fill='white' />
-                            <line x1='9' y1='16' x2='9' y2='44' stroke='white' stroke-width='2' stroke-linecamp='square' stroke-dasharray='4' />
-                            <circle cx='9' cy='50' r='4' fill='white' />
-                        </svg>
+                <div class="col">
+                    <div class="px-3" id="headerLine">
+                        <h1 id="lineNumber" class="mt-4"></h1>
+                        <p id="lineDescription" class="fw-bold mb-4"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="px-3" id="headerStopsLabel">
+                        <div class="card mb-3 card-green">
+                            <div class="card-body d-flex flex-row align-items-center">
+                                <img src="img/bus.png" alt="bus icon" width=20>
+                                <div style="width: 12px;"></div>
+                                <div class="card-text">
+                                    Bus Line Stops Selected
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="px-3" id="headerStops">
+                        <div id="stopPath" class="d-none">
+                            <svg width='30px' height='60px'>
+                                <circle cx='9' cy='10' r='4' fill='white' />
+                                <line x1='9' y1='16' x2='9' y2='44' stroke='white' stroke-width='2' stroke-linecamp='square' stroke-dasharray='4' />
+                                <circle cx='9' cy='50' r='4' fill='white' />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +137,8 @@
     <section id="results-stops" class="">
         <div class="container-fluid">
             <div class="row">
-                <div class="col px-4">
+                <div class="col">
+                    <div class="px-3"></div>
                 </div>
             </div>
         </div>
@@ -121,7 +147,8 @@
     <section id="results-line" class="">
         <div class="container-fluid">
             <div class="row">
-                <div class="col px-4">
+                <div class="col">
+                    <div class="px-3"></div>
                 </div>
             </div>
         </div>
@@ -138,8 +165,7 @@
                     <div class="px-3 py-5">
                         <h2>All Bus Service Updates</h2>
                         <p>To improve  your bus service we've updated routes, stops, and schedules across the entire bus system.</p>
-                        <p>See all of those changes in an easy to read PDF you can download and print.</p>
-                        <button type="button" class="btn btn-dark col-12 mb-4" id="btnAllChanges">See All Updates</button>
+                        <button type="button" class="btn btn-dark col-12 offset-lg-3 col-lg-6 mb-4" id="btnAllChanges">See All Updates</button>
                     </div>
                 </div>
             </div>
@@ -147,9 +173,13 @@
     </section>
 
     <section id="results-timetable" class="py-4">
+        <img class="img-fluid d-md-none" src="img/system-map-mobile.png" alt="system map" width="100%">
         <div class="container-fluid">
-            <div class="row">
-                <div class="offset-lg-3 col-lg-6">
+            <div class="row d-flex align-items-center">
+                <div class="offset-lg-1 col-lg-4">
+                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" src="img/system-map-desktop.png" alt="an illustration showing people waiting at a bus stop" />
+                </div>
+                <div class="offset-lg-1 col-lg-5 d-flex align-items-center">
                     <div class="px-3 py-5">
                         <h2>New Schedule</h2>
                         <div id="timetable-content"></div>

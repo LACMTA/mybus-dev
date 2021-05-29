@@ -53,7 +53,7 @@ if (LINE != null && STOP1 != 'undefined' && STOP1 != '') {
 /* Only try to load stop changes data if STOP1 and STOP2 params are provided */
 if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     STOP2 != null && STOP2 != 'undefined' && STOP2 != '') {
-    let header = document.querySelector('#results-header .col');
+    let header = document.querySelector('#headerStops');
     let stopPath = document.querySelector('#stopPath');
 
     let stop1Heading = document.createElement('div');
@@ -79,6 +79,7 @@ if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     cardBody.classList.add('flex-row');
     cardBody.classList.add('align-items-center');
     
+    stopPath.classList.remove('d-none');
     stopPath.remove();
     cardBody.appendChild(stopPath);
     cardBody.appendChild(content);
@@ -124,7 +125,7 @@ function showStopData(data) {
     let content = {};
 
     if (stop1Found || stop2Found) {
-        stopSection = document.querySelector('#results-stops .col');
+        stopSection = document.querySelector('#results-stops .col div');
         title = document.createElement('h3');
         title.textContent = 'Stops';
         content = document.createElement('div');
@@ -174,7 +175,7 @@ function showLineData(data) {
 
             document.querySelector('#lineDescription').textContent = THIS_LINE['line-description'];
 
-            let lineSection = document.querySelector('#results-line .col');
+            let lineSection = document.querySelector('#results-line .col div');
             let title = document.createElement('h3');
             let content = document.createElement('p');
 
@@ -218,7 +219,7 @@ function showLineData(data) {
             let scheduleSection = document.querySelector('#timetable-content');
             if (THIS_LINE['schedule-url'] != '') {                
                 let scheduleExists1 = document.createElement('p');
-                scheduleExists1.textContent = 'Download PDF for specific schedule and route information.';
+                scheduleExists1.textContent = 'Download the new schedule and map for this bus line.';
                 
                 let buttonDiv = document.createElement('div');
                 let button = document.createElement('button');
@@ -228,7 +229,9 @@ function showLineData(data) {
                 button.classList.add('mb-4');
                 button.id = 'btnDownloadSchedule';
                 button.type = 'button';
-                button.textContent = 'Download Schedule PDF';
+                button.textContent = 'Download PDF';
+                button.ariaLabel = 'Download Schedule PDF';
+
                 button.classList.add('offset-lg-3');
                 button.classList.add('col-lg-6');
                 button.addEventListener('click', (e) => {

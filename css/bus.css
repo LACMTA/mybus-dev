@@ -23,6 +23,15 @@ h2 {
     background-color: #105EDA;
 }
 
+.card-green {
+    background-color: #5EAB71;
+}
+
+.card-blue .card-text, .card-green .card-text {
+    color: #FFF;
+    font-weight: 700;
+}
+
 button#btnAllChanges, button#btnDownloadSchedule {
     font-weight: 700;
     padding-top: 12px;
