@@ -97,6 +97,12 @@ if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     $.getJSON(DATA_STOP_CHANGES)
         .done(showStopData)
         .fail(noStopData);
+} else {
+    /* No stops provided - Give Line-only view */
+    let changeSection = document.querySelector('#changes');
+    changeSection.classList.remove('col-lg-7');
+    changeSection.classList.add('offset-lg-1');
+    changeSection.classList.add('col-lg-10');
 }
 
 function showStopData(data) {
@@ -244,7 +250,7 @@ function showLineData(data) {
                 scheduleSection.appendChild(buttonDiv);
             } else {
                 let schedulesDontExist = document.createElement('p');
-                schedulesDontExist.textContent = 'Thanks for your patience as we work to add the new schedule. Check back soon. ';
+                schedulesDontExist.textContent = 'Thanks for your patience as we work to add the new schedule. Check back soon.';
                 scheduleSection.appendChild(schedulesDontExist);
             }
 
