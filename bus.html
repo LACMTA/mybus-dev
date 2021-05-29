@@ -90,104 +90,122 @@
     </header>
     <!---------------------- End Header ---------------------->
 
-    <section id="results-header" class="">
+    <div id="results-header" class="pb-3">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <div class="px-3" id="headerLine">
                         <h1 id="lineNumber" class="mt-4"></h1>
-                        <p id="lineDescription" class="fw-bold mb-4"></p>
+                        <p id="lineDescription" class="fw-bold mb-3"></p>
                     </div>
                 </div>
             </div>
         </div>
+
         <hr>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="px-3" id="headerStopsLabel">
-                        <div class="card mb-3 card-green">
-                            <div class="card-body d-flex flex-row align-items-center">
-                                <img src="img/bus.png" alt="bus icon" width=20>
-                                <div style="width: 12px;"></div>
-                                <div class="card-text">
-                                    Bus Line Stops Selected
-                                </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-4 d-none" id="stopSelection">
+                <div class="px-3" id="headerStopsLabel">
+                    <div class="card mb-3 card-green">
+                        <div class="card-body d-flex flex-row align-items-center">
+                            <img src="img/bus.png" alt="bus icon" width=20>
+                            <div style="width: 12px;"></div>
+                            <div class="card-text">
+                                Bus Line Stops Selected
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="px-3" id="headerStops">
-                        <div id="stopPath" class="d-none">
-                            <svg width='30px' height='60px'>
-                                <circle cx='9' cy='10' r='4' fill='white' />
-                                <line x1='9' y1='16' x2='9' y2='44' stroke='white' stroke-width='2' stroke-linecamp='square' stroke-dasharray='4' />
-                                <circle cx='9' cy='50' r='4' fill='white' />
-                            </svg>
-                        </div>
+                <div class="px-3" id="headerStops">
+                    <div id="stopPath">
+                        <svg width='30px' height='60px'>
+                            <circle cx='9' cy='10' r='4' fill='white' />
+                            <line x1='9' y1='16' x2='9' y2='44' stroke='white' stroke-width='2' stroke-linecamp='square' stroke-dasharray='4' />
+                            <circle cx='9' cy='50' r='4' fill='white' />
+                        </svg>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="results-stops" class="">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="px-3"></div>
+            <div class="col-12 col-lg-8" id="changes">
+                <div id="results-stops" class="px-3">
+                </div>
+                <div id="results-line" class="px-3">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="results-line" class="">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="px-3"></div>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-lg-none px-0">
+                <img class="img-fluid d-md-none" width="100%" src="img/bus-boarding-mobile.png" alt="an illustration showing people waiting at a bus stop">
             </div>
-        </div>
-    </section>
-
-    <section id="results-all-changes" class="py-4">
-        <img class="img-fluid d-md-none" src="img/service-changes.jpg" alt="an illustration showing people waiting at a bus stop">
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center">
-                <div class="offset-lg-1 col-lg-4">
-                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" src="img/service-changes.jpg" alt="an illustration showing people waiting at a bus stop" />
-                </div>
-                <div class="offset-lg-1 col-lg-5 d-flex align-items-center">
-                    <div class="px-3 py-5">
+            <div class="col-12 col-lg-6">
+                <div id="results-all-changes" class="d-flex flex-column px-3">
+                    <img class="img-fluid d-none d-md-block my-3" width="100%" src="img/bus-boarding-desktop.png" alt="an illustration showing people waiting at a bus stop" />
+                    <div class="py-4">
                         <h2>All Bus Service Updates</h2>
                         <p>To improve  your bus service we've updated routes, stops, and schedules across the entire bus system.</p>
-                        <button type="button" class="btn btn-dark col-12 offset-lg-3 col-lg-6 mb-4" id="btnAllChanges">See All Updates</button>
+                        <button type="button" class="btn btn-dark col-12 offset-lg-3 col-lg-6 my-4" id="btnAllChanges">See All Updates</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="results-timetable" class="py-4">
-        <img class="img-fluid d-md-none" src="img/system-map-mobile.png" alt="system map" width="100%">
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center">
-                <div class="offset-lg-1 col-lg-4">
-                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" src="img/system-map-desktop.png" alt="an illustration showing people waiting at a bus stop" />
-                </div>
-                <div class="offset-lg-1 col-lg-5 d-flex align-items-center">
-                    <div class="px-3 py-5">
+            <div class="col-12 d-lg-none px-0">
+                <img class="img-fluid d-md-none" width="100%" src="img/schedule-covers-mobile.jpg" alt="system map">
+            </div>
+            <div class="col-12 col-lg-6">
+                <div id="results-timetable" class="d-flex flex-column px-3">
+                    <img class="img-fluid d-none d-md-block my-3" width="100%" src="img/schedule-covers-desktop.jpg" alt="an illustration showing people waiting at a bus stop" />
+                    <div class="py-4">
                         <h2>New Schedule</h2>
                         <div id="timetable-content"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div id="results-all-changes">
+                    <div class="row">
+                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
+                            <img class="img-fluid d-md-none" width="100%" src="img/bus-boarding-mobile.png" alt="an illustration showing people waiting at a bus stop">
+                            <img class="img-fluid d-none d-lg-block d-xxl-block my-3" width="100%" src="img/bus-boarding-desktop.png" alt="an illustration showing people waiting at a bus stop" />
+                        </div>
+                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
+                            <div class="px-3 px-lg-0 py-4">
+                                <h2>All Bus Service Updates</h2>
+                                <p>To improve  your bus service we've updated routes, stops, and schedules across the entire bus system.</p>
+                                <button type="button" class="btn btn-dark col-12 offset-lg-3 col-lg-6 my-4" id="btnAllChanges">See All Updates</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div id="results-timetable">
+                    <div class="row">
+                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
+                            <img class="img-fluid d-md-none" width="100%" src="img/schedule-covers-mobile.jpg" alt="system map" width="100%">
+                            <img class="img-fluid d-none d-lg-block d-xxl-block my-3" width="100%" src="img/schedule-covers-desktop.jpg" alt="an illustration showing people waiting at a bus stop" />
+                        </div>
+                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
+                            <div class="px-3 px-lg-0 py-4">
+                                <h2>New Schedule</h2>
+                                <div id="timetable-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
     <!---------------------- Start Footer ---------------------->
     <footer>

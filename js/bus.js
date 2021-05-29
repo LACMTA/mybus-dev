@@ -18,7 +18,7 @@ const STOP_CHANGE_CATEGORY_LABELS = {
     'stop_relocated': 'Stop Relocated',
     'route_changed': 'Route Changed',
     'owl_service_canceled': 'Owl Service Canceled'
-}
+};
 
 let STOP1_CHANGES = {
     'service_canceled': false,
@@ -53,6 +53,8 @@ if (LINE != null && STOP1 != 'undefined' && STOP1 != '') {
 /* Only try to load stop changes data if STOP1 and STOP2 params are provided */
 if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     STOP2 != null && STOP2 != 'undefined' && STOP2 != '') {
+    document.querySelector('#stopSelection').classList.remove('d-none');
+
     let header = document.querySelector('#headerStops');
     let stopPath = document.querySelector('#stopPath');
 
@@ -79,7 +81,6 @@ if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
     cardBody.classList.add('flex-row');
     cardBody.classList.add('align-items-center');
     
-    stopPath.classList.remove('d-none');
     stopPath.remove();
     cardBody.appendChild(stopPath);
     cardBody.appendChild(content);
@@ -125,7 +126,7 @@ function showStopData(data) {
     let content = {};
 
     if (stop1Found || stop2Found) {
-        stopSection = document.querySelector('#results-stops .col div');
+        stopSection = document.querySelector('#results-stops');
         title = document.createElement('h3');
         title.textContent = 'Stops';
         content = document.createElement('div');
@@ -175,7 +176,7 @@ function showLineData(data) {
 
             document.querySelector('#lineDescription').textContent = THIS_LINE['line-description'];
 
-            let lineSection = document.querySelector('#results-line .col div');
+            let lineSection = document.querySelector('#results-line');
             let title = document.createElement('h3');
             let content = document.createElement('p');
 
@@ -226,7 +227,7 @@ function showLineData(data) {
                 button.classList.add('btn');
                 button.classList.add('btn-dark');
                 button.classList.add('col-12');
-                button.classList.add('mb-4');
+                button.classList.add('my-4');
                 button.id = 'btnDownloadSchedule';
                 button.type = 'button';
                 button.textContent = 'Download PDF';
