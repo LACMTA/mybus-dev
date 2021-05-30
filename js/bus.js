@@ -2,8 +2,10 @@ const QUERYSTRING = window.location.search;
 const URLPARAMS = new URLSearchParams(QUERYSTRING);
 const LINEID = URLPARAMS.get('lineID');
 const LINE = URLPARAMS.get('line');
-const STOP1 = URLPARAMS.get('stop1');
-const STOP2 = URLPARAMS.get('stop2');
+const STOP1_IDS = URLPARAMS.get('stop1');
+const STOP2_IDS = URLPARAMS.get('stop2');
+let STOP1_ID_ARR = [];
+let STOP2_ID_ARR = [];
 const STOP1_NAME = URLPARAMS.get('stop1name');
 const STOP2_NAME = URLPARAMS.get('stop2name');
 
@@ -45,14 +47,17 @@ let THIS_LINE = {};
 let THIS_STOP1 = {};
 let THIS_STOP2 = {};
 
-/* Only try to line line change data if LINE param is provided */
-if (LINE != null && STOP1 != 'undefined' && STOP1 != '') {
+/* Only try to show line change data if LINE param is provided */
+if (LINE != null) {
     $.getJSON(DATA_LINE_CHANGES, showLineData);
 }
 
 /* Only try to load stop changes data if STOP1 and STOP2 params are provided */
-if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
-    STOP2 != null && STOP2 != 'undefined' && STOP2 != '') {
+if (STOP1_IDS != null && STOP1_IDS != 'undefined' && STOP1_IDS != '' ||
+    STOP2_IDS != null && STOP2_IDS != 'undefined' && STOP2_IDS != '') {
+    STOP1_ID_ARR = STOP1_IDS.split('|');
+    STOP2_ID_ARR = STOP2_IDS.split('|');
+    
     document.querySelector('#stopSelection').classList.remove('d-none');
 
     let header = document.querySelector('#headerStops');
@@ -93,7 +98,6 @@ if (STOP1 != null && STOP1 != 'undefined' && STOP1 != '' ||
 
     header.appendChild(newCard);
     
-
     $.getJSON(DATA_STOP_CHANGES)
         .done(showStopData)
         .fail(noStopData);
@@ -111,18 +115,24 @@ function showStopData(data) {
 
     $.each(data, 
         function(key, val) {
-            // Aggregate all stop change categories for the stops.
-            if (val.stop_id.toString() == STOP1) {
-                for (let category in STOP1_CHANGES) {
-                    STOP1_CHANGES[category] = STOP1_CHANGES[category] || val[category];
-                }
+            // Aggregate all stop change categories for all stop IDs for each stop.
 
-                stop1Found = true;
-            } else if (val.stop_id.toString() == STOP2) {
-                for (let category in STOP2_CHANGES) {
-                    STOP2_CHANGES[category] = STOP2_CHANGES[category] || val[category];
+            for (let i=1; i<STOP1_ID_ARR.length; i++) {
+                if (val.stop_id.toString() == STOP1_ID_ARR[i]) {
+                    for (let category in STOP1_CHANGES) {
+                        STOP1_CHANGES[category] = STOP1_CHANGES[category] || val[category];
+                    }
+                    stop1Found = true;
                 }
-                stop2Found = true;
+            }
+
+            for (let i=1; i<STOP2_ID_ARR.length; i++) {
+                if (val.stop_id.toString() == STOP2_ID_ARR[i])  {
+                    for (let category in STOP2_CHANGES) {
+                        STOP2_CHANGES[category] = STOP2_CHANGES[category] || val[category];
+                    }
+                    stop2Found = true;
+                }
             }
         }
     );
@@ -186,23 +196,29 @@ function showLineData(data) {
             let title = document.createElement('h3');
             let content = document.createElement('p');
 
-            // show card 1
-            if (THIS_LINE['lines-merged']) {
-                title.textContent = 'Line Merged';
+            // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
+            if (THIS_LINE['card-1'] != '') {
+                title.textContent = 'Service';
                 content.textContent = THIS_LINE['card-1'];
-
-                lineSection.appendChild(cardHelper(title, content));
-            } else if (THIS_LINE['line-discontinued']) {
-                title.textContent = 'Line Discontinued';
-                content.textContent = THIS_LINE['card-1'];
-
-                lineSection.appendChild(cardHelper(title, content));
-            } else if (THIS_LINE['service-restored']) {
-                title.textContent = 'Service Restored';
-                content.textContent = THIS_LINE['card-1'];
-
                 lineSection.appendChild(cardHelper(title, content));
             }
+
+            // if (THIS_LINE['lines-merged']) {
+            //     title.textContent = 'Line Merged';
+            //     content.textContent = THIS_LINE['card-1'];
+
+            //     lineSection.appendChild(cardHelper(title, content));
+            // } else if (THIS_LINE['line-discontinued']) {
+            //     title.textContent = 'Line Discontinued';
+            //     content.textContent = THIS_LINE['card-1'];
+
+            //     lineSection.appendChild(cardHelper(title, content));
+            // } else if (THIS_LINE['service-restored']) {
+            //     title.textContent = 'Service Restored';
+            //     content.textContent = THIS_LINE['card-1'];
+
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
 
             title = document.createElement('h3');
             content = document.createElement('p');
