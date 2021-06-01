@@ -153,7 +153,8 @@ function clickRequestLineStop(e) {
         selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
 
         if (selectedLanguage != null) {
-            lang = selectedLanguage.value;
+            //lang = selectedLanguage.value;
+            lang = google.translate.TranslateElement().j;
         }
     }
     
