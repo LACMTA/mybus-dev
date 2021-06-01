@@ -7,10 +7,9 @@ window.onload = function () {
     styleGT();
 
     // Keep checking that the language selector menu exists
-    // 
     setInterval(function () {
-        let googleFrame = document.querySelector('.goog-te-menu-frame');
-        let navTranslate = document.querySelector('.nav-translate');
+        // let googleFrame = document.querySelector('.goog-te-menu-frame');
+        // let navTranslate = document.querySelector('.nav-translate');
 
         if (googleFrame != null && navTranslate != null) {
             // Loads 4th? 6th
@@ -203,6 +202,7 @@ function updateLanguageNames() {
             for (let j=0; j<languages.length; j++) {
                 if (originalList.childNodes[i].querySelector('.text').textContent.includes(languages[j][0])) {
                     originalList.childNodes[i].querySelector('.text').textContent = languages[j][1];
+                    originalList.childNodes[i].querySelector('div').addEventListener('click', saveLanguageOnClick);
                     break loop_inner;
                 }
             }
@@ -225,6 +225,47 @@ function updateLanguageNames() {
     }
 }
 
+function saveLanguageOnClick(event) {
+    //let googleFrame = document.querySelector('.goog-te-menu-frame');
+    // let selectedLanguage = this.textContent;
+    let lang = this.parentNode.value;
+
+    // if (selectedLanguage != null) {
+    //     switch(selectedLanguage) {
+    //         case 'English':
+    //             lang = 'en';
+    //             break;
+    //         case 'Español (Spanish)':
+    //             lang = 'es';
+    //             break;
+    //         case '中文 (Chinese Traditional)':
+    //             lang = 'zh-TW';
+    //             break;
+    //         case '한국어 (Korean)':
+    //             lang = 'ko';
+    //             break;
+    //         case 'Tiếng Việt (Vietnamese)':
+    //             lang = 'vi';
+    //             break;
+    //         case '日本語 (Japanese)':
+    //             lang = 'ja';
+    //             break;
+    //         case 'русский (Russian)':
+    //             lang = 'ru';
+    //             break;
+    //         case 'Армянский (Armenian)':
+    //             lang = 'hy';
+    //             break;
+    //         default:
+    //             lang = 'en';
+    //     }
+        
+        if (window.location.href.indexOf('all-changes.html') > 0) {
+            window.location = 'all-changes.html?lang=' + lang;
+        }
+    //}
+}
+
 function languagesNotInOrder(target, originalList) {
     let node = originalList[0];
     let nodeText = node.querySelector('.text').textContent;
@@ -236,10 +277,6 @@ function languagesNotInOrder(target, originalList) {
     } else {
         return languagesNotInOrder(target.slice(1), originalList.slice(1));
     }
-}
-
-function reorgLanguageHelper() {
-
 }
 
 function isMobile() {

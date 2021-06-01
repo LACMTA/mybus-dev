@@ -1,6 +1,6 @@
 const QUERYSTRING = window.location.search;
 const URLPARAMS = new URLSearchParams(QUERYSTRING);
-const LINEID = URLPARAMS.get('lineID');
+const INTERNAL = URLPARAMS.get('internal');
 const LINE = URLPARAMS.get('line');
 const STOP1_IDS = URLPARAMS.get('stop1');
 const STOP2_IDS = URLPARAMS.get('stop2');
@@ -10,7 +10,7 @@ const STOP1_NAME = URLPARAMS.get('stop1name');
 const STOP2_NAME = URLPARAMS.get('stop2name');
 
 const DATA_LINE_CHANGES = 'data/line-changes.json';
-const DATA_STOP_CHANGES = 'data/stop-changes/' + LINEID + '-changes.json';
+const DATA_STOP_CHANGES = 'data/stop-changes/' + LINE + '-changes.json';
 
 const STOP_CHANGE_CATEGORY_LABELS = {
     'service_canceled': 'Service Canceled',
@@ -303,14 +303,49 @@ function cardHelper(title, content) {
 }
 
 document.querySelector('#btnAllChanges').addEventListener('click', function() {
-    document.location = 'all-changes.html';
+    let googleFrame = document.querySelector('.goog-te-menu-frame');
+    let selectedLanguage = '';
+    let lang = 'en';
+    
+    if (googleFrame != null) {
+        selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
+        if (selectedLanguage != null) {
+            lang = selectedLanguage.value;
+
+            // switch(selectedLanguage.value) {
+            //     case 'en':
+            //         lang = 'en';
+            //         break;
+            //     case 'es':
+            //         lang = 'es';
+            //         break;
+            //     case 'zh-TW':
+            //         lang = 'zh-TW';
+            //         break;
+            //     case 'ko':
+            //         lang = 'ko';
+            //         break;
+            //     case 'Tiếng Việt (Vietnamese)':
+            //         lang = 'vi';
+            //         break;
+            //     case '日本語 (Japanese)':
+            //         lang = 'ja';
+            //         break;
+            //     case 'русский (Russian)':
+            //         lang = 'ru';
+            //         break;
+            //     case 'Армянский (Armenian)':
+            //         lang = 'hy';
+            //         break;
+            //     default:
+            //         lang = 'en';
+            // }
+        }
+    }
+
+    if (INTERNAL) {
+        window.location = 'all-changes.html?internal=true&lang=' + lang;
+    } else {
+        window.location = 'all-changes.html?lang=' + lang;
+    }
 });
-
-// var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-// var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//   return new bootstrap.Popover(popoverTriggerEl);
-// });
-
-// var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
-//     trigger: 'focus'
-//   });

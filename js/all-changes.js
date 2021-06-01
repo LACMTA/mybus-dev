@@ -10,6 +10,15 @@ if (LANG == null || LANG == 'undefined' || LANG == '') {
     $.getJSON(DATA_PATH + 'takeone-' + LANG + '.json', loadContent);
 }
 
+const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
+    ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf'],
+    ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
+    ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
+    ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
+    ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
+    ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
+    ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
+
 function loadContent(data) {
     $.each(data, 
         function(key, val) {
@@ -30,15 +39,25 @@ function loadContent(data) {
                     elem = document.querySelector('#all-summary .row');
                     if (val.order == 1) {
                         elem.appendChild(contentHelper(val.content, 'label'));
-
+                        
                         let linkElem = document.createElement('div');
                         linkElem.classList.add('mt-4');
                         linkElem.classList.add('px-5');
+                        linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
+                        
+                        for (let i=0; i<TRANSLATED_FILES.length; i++) {
+                            let downloadLink = document.createElement('a');
+                            downloadLink.textContent = TRANSLATED_FILES[i][0];
+                            downloadLink.href = TRANSLATED_FILES[i][1];
+                            linkElem.appendChild(downloadLink);
 
-                        let downloadLink = document.createElement('a');
-                        downloadLink.textContent = 'Download a PDF version of this page.';
-                        downloadLink.href = 'files/NextGen_Changes_English.pdf';
-                        linkElem.appendChild(downloadLink);
+                            if (i != TRANSLATED_FILES.length - 1) {
+                                linkElem.appendChild(document.createTextNode(', '));
+                            } else {
+                                linkElem.appendChild(document.createTextNode('.'));
+                            }
+                        }
+
                         elem.appendChild(linkElem);
                     } else if (val.order % 2 == 0) {
                         elem.appendChild(contentHelper(val.content, 'label'));

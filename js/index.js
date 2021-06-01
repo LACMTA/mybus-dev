@@ -148,49 +148,49 @@ function clickStop2Dropdown(e) {
 }
 
 function clickRequestLineStop(e) {
-    let lineID = document.querySelector('#dropdownLinesButton').value;
+    let lineSelected = document.querySelector('#dropdownLinesButton').value;
     let googleFrame = document.querySelector('.goog-te-menu-frame');
     let selectedLanguage = '';
-    let lang = '';
+    let lang = 'en';
     
     if (googleFrame != null) {
         selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
 
         if (selectedLanguage != null) {
-            switch(selectedLanguage) {
-                case 'English':
-                    lang = 'en';
-                    break;
-                case 'Español (Spanish)':
-                    lang = 'es';
-                    break;
-                case '中文 (Chinese Traditional)':
-                    lang = 'zh-TW';
-                    break;
-                case '한국어 (Korean)':
-                    lang = 'ko';
-                    break;
-                case 'Tiếng Việt (Vietnamese)':
-                    lang = 'vi';
-                    break;
-                case '日本語 (Japanese)':
-                    lang = 'ja';
-                    break;
-                case 'русский (Russian)':
-                    lang = 'ru';
-                    break;
-                case 'Армянский (Armenian)':
-                    lang = 'hy';
-                    break;
-                default:
-                    lang = 'en';
-            }
-            //lang = selectedLanguage.value;
+            // switch(selectedLanguage) {
+            //     case 'English':
+            //         lang = 'en';
+            //         break;
+            //     case 'Español (Spanish)':
+            //         lang = 'es';
+            //         break;
+            //     case '中文 (Chinese Traditional)':
+            //         lang = 'zh-TW';
+            //         break;
+            //     case '한국어 (Korean)':
+            //         lang = 'ko';
+            //         break;
+            //     case 'Tiếng Việt (Vietnamese)':
+            //         lang = 'vi';
+            //         break;
+            //     case '日本語 (Japanese)':
+            //         lang = 'ja';
+            //         break;
+            //     case 'русский (Russian)':
+            //         lang = 'ru';
+            //         break;
+            //     case 'Армянский (Armenian)':
+            //         lang = 'hy';
+            //         break;
+            //     default:
+            //         lang = 'en';
+            // }
+            lang = selectedLanguage.value;
             //lang = google.translate.TranslateElement().j;
         }
     }
     
-    if (lineID == 'all') {
+    if (lineSelected == 'all') {
         if (INTERNAL) {
             window.location = TAKEONE_PAGE + '?internal=true&lang=' + lang;
         } else {
@@ -202,14 +202,19 @@ function clickRequestLineStop(e) {
         let stop1 = document.querySelector('#dropdownStopsButton1');
         let stop2 = document.querySelector('#dropdownStopsButton2');
         
-        window.location = RESULTS_PAGE + 
-            '?internal=true' + 
-            '&lineID=' + lineID + 
-            '&line=' + line.innerText + 
+        let resultsURL = RESULTS_PAGE + '?';
+
+        if (INTERNAL) {
+            resultsURL += 'internal=true&';
+        }
+        
+        window.location = resultsURL +
+            'line=' + line.innerText + 
             '&stop1=' + stop1.value + 
             '&stop1name=' + stop1.innerText + 
             '&stop2=' + stop2.value + 
             '&stop2name=' + stop2.innerText; 
+        
     }
 }
 
