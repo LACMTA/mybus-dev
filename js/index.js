@@ -1,3 +1,7 @@
+const QUERYSTRING = window.location.search;
+const URLPARAMS = new URLSearchParams(QUERYSTRING);
+const INTERNAL = URLPARAMS.get('internal');
+
 const DATA_PATH = 'data/';
 const LINE_NUMBERS_FILENAME = 'lines.json';
 const RESULTS_PAGE = 'bus.html';
@@ -153,14 +157,45 @@ function clickRequestLineStop(e) {
         selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
 
         if (selectedLanguage != null) {
+            switch(selectedLanguage) {
+                case 'English':
+                    lang = 'en';
+                    break;
+                case 'Español (Spanish)':
+                    lang = 'es';
+                    break;
+                case '中文 (Chinese Traditional)':
+                    lang = 'zh-TW';
+                    break;
+                case '한국어 (Korean)':
+                    lang = 'ko';
+                    break;
+                case 'Tiếng Việt (Vietnamese)':
+                    lang = 'vi';
+                    break;
+                case '日本語 (Japanese)':
+                    lang = 'ja';
+                    break;
+                case 'русский (Russian)':
+                    lang = 'ru';
+                    break;
+                case 'Армянский (Armenian)':
+                    lang = 'hy';
+                    break;
+                default:
+                    lang = 'en';
+            }
             //lang = selectedLanguage.value;
-            lang = google.translate.TranslateElement().j;
+            //lang = google.translate.TranslateElement().j;
         }
     }
     
     if (lineID == 'all') {
-        window.location = TAKEONE_PAGE + '?lang=' + lang;
-        
+        if (INTERNAL) {
+            window.location = TAKEONE_PAGE + '?internal=true&lang=' + lang;
+        } else {
+            window.location = TAKEONE_PAGE + '?lang=' + lang;
+        }
         // window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
     } else {
         let line = document.querySelector('#dropdownLinesButton');
@@ -168,7 +203,8 @@ function clickRequestLineStop(e) {
         let stop2 = document.querySelector('#dropdownStopsButton2');
         
         window.location = RESULTS_PAGE + 
-            '?lineID=' + lineID + 
+            '?internal=true' + 
+            '&lineID=' + lineID + 
             '&line=' + line.innerText + 
             '&stop1=' + stop1.value + 
             '&stop1name=' + stop1.innerText + 
