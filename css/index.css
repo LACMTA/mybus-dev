@@ -40,10 +40,6 @@ button#requestLineStops, button#requestNextgenInfo {
     padding: 0 4px;
 }
 
-#updatesEffective {
-    font-size: 12px;
-}
-
 /*
  * X-Small devices (portrait phones, less than 576px)
  * No media query for `xs` since this is the default in Bootstrap
@@ -60,9 +56,6 @@ button#requestLineStops, button#requestNextgenInfo {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-#updatesEffective {
-    font-size: 16px;
-}
 
 /************ Bus Image ************/
 #section-select {
