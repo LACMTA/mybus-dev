@@ -28,7 +28,19 @@ function loadContent(data) {
                     break;
                 case 'summary':
                     elem = document.querySelector('#all-summary .row');
-                    if (val.order == 1 || (val.order % 2 == 0)) {
+                    if (val.order == 1) {
+                        elem.appendChild(contentHelper(val.content, 'label'));
+
+                        let linkElem = document.createElement('div');
+                        linkElem.classList.add('mt-4');
+                        linkElem.classList.add('px-5');
+
+                        let downloadLink = document.createElement('a');
+                        downloadLink.textContent = 'Download a PDF version of this page.';
+                        downloadLink.href = 'files/NextGen_Changes_English.pdf';
+                        linkElem.appendChild(downloadLink);
+                        elem.appendChild(linkElem);
+                    } else if (val.order % 2 == 0) {
                         elem.appendChild(contentHelper(val.content, 'label'));
                     } else {
                         elem.appendChild(contentHelper(val.content, 'lines'));

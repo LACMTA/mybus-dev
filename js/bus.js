@@ -250,7 +250,7 @@ function showLineData(data) {
                 button.classList.add('btn-dark');
                 button.classList.add('col-12');
                 button.classList.add('my-4');
-                button.id = 'btnDownloadSchedule';
+                button.id = 'getSchedule';
                 button.type = 'button';
                 button.textContent = 'Download PDF';
                 button.ariaLabel = 'Download Schedule PDF';

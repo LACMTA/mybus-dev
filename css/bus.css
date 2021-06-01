@@ -28,7 +28,7 @@ h1 {
     font-weight: 700;
 }
 
-button#btnAllChanges, button#btnDownloadSchedule {
+button#btnAllChanges, button#getSchedule {
     font-weight: 700;
     padding-top: 12px;
     padding-bottom: 12px;
