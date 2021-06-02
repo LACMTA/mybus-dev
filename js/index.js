@@ -124,6 +124,8 @@ function clickLineDropdown(e) {
         document.querySelector('#dropdownStops1').classList.remove('d-none');
         document.querySelector('#dropdownStops2').classList.remove('d-none');
 
+        document.querySelector('#requestLineStops').classList.add('disabled');
+
         // Get file with list of stops for each line.
         // Filename is route_short_name (which populated the textContent of the line selection button).
         $.getJSON(DATA_PATH + 'line-stops/' + e.target.textContent + '.json', populateStops);
