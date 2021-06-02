@@ -52,9 +52,8 @@ if (LINE != null) {
     $.getJSON(DATA_LINE_CHANGES, showLineData);
 }
 
-/* Only try to load stop changes data if STOP1 and STOP2 params are provided */
-if (STOP1_IDS != null && STOP1_IDS != 'undefined' && STOP1_IDS != '' ||
-    STOP2_IDS != null && STOP2_IDS != 'undefined' && STOP2_IDS != '') {
+/* Only try to load stop changes data if STOP1 and STOP2 params are provided and valid*/
+if (isValidStopParam(STOP1_IDS) && isValidStopParam(STOP2_IDS)) {
     STOP1_ID_ARR = STOP1_IDS.split('|');
     STOP2_ID_ARR = STOP2_IDS.split('|');
     
@@ -107,6 +106,18 @@ if (STOP1_IDS != null && STOP1_IDS != 'undefined' && STOP1_IDS != '' ||
     changeSection.classList.remove('col-lg-7');
     changeSection.classList.add('offset-lg-1');
     changeSection.classList.add('col-lg-10');
+}
+
+function isValidStopParam(stop) {
+    if (stop == null || stop == 'undefined' || stop == '') {
+        return false;
+    } else {
+        stop = stop.replace('\|', '');
+        if (isNaN(stop)) {
+            return false;
+        }
+        return true;
+    }
 }
 
 function showStopData(data) {
