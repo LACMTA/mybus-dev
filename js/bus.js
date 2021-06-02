@@ -41,15 +41,21 @@ let STOP2_CHANGES = {
     'owl_service_canceled': false
 };
 
-document.querySelector('#lineNumber').textContent = LINE;
+
 
 let THIS_LINE = {};
 let THIS_STOP1 = {};
 let THIS_STOP2 = {};
 
 /* Only try to show line change data if LINE param is provided */
-if (LINE != null) {
+if (LINE != null && !isNaN(LINE)) {
+    document.querySelector('#lineNumber').textContent = LINE;
+    document.querySelector('title').textContent = document.querySelector('title').textContent + LINE;
     $.getJSON(DATA_LINE_CHANGES, showLineData);
+} else {
+    document.querySelector('#results-timetable-image-container').classList.add('d-none');
+    document.querySelector('#results-timetable-container').classList.add('d-none');
+    document.querySelector('#lineNumber').textContent = 'See All Updates';
 }
 
 /* Only try to load stop changes data if STOP1 and STOP2 params are provided and valid*/
