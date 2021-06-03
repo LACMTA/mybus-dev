@@ -34,6 +34,6 @@ button#btnAllChanges, button#getSchedule {
     padding-bottom: 12px;
 }
 
-.stop1-name, .stop2-name {
-    line-height: 40px;
+.stop1-name {
+    padding-bottom: 15px;
 }
