@@ -118,7 +118,7 @@ function isValidStopParam(stop) {
     if (stop == null || stop == 'undefined' || stop == '') {
         return false;
     } else {
-        stop = stop.replace('\|', '');
+        stop = stop.replaceAll('|', '');
         if (isNaN(stop)) {
             return false;
         }
@@ -134,7 +134,7 @@ function showStopData(data) {
         function(key, val) {
             // Aggregate all stop change categories for all stop IDs for each stop.
 
-            for (let i=1; i<STOP1_ID_ARR.length; i++) {
+            for (let i=0; i<STOP1_ID_ARR.length; i++) {
                 if (val.stop_id.toString() == STOP1_ID_ARR[i]) {
                     for (let category in STOP1_CHANGES) {
                         STOP1_CHANGES[category] = STOP1_CHANGES[category] || val[category];
@@ -143,7 +143,7 @@ function showStopData(data) {
                 }
             }
 
-            for (let i=1; i<STOP2_ID_ARR.length; i++) {
+            for (let i=0; i<STOP2_ID_ARR.length; i++) {
                 if (val.stop_id.toString() == STOP2_ID_ARR[i])  {
                     for (let category in STOP2_CHANGES) {
                         STOP2_CHANGES[category] = STOP2_CHANGES[category] || val[category];
