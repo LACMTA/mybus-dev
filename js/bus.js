@@ -216,33 +216,16 @@ function showLineData(data) {
             // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
             if (THIS_LINE['card-1'] != '') {
                 title.textContent = 'Service';
-                content.textContent = THIS_LINE['card-1'];
+                content.innerHTML = THIS_LINE['card-1'];
                 lineSection.appendChild(cardHelper(title, content));
             }
-
-            // if (THIS_LINE['lines-merged']) {
-            //     title.textContent = 'Line Merged';
-            //     content.textContent = THIS_LINE['card-1'];
-
-            //     lineSection.appendChild(cardHelper(title, content));
-            // } else if (THIS_LINE['line-discontinued']) {
-            //     title.textContent = 'Line Discontinued';
-            //     content.textContent = THIS_LINE['card-1'];
-
-            //     lineSection.appendChild(cardHelper(title, content));
-            // } else if (THIS_LINE['service-restored']) {
-            //     title.textContent = 'Service Restored';
-            //     content.textContent = THIS_LINE['card-1'];
-
-            //     lineSection.appendChild(cardHelper(title, content));
-            // }
 
             title = document.createElement('h3');
             content = document.createElement('p');
             // show card 2
             if (THIS_LINE['card-2'] != '') {
                 title.textContent = 'Route';
-                content.textContent = THIS_LINE['card-2'];
+                content.innerHTML = THIS_LINE['card-2'];
                 lineSection.appendChild(cardHelper(title, content));
             }
 
@@ -251,7 +234,7 @@ function showLineData(data) {
             // show card 3
             if (THIS_LINE['card-3'] != '') {
                 title.textContent = 'Schedule';
-                content.textContent = THIS_LINE['card-3'];
+                content.innerHTML = THIS_LINE['card-3'];
                 lineSection.appendChild(cardHelper(title, content));
             }
 
@@ -294,20 +277,21 @@ function showLineData(data) {
 
 /* provide title & content as nodes */
 function cardHelper(title, content) {
-    // let cardContent = document.createElement('p');
-    // cardContent.classList.add('card-text');
-    // cardContent.textContent = content;
-
-    // let cardTitle = document.createElement('h3');
-    // cardTitle.classList.add('card-title');
-    // cardTitle.textContent = title;
-    
     content.classList.add('card-text');
     title.classList.add('card-title');
 
     let cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
     cardBody.appendChild(title);
+
+    // Find links and fill in the destination
+    links = content.querySelectorAll('.link-line');
+    for (let i=0; i<links.length; i++) {
+        let link = links[i];
+        let line = link.textContent.match(/\d+/g);
+        link.href = 'bus.html?line=' + line[0];
+    }
+
     cardBody.appendChild(content);
 
     let newCard = document.createElement('div');
