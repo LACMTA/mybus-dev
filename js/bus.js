@@ -204,7 +204,7 @@ function noStopData(jqxhr, textStatus, error) {
 function showLineData(data) {
     for (let i = 0; i < data.length; i++) {
         // find matching line
-        if (data[i]["line-number"] == LINE) {
+        if (data[i]["line-number"].includes(LINE)) {
             THIS_LINE = data[i];
 
             document.querySelector('#lineDescription').textContent = THIS_LINE['line-description'];
