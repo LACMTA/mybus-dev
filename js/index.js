@@ -40,7 +40,21 @@ function populateLines(data) {
         lines_dropdown_item.classList.add('notranslate');
         lines_dropdown_item.type = "button";
         lines_dropdown_item.value = line.route_short_name;
-        lines_dropdown_item.textContent = line.route_short_name;
+
+        switch(line.route_short_name) {
+            case 901:
+                lines_dropdown_item.textContent = "901 / G Line (Orange)";
+                break;
+            case 910:
+                lines_dropdown_item.textContent = "910 / J Line (Silver)";
+                break;
+            case 950:
+                lines_dropdown_item.textContent = "950 / J Line (Silver)";
+                break;
+            default:
+                lines_dropdown_item.textContent = line.route_short_name;
+        }
+        
         lines_dropdown_item.addEventListener('click', clickLineDropdown);
 
         lines_dropdown_item_li = document.createElement('li');
@@ -127,8 +141,8 @@ function clickLineDropdown(e) {
         document.querySelector('#requestLineStops').classList.add('disabled');
 
         // Get file with list of stops for each line.
-        // Filename is route_short_name (which populated the textContent of the line selection button).
-        $.getJSON(DATA_PATH + 'line-stops/' + e.target.textContent + '.json', populateStops);
+        // Filename is route_short_name (which populated the value of the line selection button).
+        $.getJSON(DATA_PATH + 'line-stops/' + e.target.value + '.json', populateStops);
     }
 }
 
@@ -150,7 +164,7 @@ function clickStop2Dropdown(e) {
 }
 
 function clickRequestLineStop(e) {
-    let lineSelected = document.querySelector('#dropdownLinesButton').value;
+    let lineSelectedValue = document.querySelector('#dropdownLinesButton').value;
     let googleFrame = document.querySelector('.goog-te-menu-frame');
     let selectedLanguage = '';
     let lang = 'en';
@@ -159,48 +173,17 @@ function clickRequestLineStop(e) {
         selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
 
         if (selectedLanguage != null) {
-            // switch(selectedLanguage) {
-            //     case 'English':
-            //         lang = 'en';
-            //         break;
-            //     case 'Español (Spanish)':
-            //         lang = 'es';
-            //         break;
-            //     case '中文 (Chinese Traditional)':
-            //         lang = 'zh-TW';
-            //         break;
-            //     case '한국어 (Korean)':
-            //         lang = 'ko';
-            //         break;
-            //     case 'Tiếng Việt (Vietnamese)':
-            //         lang = 'vi';
-            //         break;
-            //     case '日本語 (Japanese)':
-            //         lang = 'ja';
-            //         break;
-            //     case 'русский (Russian)':
-            //         lang = 'ru';
-            //         break;
-            //     case 'Армянский (Armenian)':
-            //         lang = 'hy';
-            //         break;
-            //     default:
-            //         lang = 'en';
-            // }
             lang = selectedLanguage.value;
-            //lang = google.translate.TranslateElement().j;
         }
     }
     
-    if (lineSelected == 'all') {
+    if (lineSelectedValue == 'all') {
         if (INTERNAL) {
             window.location = TAKEONE_PAGE + '?internal=true&lang=' + lang;
         } else {
             window.location = TAKEONE_PAGE + '?lang=' + lang;
         }
-        // window.location = TAKEONE_PAGE + "?lang=" + google.translate.TranslateElement().ua.B;
     } else {
-        let line = document.querySelector('#dropdownLinesButton');
         let stop1 = document.querySelector('#dropdownStopsButton1');
         let stop2 = document.querySelector('#dropdownStopsButton2');
         
@@ -211,7 +194,7 @@ function clickRequestLineStop(e) {
         }
         
         window.location = resultsURL +
-            'line=' + line.innerText + 
+            'line=' + lineSelectedValue + 
             '&stop1=' + stop1.value + 
             '&stop1name=' + stop1.innerText + 
             '&stop2=' + stop2.value + 
