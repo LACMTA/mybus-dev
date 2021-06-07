@@ -51,11 +51,8 @@
   text-align: center;
   background: #fff !important;
   border: 0 !important;
-  -moz-border-radius: 4px !important;
-  -webkit-border-radius: 4px !important;
-  border-radius: 4px !important;
   color: #000 !important;
-  padding: .375rem .75rem;
+  padding: 12px;
 }
 #_form_75_ ._close-icon {
   cursor: pointer;
@@ -457,6 +454,6 @@
 }
 
 ._form_75 #email::placeholder {
-    color: #888;
+    color: #fff;
     font-family: 'Open Sans';
 }
