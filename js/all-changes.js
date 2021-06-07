@@ -3,12 +3,23 @@ const URLPARAMS = new URLSearchParams(QUERYSTRING);
 const LANG = URLPARAMS.get('lang');
 const DATA_PATH = 'data/takeones/';
 
-if (LANG == null || LANG == 'undefined' || LANG == '') {
+if (LANG == null || LANG == 'undefined' || LANG == '' || LANG == 'en') {
     $.getJSON(DATA_PATH + 'takeone-en.json', loadContent);
 
 } else {
     $.getJSON(DATA_PATH + 'takeone-' + LANG + '.json', loadContent);
 }
+
+const SCHEDULE_LINK_TRANLSATED = {
+    'en': 'Download new schedule for Line ' ,
+    'es': '',
+    'zh-TW': '',
+    'ko': '',
+    'vi': '',
+    'ja': '',
+    'ru': '',
+    'hy': ''
+};
 
 const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
     ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf'],
@@ -23,16 +34,17 @@ function loadContent(data) {
     $.each(data, 
         function(key, val) {
             let elem = '';
-            let new_elem = '';
+            let newElem = '';
 
             switch(val.section) {
                 case 'header':
                     elem = document.querySelector('#all-header .row');
                     if (val.order == 1) {
-                        new_elem = document.createElement('h1');
-                        new_elem.classList.add('my-5');
-                        new_elem.textContent = val.content;
-                        elem.appendChild(new_elem);
+                        newElem = document.createElement('h1');
+                        newElem.classList.add('my-5');
+                        newElem.classList.add('notranslate');
+                        newElem.textContent = val.content;
+                        elem.appendChild(newElem);
                     }
                     break;
                 case 'summary':
@@ -68,16 +80,32 @@ function loadContent(data) {
                 case 'details':
                     elem = document.querySelector('#all-details .row');
                     if (val.order == 1) {
-                        new_elem = document.createElement('h2');
-                        new_elem.classList.add('my-4');
-                        new_elem.textContent = val.content;
-                        elem.appendChild(new_elem);
+                        newElem = document.createElement('h2');
+                        newElem.classList.add('my-4');
+                        newElem.classList.add('notranslate');
+                        newElem.textContent = val.content;
+                        elem.prepend(newElem);
                     } else {
-                        new_elem = document.createElement('div');
-                        new_elem.classList.add('py-4');
-                        new_elem.classList.add('notranslate');
-                        new_elem.textContent = val.content;
-                        elem.appendChild(new_elem);
+                        newElem = document.createElement('div');
+                        newElem.classList.add('py-4');
+                        newElem.classList.add('notranslate');
+                        newElem.textContent = val.content + ' ';
+                        
+                        // Link to schedule if it exists.
+                        // check for existence of schedule for line number in val.line
+                        if (val['schedule-url'] != '') {
+                            let scheduleLink = document.createElement('a');
+                            scheduleLink.classList.add('scheduleLink');
+                            scheduleLink.classList.add('translate');
+                            scheduleLink.href = val['schedule-url'];
+                            scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
+                            newElem.appendChild(scheduleLink);
+                        } else {
+                            // Show message for lines where schedule is not available yet?
+                            //newElem.textContent = newElem.textContent + 'Thanks for your patience as we work to add the new schedule. Check back soon.';
+                        }
+
+                        elem.appendChild(newElem);
                     }
                     break;
                 case 'end':
@@ -93,6 +121,7 @@ function loadContent(data) {
 function contentHelper(content, type) {
     let elem = document.createElement('div');
     elem.classList.add('mt-4');
+    elem.classList.add('notranslate');
     elem.textContent= content;
 
     switch(type) {
