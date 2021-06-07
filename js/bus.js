@@ -315,35 +315,6 @@ document.querySelector('#btnAllChanges').addEventListener('click', function() {
         selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
         if (selectedLanguage != null) {
             lang = selectedLanguage.value;
-
-            // switch(selectedLanguage.value) {
-            //     case 'en':
-            //         lang = 'en';
-            //         break;
-            //     case 'es':
-            //         lang = 'es';
-            //         break;
-            //     case 'zh-TW':
-            //         lang = 'zh-TW';
-            //         break;
-            //     case 'ko':
-            //         lang = 'ko';
-            //         break;
-            //     case 'Tiếng Việt (Vietnamese)':
-            //         lang = 'vi';
-            //         break;
-            //     case '日本語 (Japanese)':
-            //         lang = 'ja';
-            //         break;
-            //     case 'русский (Russian)':
-            //         lang = 'ru';
-            //         break;
-            //     case 'Армянский (Armenian)':
-            //         lang = 'hy';
-            //         break;
-            //     default:
-            //         lang = 'en';
-            // }
         }
     }
 
