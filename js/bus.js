@@ -204,7 +204,10 @@ function noStopData(jqxhr, textStatus, error) {
 function showLineData(data) {
     for (let i = 0; i < data.length; i++) {
         // find matching line
-        if (data[i]["line-number"].includes(LINE)) {
+        if (data[i]["line-number"].toString().includes(LINE)) {
+            // Workaround to show label for Silver & Orange lines in the header.
+            document.querySelector('#lineNumber').textContent = data[i]["line-label"];
+
             THIS_LINE = data[i];
 
             document.querySelector('#lineDescription').textContent = THIS_LINE['line-description'];
