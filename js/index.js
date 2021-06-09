@@ -134,6 +134,12 @@ function clickLineDropdown(e) {
         document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
         document.querySelector('#requestLineStops').addEventListener('touch', clickRequestLineStop);
         document.querySelector('#requestLineStops').classList.remove('disabled');
+    } else if (e.target.value == '177') {
+        document.querySelector('#dropdownStops1').classList.add('d-none');
+        document.querySelector('#dropdownStops2').classList.add('d-none');
+        document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
+        document.querySelector('#requestLineStops').addEventListener('touch', clickRequestLineStop);
+        document.querySelector('#requestLineStops').classList.remove('disabled');
     } else {
         document.querySelector('#dropdownStops1').classList.remove('d-none');
         document.querySelector('#dropdownStops2').classList.remove('d-none');
@@ -182,6 +188,12 @@ function clickRequestLineStop(e) {
             window.location = TAKEONE_PAGE + '?internal=true&lang=' + lang;
         } else {
             window.location = TAKEONE_PAGE + '?lang=' + lang;
+        }
+    } else if (lineSelectedValue == '177') {
+        if (INTERNAL) {
+            window.location = RESULTS_PAGE + '?line=177&internal=true&lang=' + lang;
+        } else {
+            window.location = RESULTS_PAGE + '?line=177&lang=' + lang;
         }
     } else {
         let stop1 = document.querySelector('#dropdownStopsButton1');
