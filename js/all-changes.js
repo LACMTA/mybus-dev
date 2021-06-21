@@ -97,8 +97,9 @@ function loadContent(data) {
                             scheduleLink.href = val['new-schedule'];
                             scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
                             
-                            newElem.classList.add('notranslate');
+                            
                             if (val.content != '' && val.content != null) {
+                                newElem.classList.add('notranslate');
                                 newElem.textContent = val.content + ' ';
                             } else {
                                 newElem.textContent = val.line + ' - ';
