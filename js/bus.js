@@ -255,8 +255,8 @@ function showLineData(data) {
                 button.classList.add('my-4');
                 button.id = 'getSchedule';
                 button.type = 'button';
-                button.textContent = 'Download new schedule PDF';
-                button.ariaLabel = 'Download Schedule PDF';
+                button.textContent = 'Download New Schedule PDF';
+                button.ariaLabel = 'Download new schedule PDF';
 
                 button.classList.add('offset-lg-3');
                 button.classList.add('col-lg-6');
@@ -296,8 +296,8 @@ function showLineData(data) {
                     button.classList.add('my-4');
                     button.id = 'getSchedule';
                     button.type = 'button';
-                    button.textContent = 'Download current schedule';
-                    button.ariaLabel = 'Download Schedule PDF';
+                    button.textContent = 'Download Current Schedule PDF';
+                    button.ariaLabel = 'Download current schedule PDF';
     
                     button.classList.add('offset-lg-3');
                     button.classList.add('col-lg-6');
