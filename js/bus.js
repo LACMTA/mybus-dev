@@ -255,7 +255,7 @@ function showLineData(data) {
                 button.classList.add('my-4');
                 button.id = 'getSchedule';
                 button.type = 'button';
-                button.textContent = 'Download PDF';
+                button.textContent = 'Download new schedule PDF';
                 button.ariaLabel = 'Download Schedule PDF';
 
                 button.classList.add('offset-lg-3');
@@ -268,9 +268,48 @@ function showLineData(data) {
                 scheduleSection.appendChild(scheduleExists1);
                 scheduleSection.appendChild(buttonDiv);
             } else {
-                let schedulesDontExist = document.createElement('p');
-                schedulesDontExist.textContent = 'Thanks for your patience as we work to add the new schedule. Check back soon.';
-                scheduleSection.appendChild(schedulesDontExist);
+                /* No new schedule for this line
+                 * Cases:
+                 * - line discontinued
+                 * - line has changes but schedule PDF hasn't changed
+                 * - line has no changes and schedule PDF hasn't changed
+                 */
+                let noNewSchedule = document.createElement('p');
+
+                if (THIS_LINE['line-discontinued']) {
+                    // line discontinued
+                    noNewSchedule.textContent = 'This line has been discontinued.';
+                    scheduleSection.appendChild(noNewSchedule);
+
+                } else if (THIS_LINE['current-schedule-url'] != '') {
+                    if (THIS_LINE['card-2'] == 'No route changes.') {
+                        noNewSchedule.textContent = 'No changes to your line.';
+                    } else {
+                        noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+                    }
+
+                    let buttonDiv = document.createElement('div');
+                    let button = document.createElement('button');
+                    button.classList.add('btn');
+                    button.classList.add('btn-dark');
+                    button.classList.add('col-12');
+                    button.classList.add('my-4');
+                    button.id = 'getSchedule';
+                    button.type = 'button';
+                    button.textContent = 'Download current schedule';
+                    button.ariaLabel = 'Download Schedule PDF';
+    
+                    button.classList.add('offset-lg-3');
+                    button.classList.add('col-lg-6');
+                    button.addEventListener('click', (e) => {
+                        window.location = THIS_LINE['current-schedule-url'];
+                    });
+                    buttonDiv.appendChild(button);
+                    
+                    scheduleSection.appendChild(noNewSchedule);
+                    scheduleSection.appendChild(buttonDiv);
+
+                }
             }
 
             break;

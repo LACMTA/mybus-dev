@@ -88,21 +88,38 @@ function loadContent(data) {
                     } else {
                         newElem = document.createElement('div');
                         newElem.classList.add('py-4');
-                        newElem.classList.add('notranslate');
-                        newElem.textContent = val.content + ' ';
                         
-                        // Link to schedule if it exists.
-                        // check for existence of schedule for line number in val.line
-                        if (val['schedule-url'] != '') {
+                        if (val['new-schedule'] != '' && val['new-schedule'] != null ) {
+                            // Link to new schedule if it exists.
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
                             scheduleLink.classList.add('translate');
-                            scheduleLink.href = val['schedule-url'];
+                            scheduleLink.href = val['new-schedule'];
                             scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
+                            
+                            newElem.classList.add('notranslate');
+                            if (val.content != '' && val.content != null) {
+                                newElem.textContent = val.content + ' ';
+                            } else {
+                                newElem.textContent = val.line + ' - ';
+                            }
+                            
                             newElem.appendChild(scheduleLink);
+                        } else if (val['current-schedule'] != '' && val['current-schedule'] != null) { 
+                            // Else link to current schedule if it exists.
+                            let scheduleLink = document.createElement('a');
+                            scheduleLink.classList.add('scheduleLink');
+                            scheduleLink.href = val['current-schedule'];
+                            scheduleLink.textContent = 'Download current schedule for Line ' + val.line + '.';
+                            
+                            newElem.classList.add('translate');
+                            newElem.textContent = val.line + ' - No changes that affect schedule. ';
+                            newElem.appendChild(scheduleLink);
+                            
                         } else {
-                            // Show message for lines where schedule is not available yet?
-                            //newElem.textContent = newElem.textContent + 'Thanks for your patience as we work to add the new schedule. Check back soon.';
+                            // discontinued lines
+                            newElem.classList.add('notranslate');
+                            newElem.textContent = val.content;
                         }
 
                         elem.appendChild(newElem);
