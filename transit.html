@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/transit.css" rel="stylesheet">
     <link href="css/activecampaign.css" rel="stylesheet">
 
     <!-- Facebook Pixel Code -->
@@ -92,97 +92,69 @@
     </header>
     <!---------------------- END HEADER ---------------------->
 
-    <section id="section-select">
-        <img class="img-fluid d-lg-none" width="100%" src="img/articulated-buses-mobile.png" alt="photo of Metro buses" />
+    <section id="section-heading">
+        <img class="img-fluid d-lg-none" width="100%" src="img/silver-line-mobile.png" alt="photo of Metro Silver Line bus behind pedestrians on a sidewalk" />
+        <img class="img-fluid d-none d-lg-block" width="100%" src="img/silver-line-desktop.png" alt="photo of Metro Silver Line bus behind pedestrians on a sidewalk" />
         <div class="container-fluid">
             <div class="row">
-                <div class="offset-lg-1 col-lg-5 col-xxl-4">
-                    <div class="select-wrapper">
-                        <div class="select-content">
-                            <div class="pt-3">
-                                <h1 class="mb-lg-3 mt-lg-3">Is my bus line changing?</h1>
-                                <p class="mb-lg-4">Metro is updating bus service on Sunday, June 27, 2021.</p>
-                            </div>
-                            <hr class="d-none d-lg-block">
-                            <div class="pb-5">
-                                <div class="btn-group col-12" id="dropdownLines">
-                                    <button class="btn dropdown-toggle col-12 mb-3 notranslate" type="button" id="dropdownLinesButton"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Select your line
-                                    </button>
-                                    <ul class="dropdown-menu col-12" aria-labelledby="dropdownLinesButton">
-                                    </ul>
-                                </div>
-
-                                <!-- Select Stop 1 -->
-                                <div class="btn-group col-12" id="dropdownStops1">
-                                    <button class="btn dropdown-toggle col-12 mb-3 disabled notranslate" type="button" id="dropdownStopsButton1"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Select your A stop
-                                    </button>
-                                    <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton1">
-                                    </ul>
-                                </div>
-
-                                <!-- Select Stop 2 -->
-                                <div class="btn-group col-12" id="dropdownStops2">
-                                    <button class="btn dropdown-toggle col-12 mb-3 disabled notranslate" type="button" id="dropdownStopsButton2"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Select your B stop
-                                    </button>
-                                    <ul class="dropdown-menu col-12" aria-labelledby="dropdownStopsButton2">
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <button type="button" class="btn btn-dark col-12 mb-4 disabled" id="requestLineStops">Request
-                                        Now</button>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-xxl-5">
+                    <div class="py-5 px-3 px-lg-5">
+                        <h1><em>Transit</em>, Metro's official app, has a preview mode to give you a peek at changes Metro is making to bus service on Sunday, June 27.</h1>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="section-nextgen">
-        <img class="img-fluid d-lg-none" width="100%" src="img/bus-stop-mobile.jpg" alt="photo of people waiting at a bus stop with a Metro in the background" />
-        <div class="container-fluid flex-row align-items-center">
+    <section id="section-instructions">
+        <div class="container-fluid">
+            <div class="row flex-row align-items-center">
+                <div class="col">
+                    <div class="px-3 px-lg-5 pt-5">
+                        <h2>Here's how to turn it on:</h2>
+                    </div>
+                </div>
+            </div>
             <div class="row flex-row justify-content-around align-items-center">
-                <div class="col-lg-4">
-                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" width="100%" src="img/bus-stop-desktop.jpg" alt="photo of people waiting at a bus stop with a Metro in the background" />
+                <div class="col-lg-5">
+                    <img class="img-fluid" width="100%" src="img/lametro-preview_mode-01.png" alt="screenshot of Transit App settings with preview mode selected" />
+                </div>
+                <div class="col-lg-5 flex-row align-items-center">
+                    <div class="px-3 pt-3">
+                        <ol>
+                            <li>Tap "settings" (gear icon, top left corner).</li>
+                            <li>Then tap the middle slider icon at the top of the screen.</li>
+                            <li>Under "Bus," turn off "Metro" and turn on "Metro (starts June 27)"</li>
+                            <li>Then tap "Done." This will show you what the network will look like starting June 27.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-row justify-content-around align-items-center pb-5">
+                <div class="col-lg-5">
+                    <img class="img-fluid" width="100%" src="img/lametro-preview_mode-02.png" alt="screenshot of Transit App trip planner with preview mode turned on" />
                 </div>
                 <div class="col-lg-5 d-flex align-items-center">
-                    <div class="px-3 py-5">
-                        <h2>Fast, Frequent, Reliable Buses</h2>
-                        <p style="font-weight: 600;">You spoke, we listened.<br>
-                        Together we're creating a better bus system.</p>
-                        <p>Metro has redesigned its bus system for the first time in 25 years. The goal is a faster, more frequent and more reliable way to get to all the places you need to be.</p>
-
-                        <div>
-                            <button type="button" class="btn btn-dark col-12 mb-4" id="requestNextgenInfo">Learn More</button>
-                        </div>
+                    <div class="px-3 pt-3">
+                        <p>Now, you can see scheduled arrival times and plan your new commute by looking at route maps, finding the nearest stop, and using the trip planner.</p>
+                        <p>To go back to the current system, just follow the instructions again, but turn off "Metro starts June 27)" and turn "Metro" back on.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="section-transit">
-        <img class="img-fluid d-lg-none" width="100%" src="img/silver-line-boarding-mobile.png" alt="photo of people boarding a Metro Silver Line bus" />
-        <div class="container-fluid flex-row align-items-center">
-            <div class="row flex-row-reverse justify-content-around align-items-center">
+            <div class="row flex-row justify-content-around align-items-center py-5" id="section-download">
                 <div class="col-lg-5">
-                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" width="100%" src="img/silver-line-boarding-desktop.png" alt="photo of people boarding a Metro Silver Line bus" />
+                    <div class="px-3 pb-lg-5">
+                        <img src="img/transit-logo-full.png" class="col-6 col-lg-4">
+                        <h1>An easy app to navigate Los Angeles</h1>
+                        <p>Use the app to plan your trip in advance and be ready for June 27</p>
+                    </div>
                 </div>
-                <div class="col-lg-4 d-flex align-items-center">
-                    <div class="px-3 py-5">
-                        <img src="img/transit-logo-full.png" alt="Transit App logo" class="col-6">
-                        <h2>Preview your route with <em>Transit</em>, Metro's official app</h2>
-                        <p>Use the app to plan your trip in advance and be ready for June 27.</p>
-                        <div>
-                            <button type="button" class="btn btn-dark col-12 mb-4" id="requestTransitPreview">Learn How</button>
+                <div class="col-lg-5">
+                    <div class="px-3 pt-3">
+                        <div class="d-flex justify-content-around align-items-center px-3 py-3 px-lg-4 py-lg-4 col-xxl-10" id="download-cta">
+                            <div><img src="img/transit-icon_iOS.png" width="60px"></div>
+                            <div>Download the Transit app</div>
+                            <div><img src="img/go.png"></div>
                         </div>
                     </div>
                 </div>
@@ -523,7 +495,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         defer></script>
     <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <script type="text/javascript" src="js/index.js"></script> -->
     <script type="text/javascript" src="js/activecampaign.js"></script>
     <!-- Active Campaign tracking -->
     <script type="text/javascript">
@@ -531,6 +503,15 @@
         vgo('setAccount', '25840680');
         vgo('setTrackByDefault', true);
         vgo('process');
+    </script>
+
+    <script>
+        
+document.querySelector('#download-cta').addEventListener('click', clickDownloadTransit);
+
+function clickDownloadTransit() {
+    window.location = "https://transitapp.com/download?utm_source=mla-ca-website&utm_medium=referral&utm_campaign=partners";
+}
     </script>
 </body>
 

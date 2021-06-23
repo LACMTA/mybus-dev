@@ -34,6 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
+    <link href="css/activecampaign.css" rel="stylesheet">
     <link href="css/bus.css" rel="stylesheet">
 
     <!-- Facebook Pixel Code -->
@@ -171,44 +172,53 @@
         </div>
     </div>
 
-    <!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <div id="results-all-changes">
-                    <div class="row">
-                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
-                            <img class="img-fluid d-md-none" width="100%" src="img/bus-boarding-mobile.png" alt="an illustration showing people waiting at a bus stop">
-                            <img class="img-fluid d-none d-lg-block d-xxl-block my-3" width="100%" src="img/bus-boarding-desktop.png" alt="an illustration showing people waiting at a bus stop" />
-                        </div>
-                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
-                            <div class="px-3 px-lg-0 py-4">
-                                <h2>All Bus Service Updates</h2>
-                                <p>To improve  your bus service we've updated routes, stops, and schedules across the entire bus system.</p>
-                                <button type="button" class="btn btn-dark col-12 offset-lg-3 col-lg-6 my-4" id="btnAllChanges">See All Updates</button>
-                            </div>
-                        </div>
+    <section id="section-signup">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center py-5">
+                <div class="offset-lg-1 col-lg-4">
+                    <div class="px-3">
+                        <h2>
+                            Get Updates on Future Improvements
+                        </h2>
                     </div>
-                    
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div id="results-timetable">
-                    <div class="row">
-                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
-                            <img class="img-fluid d-md-none" width="100%" src="img/schedule-covers-mobile.jpg" alt="system map" width="100%">
-                            <img class="img-fluid d-none d-lg-block d-xxl-block my-3" width="100%" src="img/schedule-covers-desktop.jpg" alt="an illustration showing people waiting at a bus stop" />
-                        </div>
-                        <div class="col-12 offset-lg-1 col-lg-10 px-0 p-lg-auto">
-                            <div class="px-3 px-lg-0 py-4">
-                                <h2>New Schedule</h2>
-                                <div id="timetable-content"></div>
+            
+                <div class="_form_75 offset-lg-1 col-lg-5">
+                    <div>
+                        <p class="px-3">
+                            Metro is relentlessly focused on making your bus system better. Get advanced notice of future improvements to your bus line.
+                        </p>
+                        <form method="POST" action="https://metro77073.activehosted.com/proc.php" id="_form_75_"
+                            class="_form _form_75 _inline-form px-3" novalidate>
+                            <input type="hidden" name="u" value="75" />
+                            <input type="hidden" name="f" value="75" />
+                            <input type="hidden" name="s" />
+                            <input type="hidden" name="c" value="0" />
+                            <input type="hidden" name="m" value="0" />
+                            <input type="hidden" name="act" value="sub" />
+                            <input type="hidden" name="v" value="2" />
+                            <div class="_form-content d-lg-flex">
+                                <div class="_form_element _x68633660 col-lg-8">
+                                    <div class="_field-wrapper">
+                                        <input type="text" id="email" name="email" placeholder="Enter email address" required />
+                                    </div>
+                                </div>
+                                <div class="_button-wrapper offset-lg-1 col-lg-3">
+                                    <button id="_form_75_submit" class="_submit mb-4" type="submit">
+                                        Sign up
+                                    </button>
+                                </div>
+                                <div class="_clear-element">
+                                </div>
                             </div>
-                        </div>
+                            <div class="_form-thank-you" style="display:none;">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </section>
 
     <!---------------------- Start Footer ---------------------->
     <footer>
@@ -496,6 +506,7 @@
         defer></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/bus.js"></script>
+    <script type="text/javascript" src="js/activecampaign.js"></script>
     <!-- Active Campaign tracking -->
     <script type="text/javascript">
         (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");

@@ -26,14 +26,10 @@ ul.dropdown-menu {
     border-bottom-color: #E0E3E6;
 }
 
-button#requestLineStops, button#requestNextgenInfo {
+button#requestLineStops, button#requestNextgenInfo, button#requestTransitPreview {
     font-weight: 700;
     padding-top: 12px;
     padding-bottom: 12px;
-}
-
-#section-signup {
-    color: #FFF;
 }
 
 .select-content>div {
