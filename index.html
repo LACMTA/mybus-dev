@@ -94,17 +94,15 @@
 
     <section id="section-select">
         <img class="img-fluid d-lg-none" width="100%" src="img/articulated-buses-mobile.png" alt="photo of Metro buses" />
-        <div class="container-fluid">
-            <div class="row">
-                <div class="offset-lg-1 col-lg-5 col-xxl-4">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-lg-5">
                     <div class="select-wrapper">
                         <div class="select-content">
-                            <div class="pt-3">
-                                <h1 class="mb-lg-3 mt-lg-3">Is my bus line changing?</h1>
-                                <p class="mb-lg-4">Metro is updating bus service on Sunday, June 27, 2021.</p>
-                            </div>
+                            <h1 class="pt-lg-5 pb-lg-3 px-lg-5">Is my bus line changing?</h1>
+                            <p class="pb-lg-3 px-lg-5">Metro is updating bus service on Sunday, June 27, 2021.</p>
                             <hr class="d-none d-lg-block">
-                            <div class="pb-5">
+                            <div class="py-lg-4">
                                 <div class="btn-group col-12" id="dropdownLines">
                                     <button class="btn dropdown-toggle col-12 mb-3 notranslate" type="button" id="dropdownLinesButton"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -135,7 +133,7 @@
                                 </div>
 
                                 <div>
-                                    <button type="button" class="btn btn-dark col-12 mb-4 disabled" id="requestLineStops">Request
+                                    <button type="button" class="btn btn-dark col-12 mb-4 disabled cta" id="requestLineStops">Request
                                         Now</button>
                                 </div>
                             </div>
@@ -148,20 +146,20 @@
 
     <section id="section-nextgen">
         <img class="img-fluid d-lg-none" width="100%" src="img/bus-stop-mobile.jpg" alt="photo of people waiting at a bus stop with a Metro in the background" />
-        <div class="container-fluid flex-row align-items-center">
-            <div class="row flex-row justify-content-around align-items-center">
-                <div class="col-lg-4">
-                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" width="100%" src="img/bus-stop-desktop.jpg" alt="photo of people waiting at a bus stop with a Metro in the background" />
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-lg-5">
+                    <img class="img-fluid d-none d-lg-block d-xxl-block" width="100%" src="img/bus-stop-desktop.jpg" alt="photo of people waiting at a bus stop with a Metro in the background" />
                 </div>
-                <div class="col-lg-5 d-flex align-items-center">
-                    <div class="px-3 py-5">
-                        <h2>Fast, Frequent, Reliable Buses</h2>
+                <div class="offset-lg-2 col-lg-4 d-flex align-items-center">
+                    <div>
+                        <h1>Fast, Frequent, <br class="d-none d-lg-block" >Reliable Buses</h1>
                         <p style="font-weight: 600;">You spoke, we listened.<br>
                         Together we're creating a better bus system.</p>
                         <p>Metro has redesigned its bus system for the first time in 25 years. The goal is a faster, more frequent and more reliable way to get to all the places you need to be.</p>
 
                         <div>
-                            <button type="button" class="btn btn-dark col-12 mb-4" id="requestNextgenInfo">Learn More</button>
+                            <button type="button" class="btn btn-dark col-12 mb-4 cta" id="requestNextgenInfo">Learn More</button>
                         </div>
                     </div>
                 </div>
@@ -171,43 +169,47 @@
 
     <section id="section-transit">
         <img class="img-fluid d-lg-none" width="100%" src="img/silver-line-boarding-mobile.png" alt="photo of people boarding a Metro Silver Line bus" />
-        <div class="container-fluid flex-row align-items-center">
-            <div class="row flex-row-reverse justify-content-around align-items-center">
-                <div class="col-lg-5">
-                    <img class="img-fluid d-none d-lg-block d-xxl-block my-5" width="100%" src="img/silver-line-boarding-desktop.png" alt="photo of people boarding a Metro Silver Line bus" />
-                </div>
-                <div class="col-lg-4 d-flex align-items-center">
-                    <div class="px-3 py-5">
-                        <img src="img/transit-logo-full.png" alt="Transit App logo" class="col-6">
-                        <h2>Preview your route with <em>Transit</em>, Metro's official app</h2>
-                        <p>Use the app to plan your trip in advance and be ready for June 27.</p>
-                        <div>
-                            <button type="button" class="btn btn-dark col-12 mb-4" id="requestTransitPreview">Learn How</button>
-                        </div>
+        <div class="container">
+            <div class="row d-lg-none py-5">
+                <div>
+                    <img src="img/transit-logo-full.png" alt="Transit App logo" class="col-6">
+                    <h1>Preview your route <br class="d-sm-none">with <em>Transit</em>, Metro's <br class="d-sm-none">official app</h1>
+                    <p>Use the app to plan your trip in advance and be ready for June 27.</p>
+                    <div>
+                        <button type="button" class="btn btn-dark col-12 mb-4 cta" id="requestTransitPreviewMobile">Learn How</button>
                     </div>
+                </div>
+            </div>
+            <div class="row py-5 d-none d-lg-flex">
+                <div class="col-lg-4">
+                    <img src="img/transit-logo-full.png" alt="Transit App logo" class="col-6">
+                    <h1>Preview your route <br class="d-lg-none d-xxl-block">with <em>Transit</em>, <br class="d-lg-none d-xxl-block">Metro's official app</h1>
+                    <p>Use the app to plan your trip in advance and be ready for June 27.</p>
+                    <div>
+                        <button type="button" class="btn btn-dark col-12 mb-4 cta" id="requestTransitPreviewDesktop">Learn How</button>
+                    </div>
+                </div>
+                <div class="offset-lg-2 col-lg-6">
+                    <img class="img-fluid d-none d-lg-block" width="100%" src="img/silver-line-boarding-desktop.png" alt="photo of people boarding a Metro Silver Line bus" />
                 </div>
             </div>
         </div>
     </section>
 
     <section id="section-signup">
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center py-5">
+        <div class="container">
+            <div class="row py-5 flex-row justify-content-between align-items-center">
                 <div class="offset-lg-1 col-lg-4">
-                    <div class="px-3">
-                        <h2>
-                            Get Updates on Future Improvements
-                        </h2>
-                    </div>
+                    <h1 class="">Get Updates on Future Improvements</h1>
                 </div>
             
                 <div class="_form_75 offset-lg-1 col-lg-5">
                     <div>
-                        <p class="px-3">
+                        <p>
                             Metro is relentlessly focused on making your bus system better. Get advanced notice of future improvements to your bus line.
                         </p>
                         <form method="POST" action="https://metro77073.activehosted.com/proc.php" id="_form_75_"
-                            class="_form _form_75 _inline-form px-3" novalidate>
+                            class="_form _form_75 _inline-form" novalidate>
                             <input type="hidden" name="u" value="75" />
                             <input type="hidden" name="f" value="75" />
                             <input type="hidden" name="s" />

@@ -216,7 +216,8 @@ function clickRequestLineStop(e) {
 }
 
 document.querySelector('#requestNextgenInfo').addEventListener('click', clickRequestNextgenInfo);
-document.querySelector('#requestTransitPreview').addEventListener('click', clickRequestTransitPreview);
+document.querySelector('#requestTransitPreviewMobile').addEventListener('click', clickRequestTransitPreview);
+document.querySelector('#requestTransitPreviewDesktop').addEventListener('click', clickRequestTransitPreview);
 
 function clickRequestNextgenInfo() {
     window.location = "https://www.metro.net/projects/nextgen/";

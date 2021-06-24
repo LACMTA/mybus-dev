@@ -26,14 +26,14 @@ ul.dropdown-menu {
     border-bottom-color: #E0E3E6;
 }
 
-button#requestLineStops, button#requestNextgenInfo, button#requestTransitPreview {
+button.cta {
     font-weight: 700;
     padding-top: 12px;
     padding-bottom: 12px;
 }
 
-.select-content>div {
-    padding: 0 4px;
+#section-transit {
+    background-color: #F5F7FB;
 }
 
 /*

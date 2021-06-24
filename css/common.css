@@ -427,6 +427,12 @@ h4.l-footer-info__head {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    h1 {
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 57px;
+    }
+
     .l-container {
         padding: 28px 56px;
     }

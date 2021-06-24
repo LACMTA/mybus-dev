@@ -17,6 +17,14 @@
     cursor: pointer;
 }
 
+.steps li {
+    margin-bottom: 8px;
+}
+
+.transit-app-icon {
+    width: 58px;
+}
+
 /*
  * X-Small devices (portrait phones, less than 576px)
  * No media query for `xs` since this is the default in Bootstrap
@@ -29,23 +37,24 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
+    .transit-app-icon {
+        width: 70px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    
     #section-instructions {
         font-size: 21px;
-    }
-
-    h1 {
-        font-size: 41px;
-        line-height: 57px;
     }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
+    .transit-app-icon {
+        width: 81px;
+    }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
