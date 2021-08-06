@@ -215,9 +215,18 @@ function clickRequestLineStop(e) {
     }
 }
 
-document.querySelector('#requestNextgenInfo').addEventListener('click', clickRequestNextgenInfo);
-document.querySelector('#requestTransitPreviewMobile').addEventListener('click', clickRequestTransitPreview);
-document.querySelector('#requestTransitPreviewDesktop').addEventListener('click', clickRequestTransitPreview);
+function addListeners(targetID,targetPage){
+    if (document.querySelector(targetID)){
+        document.querySelector(targetID).addEventListener('click',targetPage)
+    }
+}
+
+addListeners('#requestNextgenInfo',clickRequestNextgenInfo)
+addListeners('#requestTransitPreviewMobile',clickRequestTransitPreview)
+addListeners('#requestTransitPreviewDesktop',clickRequestTransitPreview)
+// document.querySelector('#requestNextgenInfo').addEventListener('click', clickRequestNextgenInfo);
+// document.querySelector('#requestTransitPreviewMobile').addEventListener('click', clickRequestTransitPreview);
+// document.querySelector('#requestTransitPreviewDesktop').addEventListener('click', clickRequestTransitPreview);
 
 function clickRequestNextgenInfo() {
     window.location = "https://www.metro.net/projects/nextgen/";
@@ -225,4 +234,5 @@ function clickRequestNextgenInfo() {
 
 function clickRequestTransitPreview() {
     window.location = "transit.html";
+    console.log(window.location)
 }
