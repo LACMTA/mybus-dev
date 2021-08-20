@@ -32,7 +32,7 @@ const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
 
 function loadContent(data) {
     let summaryContentCombined = '';
-
+    
     $.each(data, 
         function(key, val) {
             let elem = '';
@@ -41,6 +41,13 @@ function loadContent(data) {
             let section = val.section;
             let order = val.order;
             
+            
+            // TODO: fix this in the data
+            if (section == 'summary' && order == 6) {
+                section = 'details';
+                order = 0;
+            }
+
             switch(section) {
                 /*
                  * 8/20/21 - Nina
@@ -77,25 +84,28 @@ function loadContent(data) {
                         if (order == 2) {
                             elem.appendChild(contentHelper(summaryContentCombined, 'label'));
 
+                            /*
+                             * 8/20/21 - Removing this section until we have updated PDFs for the Take One brochure.
+                             */
                             // Insert the links to the PDFs
-                            let linkElem = document.createElement('div');
-                            linkElem.classList.add('mt-4');
-                            linkElem.classList.add('px-5');
-                            linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
+                            // let linkElem = document.createElement('div');
+                            // linkElem.classList.add('mt-4');
+                            // linkElem.classList.add('px-5');
+                            // linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
                             
-                            for (let i=0; i<TRANSLATED_FILES.length; i++) {
-                                let downloadLink = document.createElement('a');
-                                downloadLink.textContent = TRANSLATED_FILES[i][0];
-                                downloadLink.href = TRANSLATED_FILES[i][1];
-                                linkElem.appendChild(downloadLink);
+                            // for (let i=0; i<TRANSLATED_FILES.length; i++) {
+                            //     let downloadLink = document.createElement('a');
+                            //     downloadLink.textContent = TRANSLATED_FILES[i][0];
+                            //     downloadLink.href = TRANSLATED_FILES[i][1];
+                            //     linkElem.appendChild(downloadLink);
 
-                                if (i != TRANSLATED_FILES.length - 1) {
-                                    linkElem.appendChild(document.createTextNode(', '));
-                                } else {
-                                    linkElem.appendChild(document.createTextNode('.'));
-                                }
-                            }
-                            elem.appendChild(linkElem);  
+                            //     if (i != TRANSLATED_FILES.length - 1) {
+                            //         linkElem.appendChild(document.createTextNode(', '));
+                            //     } else {
+                            //         linkElem.appendChild(document.createTextNode('.'));
+                            //     }
+                            // }
+                            // elem.appendChild(linkElem);  
                         }
                     } else {
                         // TODO: if content is "We're modifying service..." - start next section.
