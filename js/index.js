@@ -235,16 +235,16 @@ function getLanguage() {
     return lang;
 }
 
-function addListeners(targetID,targetPage){
+function addListeners(targetID, targetPage){
     if (document.querySelector(targetID)){
-        document.querySelector(targetID).addEventListener('click',targetPage)
+        document.querySelector(targetID).addEventListener('click', targetPage);
     }
 }
 
-addListeners('#requestNextgenInfo',clickRequestNextgenInfo)
-addListeners('#requestTransitPreviewMobile',clickRequestTransitPreview)
-addListeners('#requestTransitPreviewDesktop',clickRequestTransitPreview)
-addListeners('#requestAllChanges',clickRequestAllChanges)
+addListeners('#requestNextgenInfo', clickRequestNextgenInfo);
+addListeners('#requestTransitPreviewMobile', clickRequestTransitPreview);
+addListeners('#requestTransitPreviewDesktop', clickRequestTransitPreview);
+addListeners('#requestAllChanges', clickRequestAllChanges);
 
 function clickRequestNextgenInfo() {
     window.location = NEXTGEN_PAGE;
