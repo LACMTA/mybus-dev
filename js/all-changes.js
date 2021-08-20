@@ -67,54 +67,38 @@ function loadContent(data) {
                         elem.appendChild(newElem);
                     }
                     break;
-                /*
-                 * 8/20/21 - Nina
-                 * 
-                 * The last item in the summary section "We're modifying serivce on these bus lines:"
-                 * should actually be visually within the Details section.
-                 */
                 case 'summary':
                     elem = document.querySelector('#all-summary .row');
                     
-                    // TODO: combine lines into a single paragraph
-
                     if (order < 3) {
                         summaryContentCombined += val.content + ' ';
 
                         if (order == 2) {
                             elem.appendChild(contentHelper(summaryContentCombined, 'label'));
 
-                            /*
-                             * 8/20/21 - Removing this section until we have updated PDFs for the Take One brochure.
-                             */
                             // Insert the links to the PDFs
-                            // let linkElem = document.createElement('div');
-                            // linkElem.classList.add('mt-4');
-                            // linkElem.classList.add('px-5');
-                            // linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
+                            let linkElem = document.createElement('div');
+                            linkElem.classList.add('mt-4');
+                            linkElem.classList.add('px-5');
+                            linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
                             
-                            // for (let i=0; i<TRANSLATED_FILES.length; i++) {
-                            //     let downloadLink = document.createElement('a');
-                            //     downloadLink.textContent = TRANSLATED_FILES[i][0];
-                            //     downloadLink.href = TRANSLATED_FILES[i][1];
-                            //     linkElem.appendChild(downloadLink);
+                            for (let i=0; i<TRANSLATED_FILES.length; i++) {
+                                let downloadLink = document.createElement('a');
+                                downloadLink.textContent = TRANSLATED_FILES[i][0];
+                                downloadLink.href = TRANSLATED_FILES[i][1];
+                                linkElem.appendChild(downloadLink);
 
-                            //     if (i != TRANSLATED_FILES.length - 1) {
-                            //         linkElem.appendChild(document.createTextNode(', '));
-                            //     } else {
-                            //         linkElem.appendChild(document.createTextNode('.'));
-                            //     }
-                            // }
-                            // elem.appendChild(linkElem);  
+                                if (i != TRANSLATED_FILES.length - 1) {
+                                    linkElem.appendChild(document.createTextNode(', '));
+                                } else {
+                                    linkElem.appendChild(document.createTextNode('.'));
+                                }
+                            }
+                            elem.appendChild(linkElem);  
                         }
                     } else {
-                        // TODO: if content is "We're modifying service..." - start next section.
-                        //       else, parse data into labels + lines
-
-                        if (order != 6) {
-                            elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
-                            elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
-                        }
+                        elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
+                        elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
                     }
                     break;
                 case 'details':
@@ -147,7 +131,7 @@ function loadContent(data) {
                          */
                         
                         if (val['new-schedule'] != '' && val['new-schedule'] != null ) { 
-                            // Link to new schedule if it exists.
+                            // If new schedule exists, link to it.
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
                             scheduleLink.classList.add('translate');
@@ -164,7 +148,7 @@ function loadContent(data) {
                             
                             newElem.appendChild(scheduleLink);
                         } else if (val['current-schedule'] != '' && val['current-schedule'] != null) { 
-                            // Else link to current schedule if it exists.
+                            // Else, if current schedule exists, link to it.
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
                             scheduleLink.href = val['current-schedule'];
@@ -175,7 +159,9 @@ function loadContent(data) {
                             newElem.appendChild(scheduleLink);
                             
                         } else {
-                            // 8/20/21 - for now don't show lines that have no content
+                            // Else, no schedule link exists and this should be a discontinued line
+                            // 8/20/21 - Before we have all the new schedules, any line not listed in the Take One
+                            // will also fall into this bucket. Thus, don't show the row if the content is null.
 
                             if (val.content != null) {
                                 // discontinued lines (no schedule)
@@ -184,8 +170,6 @@ function loadContent(data) {
                                 elem.appendChild(newElem);
                             }
                         }
-
-                        
                     }
                     break;
                 case 'end':
