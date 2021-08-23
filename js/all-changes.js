@@ -31,15 +31,35 @@ const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
     ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
 
 function loadContent(data) {
+    let summaryContentCombined = '';
+    
     $.each(data, 
         function(key, val) {
             let elem = '';
             let newElem = '';
 
-            switch(val.section) {
+            let section = val.section;
+            let order = val.order;
+            
+            
+            // TODO: fix this in the data
+            if (section == 'summary' && order == 6) {
+                section = 'details';
+                order = 0;
+            }
+
+            switch(section) {
+                /*
+                 * 8/20/21 - Nina
+                 * 
+                 * Data contains a second line in the header section stating "New schedules start XXXXX."
+                 * I believe this was taken out for the June site because it's redundant with the page copy.
+                 * 
+                 * TODO: Less hard coding of data based on row numbers
+                */
                 case 'header':
                     elem = document.querySelector('#all-header .row');
-                    if (val.order == 1) {
+                    if (order == 1) {
                         newElem = document.createElement('h1');
                         newElem.classList.add('my-5');
                         newElem.classList.add('notranslate');
@@ -49,48 +69,69 @@ function loadContent(data) {
                     break;
                 case 'summary':
                     elem = document.querySelector('#all-summary .row');
-                    if (val.order == 1) {
-                        elem.appendChild(contentHelper(val.content, 'label'));
-                        
-                        let linkElem = document.createElement('div');
-                        linkElem.classList.add('mt-4');
-                        linkElem.classList.add('px-5');
-                        linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
-                        
-                        for (let i=0; i<TRANSLATED_FILES.length; i++) {
-                            let downloadLink = document.createElement('a');
-                            downloadLink.textContent = TRANSLATED_FILES[i][0];
-                            downloadLink.href = TRANSLATED_FILES[i][1];
-                            linkElem.appendChild(downloadLink);
+                    
+                    if (order < 3) {
+                        summaryContentCombined += val.content + ' ';
 
-                            if (i != TRANSLATED_FILES.length - 1) {
-                                linkElem.appendChild(document.createTextNode(', '));
-                            } else {
-                                linkElem.appendChild(document.createTextNode('.'));
+                        if (order == 2) {
+                            elem.appendChild(contentHelper(summaryContentCombined, 'label'));
+
+                            // Insert the links to the PDFs
+                            let linkElem = document.createElement('div');
+                            linkElem.classList.add('mt-4');
+                            linkElem.classList.add('px-5');
+                            linkElem.appendChild(document.createTextNode('Download a PDF version of this page in '));
+                            
+                            for (let i=0; i<TRANSLATED_FILES.length; i++) {
+                                let downloadLink = document.createElement('a');
+                                downloadLink.textContent = TRANSLATED_FILES[i][0];
+                                downloadLink.href = TRANSLATED_FILES[i][1];
+                                linkElem.appendChild(downloadLink);
+
+                                if (i != TRANSLATED_FILES.length - 1) {
+                                    linkElem.appendChild(document.createTextNode(', '));
+                                } else {
+                                    linkElem.appendChild(document.createTextNode('.'));
+                                }
                             }
+                            elem.appendChild(linkElem);  
                         }
-
-                        elem.appendChild(linkElem);
-                    } else if (val.order % 2 == 0) {
-                        elem.appendChild(contentHelper(val.content, 'label'));
                     } else {
-                        elem.appendChild(contentHelper(val.content, 'lines'));
+                        elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
+                        elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
                     }
                     break;
                 case 'details':
                     elem = document.querySelector('#all-details .row');
-                    if (val.order == 1) {
+                    if (order == 0) { // Details section header
                         newElem = document.createElement('h2');
                         newElem.classList.add('my-4');
                         newElem.classList.add('notranslate');
                         newElem.textContent = val.content;
                         elem.prepend(newElem);
-                    } else {
+                    } else { // All the lines
                         newElem = document.createElement('div');
                         newElem.classList.add('py-4');
+
+                        /*
+                         * 8/20/21 - Nina
+                         *
+                         * When the MyBus site launches we don't have all the new schedule PDFs yet.
+                         * They are released in batches.  Each line can be in one of the following states
+                         * as it relates to its schedule PDF.:
+                         * 
+                         *   - we don't know if there will be a new schedule PDF for this line
+                         *     - result: show no link
+                         *   - no new schedule PDF will be released for this line
+                         *     - result: link to current schedule for this line 
+                         *   - a new schedule PDF exists and we can link to it
+                         *   - line is discontinued so there is no new schedule PDF at all
+                         * 
+                         * NOTE: For lines that are not changing in the shakeup, they may or may not have an updated schedule PDF.
+                         */
                         
-                        if (val['new-schedule'] != '' && val['new-schedule'] != null ) {
-                            // Link to new schedule if it exists.
+                        if (val['new-schedule'] != '' && val['new-schedule'] != null ) { 
+                            // If new schedule exists, link to it.
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
                             scheduleLink.classList.add('translate');
@@ -107,7 +148,7 @@ function loadContent(data) {
                             
                             newElem.appendChild(scheduleLink);
                         } else if (val['current-schedule'] != '' && val['current-schedule'] != null) { 
-                            // Else link to current schedule if it exists.
+                            // Else, if current schedule exists, link to it.
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
                             scheduleLink.href = val['current-schedule'];
@@ -118,12 +159,17 @@ function loadContent(data) {
                             newElem.appendChild(scheduleLink);
                             
                         } else {
-                            // discontinued lines
-                            newElem.classList.add('notranslate');
-                            newElem.textContent = val.content;
-                        }
+                            // Else, no schedule link exists and this should be a discontinued line
+                            // 8/20/21 - Before we have all the new schedules, any line not listed in the Take One
+                            // will also fall into this bucket. Thus, don't show the row if the content is null.
 
-                        elem.appendChild(newElem);
+                            if (val.content != null) {
+                                // discontinued lines (no schedule)
+                                newElem.classList.add('notranslate');
+                                newElem.textContent = val.content;
+                                elem.appendChild(newElem);
+                            }
+                        }
                     }
                     break;
                 case 'end':

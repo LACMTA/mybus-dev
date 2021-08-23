@@ -5,11 +5,15 @@ const INTERNAL = URLPARAMS.get('internal');
 const DATA_PATH = 'data/';
 const LINE_NUMBERS_FILENAME = 'lines.json';
 const RESULTS_PAGE = 'bus.html';
-const TAKEONE_PAGE = 'all-changes.html';
+const ALL_CHANGES_PAGE = 'all-changes.html';
+const TRANSIT_PREVIEW_PAGE = 'transit.html';
+const NEXTGEN_PAGE = 'https://www.metro.net/projects/nextgen/';
 
 let line_numbers = [];
 
-$.getJSON(DATA_PATH + LINE_NUMBERS_FILENAME, populateLines);
+if (document.querySelector('#dropdownLines')) {
+    $.getJSON(DATA_PATH + LINE_NUMBERS_FILENAME, populateLines);
+}
 
 function populateLines(data) {
     $.each(data, 
@@ -171,23 +175,23 @@ function clickStop2Dropdown(e) {
 
 function clickRequestLineStop(e) {
     let lineSelectedValue = document.querySelector('#dropdownLinesButton').value;
-    let googleFrame = document.querySelector('.goog-te-menu-frame');
-    let selectedLanguage = '';
-    let lang = 'en';
+    // let googleFrame = document.querySelector('.goog-te-menu-frame');
+    // let selectedLanguage = '';
+    // let lang = 'en';
     
-    if (googleFrame != null) {
-        selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
+    // if (googleFrame != null) {
+    //     selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
 
-        if (selectedLanguage != null) {
-            lang = selectedLanguage.value;
-        }
-    }
+    //     if (selectedLanguage != null) {
+    //         lang = selectedLanguage.value;
+    //     }
+    // }
     
     if (lineSelectedValue == 'all') {
         if (INTERNAL) {
-            window.location = TAKEONE_PAGE + '?internal=true&lang=' + lang;
+            window.location = ALL_CHANGES_PAGE + '?internal=true&lang=' + getLanguage();
         } else {
-            window.location = TAKEONE_PAGE + '?lang=' + lang;
+            window.location = ALL_CHANGES_PAGE + '?lang=' + getLanguage();
         }
     // } else if (lineSelectedValue == '177') {
     //     if (INTERNAL) {
@@ -215,24 +219,45 @@ function clickRequestLineStop(e) {
     }
 }
 
-function addListeners(targetID,targetPage){
+function getLanguage() {
+    let googleFrame = document.querySelector('.goog-te-menu-frame');
+    let selectedLanguage = '';
+    let lang = 'en';
+    
+    if (googleFrame != null) {
+        selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
+
+        if (selectedLanguage != null) {
+            lang = selectedLanguage.value;
+        }
+    }
+
+    return lang;
+}
+
+function addListeners(targetID, targetPage){
     if (document.querySelector(targetID)){
-        document.querySelector(targetID).addEventListener('click',targetPage)
+        document.querySelector(targetID).addEventListener('click', targetPage);
     }
 }
 
-addListeners('#requestNextgenInfo',clickRequestNextgenInfo)
-addListeners('#requestTransitPreviewMobile',clickRequestTransitPreview)
-addListeners('#requestTransitPreviewDesktop',clickRequestTransitPreview)
-// document.querySelector('#requestNextgenInfo').addEventListener('click', clickRequestNextgenInfo);
-// document.querySelector('#requestTransitPreviewMobile').addEventListener('click', clickRequestTransitPreview);
-// document.querySelector('#requestTransitPreviewDesktop').addEventListener('click', clickRequestTransitPreview);
+addListeners('#requestNextgenInfo', clickRequestNextgenInfo);
+addListeners('#requestTransitPreviewMobile', clickRequestTransitPreview);
+addListeners('#requestTransitPreviewDesktop', clickRequestTransitPreview);
+addListeners('#requestAllChanges', clickRequestAllChanges);
 
 function clickRequestNextgenInfo() {
-    window.location = "https://www.metro.net/projects/nextgen/";
+    window.location = NEXTGEN_PAGE;
 }
 
 function clickRequestTransitPreview() {
-    window.location = "transit.html";
-    console.log(window.location)
+    window.location = TRANSIT_PREVIEW_PAGE;
+}
+
+function clickRequestAllChanges() {
+    if (INTERNAL) {
+        window.location = ALL_CHANGES_PAGE + '?internal=true&lang=' + getLanguage();
+    } else {
+        window.location = ALL_CHANGES_PAGE + '?lang=' + getLanguage();
+    }
 }
