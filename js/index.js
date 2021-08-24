@@ -44,21 +44,8 @@ function populateLines(data) {
         lines_dropdown_item.classList.add('notranslate');
         lines_dropdown_item.type = "button";
         lines_dropdown_item.value = line.route_short_name;
+        lines_dropdown_item.textContent = line.route_short_name;
 
-        switch(line.route_short_name) {
-            case 901:
-                lines_dropdown_item.textContent = "901 / G Line (Orange)";
-                break;
-            case 910:
-                lines_dropdown_item.textContent = "910 / J Line (Silver)";
-                break;
-            case 950:
-                lines_dropdown_item.textContent = "950 / J Line (Silver)";
-                break;
-            default:
-                lines_dropdown_item.textContent = line.route_short_name;
-        }
-        
         lines_dropdown_item.addEventListener('click', clickLineDropdown);
 
         lines_dropdown_item_li = document.createElement('li');
@@ -128,7 +115,7 @@ function populateStops(data) {
 
 function clickLineDropdown(e) {
     let selected_value = e.target.parentNode.parentNode.parentNode.querySelector('button');
-    selected_value.value = e.target.value;
+    selected_value.value = e.target.value.split(' ')[0];
     selected_value.textContent = e.target.textContent;
 
     if (e.target.value == 'all') {
@@ -138,12 +125,6 @@ function clickLineDropdown(e) {
         document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
         document.querySelector('#requestLineStops').addEventListener('touch', clickRequestLineStop);
         document.querySelector('#requestLineStops').classList.remove('disabled');
-    // } else if (e.target.value == '177') {
-    //     document.querySelector('#dropdownStops1').classList.add('d-none');
-    //     document.querySelector('#dropdownStops2').classList.add('d-none');
-    //     document.querySelector('#requestLineStops').addEventListener('click', clickRequestLineStop);
-    //     document.querySelector('#requestLineStops').addEventListener('touch', clickRequestLineStop);
-    //     document.querySelector('#requestLineStops').classList.remove('disabled');
     } else {
         document.querySelector('#dropdownStops1').classList.remove('d-none');
         document.querySelector('#dropdownStops2').classList.remove('d-none');
@@ -152,7 +133,7 @@ function clickLineDropdown(e) {
 
         // Get file with list of stops for each line.
         // Filename is route_short_name (which populated the value of the line selection button).
-        $.getJSON(DATA_PATH + 'line-stops/' + e.target.value + '.json', populateStops);
+        $.getJSON(DATA_PATH + 'line-stops/' + selected_value.value + '.json', populateStops);
     }
 }
 
@@ -175,17 +156,6 @@ function clickStop2Dropdown(e) {
 
 function clickRequestLineStop(e) {
     let lineSelectedValue = document.querySelector('#dropdownLinesButton').value;
-    // let googleFrame = document.querySelector('.goog-te-menu-frame');
-    // let selectedLanguage = '';
-    // let lang = 'en';
-    
-    // if (googleFrame != null) {
-    //     selectedLanguage = googleFrame.contentDocument.querySelector('.goog-te-menu2-item-selected');
-
-    //     if (selectedLanguage != null) {
-    //         lang = selectedLanguage.value;
-    //     }
-    // }
     
     if (lineSelectedValue == 'all') {
         if (INTERNAL) {
@@ -193,12 +163,6 @@ function clickRequestLineStop(e) {
         } else {
             window.location = ALL_CHANGES_PAGE + '?lang=' + getLanguage();
         }
-    // } else if (lineSelectedValue == '177') {
-    //     if (INTERNAL) {
-    //         window.location = RESULTS_PAGE + '?line=177&internal=true&lang=' + lang;
-    //     } else {
-    //         window.location = RESULTS_PAGE + '?line=177&lang=' + lang;
-    //     }
     } else {
         let stop1 = document.querySelector('#dropdownStopsButton1');
         let stop2 = document.querySelector('#dropdownStopsButton2');
