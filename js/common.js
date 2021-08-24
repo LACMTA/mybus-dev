@@ -200,7 +200,10 @@ function updateLanguageNames() {
         for (let i=0; i<originalList.childNodes.length; i++) {
             loop_inner:
             for (let j=0; j<languages.length; j++) {
-                if (originalList.childNodes[i].querySelector('.text').textContent.includes(languages[j][0])) {
+                if (originalList.childNodes[i].querySelector('.text').textContent == 'English') {
+                    originalList.childNodes[i].querySelector('div').addEventListener('click', saveLanguageOnClick);
+                    break loop_inner;
+                } else if (originalList.childNodes[i].querySelector('.text').textContent.includes(languages[j][0])) {
                     originalList.childNodes[i].querySelector('.text').textContent = languages[j][1];
                     originalList.childNodes[i].querySelector('div').addEventListener('click', saveLanguageOnClick);
                     break loop_inner;
