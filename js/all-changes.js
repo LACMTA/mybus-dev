@@ -143,7 +143,16 @@ function loadContent(data) {
                                 newElem.classList.add('notranslate');
                                 newElem.textContent = val.content + ' ';
                             } else {
-                                newElem.textContent = val.line + ' - ';
+                                switch(LANG) {
+                                    case 'es':
+                                        newElem.textContent = 'Línea ' + val.line + ': ';
+                                        break;
+                                    case 'hy':
+                                        newElem.textContent = val.line + '` ';
+                                        break;
+                                    default:
+                                        newElem.textContent = val.line + ' – ';
+                                }                                
                             }
                             newElem.appendChild(scheduleLink);
                             elem.appendChild(newElem);
@@ -155,7 +164,18 @@ function loadContent(data) {
                             scheduleLink.textContent = 'Download current schedule for Line ' + val.line + '.';
                             
                             newElem.classList.add('translate');
-                            newElem.textContent = val.line + ' - No changes that affect schedule. ';
+                            switch(LANG) {
+                                case 'es':
+                                    newElem.textContent = 'Línea ' + val.line + ': No changes that affect schedule.';
+                                    break;
+                                case 'hy':
+                                    newElem.textContent = val.line + '` No changes that affect schedule.';
+                                    newElem.textContent = val.line + '` ';
+                                    break;
+                                default:
+                                    newElem.textContent = val.line + ' – No changes that affect schedule.';
+                            }    
+
                             newElem.appendChild(scheduleLink);
                             elem.appendChild(newElem);
                         } else {
