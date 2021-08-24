@@ -148,7 +148,7 @@ function loadContent(data) {
                                         newElem.textContent = 'Línea ' + val.line + ': ';
                                         break;
                                     case 'hy':
-                                        newElem.textContent = val.line + '` ';
+                                        newElem.textContent = val.line + '՝ ';
                                         break;
                                     default:
                                         newElem.textContent = val.line + ' – ';
@@ -169,8 +169,8 @@ function loadContent(data) {
                                     newElem.textContent = 'Línea ' + val.line + ': No changes that affect schedule.';
                                     break;
                                 case 'hy':
-                                    newElem.textContent = val.line + '` No changes that affect schedule.';
-                                    newElem.textContent = val.line + '` ';
+                                    newElem.textContent = val.line + '՝ No changes that affect schedule.';
+                                    newElem.textContent = val.line + '՝ ';
                                     break;
                                 default:
                                     newElem.textContent = val.line + ' – No changes that affect schedule.';
