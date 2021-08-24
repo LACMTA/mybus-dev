@@ -145,8 +145,8 @@ function loadContent(data) {
                             } else {
                                 newElem.textContent = val.line + ' - ';
                             }
-                            
                             newElem.appendChild(scheduleLink);
+                            elem.appendChild(newElem);
                         } else if (val['current-schedule'] != '' && val['current-schedule'] != null) { 
                             // Else, if current schedule exists, link to it.
                             let scheduleLink = document.createElement('a');
@@ -157,7 +157,7 @@ function loadContent(data) {
                             newElem.classList.add('translate');
                             newElem.textContent = val.line + ' - No changes that affect schedule. ';
                             newElem.appendChild(scheduleLink);
-                            
+                            elem.appendChild(newElem);
                         } else {
                             // Else, no schedule link exists and this should be a discontinued line
                             // 8/20/21 - Before we have all the new schedules, any line not listed in the Take One
