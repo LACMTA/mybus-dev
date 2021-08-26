@@ -136,9 +136,19 @@ function loadContent(data) {
                             scheduleLink.classList.add('scheduleLink');
                             scheduleLink.classList.add('translate');
                             scheduleLink.href = val['new-schedule'];
-                            scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
-                            
-                            
+
+                            switch (val.line) {
+                                case 901:
+                                    scheduleLink.textContent = 'Download new schedule for the 901 / G Line (Orange).';
+                                    break;
+                                case 910:
+                                case 950:
+                                    scheduleLink.textContent = 'Download new schedule for the ' + val.line + ' / J Line (Silver).';
+                                    break;
+                                default:
+                                    scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
+                            }
+
                             if (val.content != '' && val.content != null) {
                                 newElem.classList.add('notranslate');
                                 newElem.textContent = val.content + ' ';
@@ -151,7 +161,17 @@ function loadContent(data) {
                                         newElem.textContent = val.line + '՝ ';
                                         break;
                                     default:
-                                        newElem.textContent = val.line + ' – ';
+                                        switch (val.line) {
+                                            case 901:
+                                                newElem.textContent = val.line + ' / G Line (Orange) – ';
+                                                break;
+                                            case 910:
+                                            case 950:
+                                                scheduleLink.textContent = val.line + ' / J Line (Silver).';
+                                                break;
+                                            default:
+                                                newElem.textContent = val.line + ' – ';
+                                        }
                                 }                                
                             }
                             newElem.appendChild(scheduleLink);
