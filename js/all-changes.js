@@ -167,7 +167,7 @@ function loadContent(data) {
                                                 break;
                                             case 910:
                                             case 950:
-                                                scheduleLink.textContent = val.line + ' / J Line (Silver).';
+                                                newElem.textContent = val.line + ' / J Line (Silver) - ';
                                                 break;
                                             default:
                                                 newElem.textContent = val.line + ' – ';
