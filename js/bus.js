@@ -19,7 +19,8 @@ const STOP_CHANGE_CATEGORY_LABELS = {
     'stop_canceled': 'Stop Canceled',
     'stop_relocated': 'Stop Relocated',
     'route_changed': 'Route Changed',
-    'owl_service_canceled': 'Owl Service Canceled'
+    'owl_service_canceled': 'Owl Service Canceled',
+    'replaced_by_micro': 'Service Replaced By Metro Micro'
 };
 
 let STOP1_CHANGES = {
@@ -29,7 +30,8 @@ let STOP1_CHANGES = {
     'stop_canceled': false,
     'stop_relocated': false,
     'route_changed': false,
-    'owl_service_canceled': false
+    'owl_service_canceled': false,
+    'replaced_by_micro':false
 };
 let STOP2_CHANGES = {
     'service_canceled': false,
@@ -38,7 +40,8 @@ let STOP2_CHANGES = {
     'stop_canceled': false,
     'stop_relocated': false,
     'route_changed': false,
-    'owl_service_canceled': false
+    'owl_service_canceled': false,
+    'replaced_by_micro': false
 };
 
 
@@ -216,30 +219,49 @@ function showLineData(data) {
             let title = document.createElement('h3');
             let content = document.createElement('p');
 
-            // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
-            if (THIS_LINE['card-1'] != '') {
-                title.textContent = 'Service';
-                content.innerHTML = THIS_LINE['card-1'];
+            // September Shakeup Update - only show one card
+            if (THIS_LINE.details == '' && THIS_LINE['schedule-url'] != '') {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.  See new schedule linked below.';
+                lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details == '' && THIS_LINE['schedule-url'] == '' && THIS_LINE['current-schedule-url'] == '') {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.  Schedule coming soon.';
+                lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details != '') {
+                title.textContent = 'Details';
+                content.innerHTML = THIS_LINE.details;
+                lineSection.appendChild(cardHelper(title, content));
+            } else {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.';
                 lineSection.appendChild(cardHelper(title, content));
             }
 
-            title = document.createElement('h3');
-            content = document.createElement('p');
-            // show card 2
-            if (THIS_LINE['card-2'] != '') {
-                title.textContent = 'Route';
-                content.innerHTML = THIS_LINE['card-2'];
-                lineSection.appendChild(cardHelper(title, content));
-            }
+            // // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
+            // if (THIS_LINE['card-1'] != '') {
+            //     title.textContent = 'Service';
+            //     content.innerHTML = THIS_LINE['card-1'];
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
 
-            title = document.createElement('h3');
-            content = document.createElement('p');
-            // show card 3
-            if (THIS_LINE['card-3'] != '') {
-                title.textContent = 'Schedule';
-                content.innerHTML = THIS_LINE['card-3'];
-                lineSection.appendChild(cardHelper(title, content));
-            }
+            // title = document.createElement('h3');
+            // content = document.createElement('p');
+            // // show card 2
+            // if (THIS_LINE['card-2'] != '') {
+            //     title.textContent = 'Route';
+            //     content.innerHTML = THIS_LINE['card-2'];
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
+
+            // title = document.createElement('h3');
+            // content = document.createElement('p');
+            // // show card 3
+            // if (THIS_LINE['card-3'] != '') {
+            //     title.textContent = 'Schedule';
+            //     content.innerHTML = THIS_LINE['card-3'];
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
 
             // link to schedule
             let scheduleSection = document.querySelector('#timetable-content');
@@ -281,12 +303,18 @@ function showLineData(data) {
                     noNewSchedule.textContent = 'This line has been discontinued.';
                     scheduleSection.appendChild(noNewSchedule);
 
+                } else if (THIS_LINE['current-schedule-url'] == '' && THIS_LINE.details == '') {
+                    noNewSchedule.textContent = 'Schedule coming soon.';
+                    scheduleSection.appendChild(noNewSchedule);
+
                 } else if (THIS_LINE['current-schedule-url'] != '') {
-                    if (THIS_LINE['card-2'] == 'No route changes.') {
-                        noNewSchedule.textContent = 'No changes to your line.';
-                    } else {
-                        noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
-                    }
+                    noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+
+                    // if (THIS_LINE['card-2'] == 'No route changes.') {
+                    //     noNewSchedule.textContent = 'No changes to your line.';
+                    // } else {
+                    //     noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+                    // }
 
                     let buttonDiv = document.createElement('div');
                     let button = document.createElement('button');
