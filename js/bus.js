@@ -220,7 +220,15 @@ function showLineData(data) {
             let content = document.createElement('p');
 
             // September Shakeup Update - only show one card
-            if (THIS_LINE.details != '') {
+            if (THIS_LINE.details == '' && THIS_LINE['schedule-url'] != '') {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.  See new schedule linked below.';
+                lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details == '' && THIS_LINE['schedule-url'] == '' && THIS_LINE['current-schedule-url'] == '') {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.  Schedule coming soon.';
+                lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details != '') {
                 title.textContent = 'Details';
                 content.innerHTML = THIS_LINE.details;
                 lineSection.appendChild(cardHelper(title, content));
@@ -296,7 +304,7 @@ function showLineData(data) {
                     scheduleSection.appendChild(noNewSchedule);
 
                 } else if (THIS_LINE['current-schedule-url'] == '' && THIS_LINE.details == '') {
-                    noNewSchedule.textContent = 'New schedules are still being generated, please check back later for potential schedule updates.';
+                    noNewSchedule.textContent = 'Schedule coming soon.';
                     scheduleSection.appendChild(noNewSchedule);
 
                 } else if (THIS_LINE['current-schedule-url'] != '') {
