@@ -97,8 +97,31 @@ function loadContent(data) {
                             elem.appendChild(linkElem);  
                         }
                     } else {
-                        elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
-                        elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
+                        if (order == 7 ) {
+                            let scheduleLinkBLine = document.createElement('a');
+                            scheduleLinkBLine.classList.add('scheduleLink');
+                            scheduleLinkBLine.classList.add('translate');
+                            scheduleLinkBLine.classList.add('mt-4');
+                            scheduleLinkBLine.classList.add('px-5');
+                            scheduleLinkBLine.href = 'files/schedules/802_TT_09-12-21.pdf';
+                            scheduleLinkBLine.textContent = 'Download new schedule for B Line (Red)';
+
+                            let scheduleLinkDLine = document.createElement('p');
+                            scheduleLinkDLine.classList.add('scheduleLink');
+                            scheduleLinkDLine.classList.add('translate');
+                            scheduleLinkDLine.classList.add('mt-4');
+                            scheduleLinkDLine.classList.add('px-5');
+                            // scheduleLinkDLine.href = '#';
+                            scheduleLinkDLine.textContent = 'New schedule for D Line (Purple) coming soon';
+                            // scheduleLinkDLine.textContent = 'Download new schedule for D Line (Purple)';
+
+                            elem.appendChild(contentHelper(val.content + ' ', 'label'));
+                            elem.appendChild(scheduleLinkBLine);
+                            elem.appendChild(scheduleLinkDLine);
+                        } else {
+                            elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
+                            elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
+                        }
                     }
                     break;
                 case 'details':
@@ -139,11 +162,11 @@ function loadContent(data) {
 
                             switch (val.line) {
                                 case 901:
-                                    scheduleLink.textContent = 'Download new schedule for the 901 / G Line (Orange).';
+                                    scheduleLink.textContent = 'Download new schedule for 901 / G Line (Orange).';
                                     break;
                                 case 910:
                                 case 950:
-                                    scheduleLink.textContent = 'Download new schedule for the ' + val.line + ' / J Line (Silver).';
+                                    scheduleLink.textContent = 'Download new schedule for  ' + val.line + ' / J Line (Silver).';
                                     break;
                                 default:
                                     scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
