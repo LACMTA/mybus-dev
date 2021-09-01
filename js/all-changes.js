@@ -98,26 +98,28 @@ function loadContent(data) {
                         }
                     } else {
                         if (order == 7 ) {
+                            let linkWrapper = document.createElement('div');
+                            linkWrapper.classList.add('mt-4');
+                            linkWrapper.classList.add('px-5');
+                            linkWrapper.classList.add('translate');
+
+                            let scheduleLinkBLineP = document.createElement('p');
                             let scheduleLinkBLine = document.createElement('a');
                             scheduleLinkBLine.classList.add('scheduleLink');
-                            scheduleLinkBLine.classList.add('translate');
-                            scheduleLinkBLine.classList.add('mt-4');
-                            scheduleLinkBLine.classList.add('px-5');
                             scheduleLinkBLine.href = 'files/schedules/802_TT_09-12-21.pdf';
                             scheduleLinkBLine.textContent = 'Download new schedule for B Line (Red)';
+                            scheduleLinkBLineP.appendChild(scheduleLinkBLine);
 
-                            let scheduleLinkDLine = document.createElement('p');
-                            scheduleLinkDLine.classList.add('scheduleLink');
-                            scheduleLinkDLine.classList.add('translate');
-                            scheduleLinkDLine.classList.add('mt-4');
-                            scheduleLinkDLine.classList.add('px-5');
+                            let scheduleLinkDLineP = document.createElement('p');
+                            //scheduleLinkDLine.classList.add('scheduleLink');
                             // scheduleLinkDLine.href = '#';
-                            scheduleLinkDLine.textContent = 'New schedule for D Line (Purple) coming soon';
+                            scheduleLinkDLineP.textContent = 'New schedule for D Line (Purple) coming soon';
                             // scheduleLinkDLine.textContent = 'Download new schedule for D Line (Purple)';
 
                             elem.appendChild(contentHelper(val.content + ' ', 'label'));
-                            elem.appendChild(scheduleLinkBLine);
-                            elem.appendChild(scheduleLinkDLine);
+                            linkWrapper.appendChild(scheduleLinkBLineP);
+                            linkWrapper.appendChild(scheduleLinkDLineP);
+                            elem.appendChild(linkWrapper);
                         } else {
                             elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
                             elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
