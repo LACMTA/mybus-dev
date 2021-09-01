@@ -103,22 +103,15 @@ function loadContent(data) {
                             linkWrapper.classList.add('px-5');
                             linkWrapper.classList.add('translate');
 
-                            let scheduleLinkBLineP = document.createElement('p');
-                            let scheduleLinkBLine = document.createElement('a');
-                            scheduleLinkBLine.classList.add('scheduleLink');
-                            scheduleLinkBLine.href = 'files/schedules/802_TT_09-12-21.pdf';
-                            scheduleLinkBLine.textContent = 'Download new schedule for B Line (Red)';
-                            scheduleLinkBLineP.appendChild(scheduleLinkBLine);
-
-                            let scheduleLinkDLineP = document.createElement('p');
-                            //scheduleLinkDLine.classList.add('scheduleLink');
-                            // scheduleLinkDLine.href = '#';
-                            scheduleLinkDLineP.textContent = 'New schedule for D Line (Purple) coming soon';
-                            // scheduleLinkDLine.textContent = 'Download new schedule for D Line (Purple)';
+                            let scheduleLinkP = document.createElement('p');
+                            let scheduleLink = document.createElement('a');
+                            scheduleLink.classList.add('scheduleLink');
+                            scheduleLink.href = 'files/schedules/802_TT_09-12-21.pdf';
+                            scheduleLink.textContent = 'Download new schedule for B Line (Red) & D Line (Purple)';
+                            scheduleLinkP.appendChild(scheduleLink);
 
                             elem.appendChild(contentHelper(val.content + ' ', 'label'));
-                            linkWrapper.appendChild(scheduleLinkBLineP);
-                            linkWrapper.appendChild(scheduleLinkDLineP);
+                            linkWrapper.appendChild(scheduleLinkP);
                             elem.appendChild(linkWrapper);
                         } else {
                             elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
