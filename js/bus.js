@@ -24,27 +24,91 @@ const STOP_CHANGE_CATEGORY_LABELS = {
 };
 
 let STOP1_CHANGES = {
-    'service_canceled': false,
-    'service_changed': false, 
-    'service_replaced': false,
-    'stop_canceled': false,
-    'stop_relocated': false,
-    'route_changed': false,
-    'owl_service_canceled': false,
-    'replaced_by_micro':false
+    'directions': [],
+    'northbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    },
+    'southbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    },
+    'eastbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    },
+    'westbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    }
 };
 let STOP2_CHANGES = {
-    'service_canceled': false,
-    'service_changed': false,
-    'service_replaced': false,
-    'stop_canceled': false,
-    'stop_relocated': false,
-    'route_changed': false,
-    'owl_service_canceled': false,
-    'replaced_by_micro': false
+    'directions': [],
+    'northbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    },
+    'southbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    },
+    'eastbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    },
+    'westbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false
+    }
 };
-
-
 
 let THIS_LINE = {};
 let THIS_STOP1 = {};
@@ -139,17 +203,23 @@ function showStopData(data) {
 
             for (let i=0; i<STOP1_ID_ARR.length; i++) {
                 if (val.stop_id.toString() == STOP1_ID_ARR[i]) {
-                    for (let category in STOP1_CHANGES) {
-                        STOP1_CHANGES[category] = STOP1_CHANGES[category] || val[category];
+                    let dir = val.direction.toLowerCase();
+                    STOP1_CHANGES.directions.push(dir);
+
+                    for (let category in STOP1_CHANGES[dir]) {
+                        STOP1_CHANGES[dir][category] = STOP1_CHANGES[dir][category] || val[category];
                     }
                     stop1Found = true;
                 }
             }
 
             for (let i=0; i<STOP2_ID_ARR.length; i++) {
-                if (val.stop_id.toString() == STOP2_ID_ARR[i])  {
-                    for (let category in STOP2_CHANGES) {
-                        STOP2_CHANGES[category] = STOP2_CHANGES[category] || val[category];
+                if (val.stop_id.toString() == STOP2_ID_ARR[i]) {
+                    let dir = val.direction.toLowerCase();
+                    STOP2_CHANGES.directions.push(dir);
+
+                    for (let category in STOP2_CHANGES[dir]) {
+                        STOP2_CHANGES[dir][category] = STOP2_CHANGES[dir][category] || val[category];
                     }
                     stop2Found = true;
                 }
@@ -181,21 +251,27 @@ function showStopData(data) {
 /* Return a node */
 function stopChangesHelper(stopName, stopChanges) {
     let resultNode = document.createElement('div');
-    let label = document.createElement('p');
+    
 
-    label.textContent = 'The ' + stopName + ' stop has the following updates:';
-    resultNode.appendChild(label);
+    for (let i = 0; i<stopChanges.directions.length; i++) {
+        let direction = stopChanges.directions[i];
+        let label = document.createElement('p');
 
-    let list = document.createElement('ul');
+        label.textContent = 'The ' + direction + ' ' + stopName + ' stop has the following updates:';
+        resultNode.appendChild(label);
 
-    for (let category in stopChanges) {
-        if (stopChanges[category]) {
-            let listItem = document.createElement('li');
-            listItem.textContent = STOP_CHANGE_CATEGORY_LABELS[category];
-            list.appendChild(listItem);
+        let list = document.createElement('ul');
+
+        for (let category in stopChanges[direction]) {
+            if (stopChanges[direction][category]) {
+                let listItem = document.createElement('li');
+                listItem.textContent = STOP_CHANGE_CATEGORY_LABELS[category];
+                list.appendChild(listItem);
+            }
         }
+
+        resultNode.appendChild(list);
     }
-    resultNode.appendChild(list);
 
     return resultNode;
 }
