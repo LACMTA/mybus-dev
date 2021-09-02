@@ -29,6 +29,6 @@
     margin-left: 10px;
 }
 
-#all-summary a {
+#all-summary a, #all-end a {
     color: #fff;
 }

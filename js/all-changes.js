@@ -150,7 +150,9 @@ function loadContent(data) {
                             }
 
                             if (val.content != '' && val.content != null) {
-                                newElem.classList.add('notranslate');
+                                if (val.line != 55) {
+                                    newElem.classList.add('notranslate');
+                                }
                                 newElem.textContent = val.content + ' ';
                             } else {
                                 switch(LANG) {
@@ -226,7 +228,7 @@ function contentHelper(content, type) {
     let elem = document.createElement('div');
     elem.classList.add('mt-4');
     elem.classList.add('notranslate');
-    elem.textContent= content;
+    elem.innerHTML = content;
 
     switch(type) {
         case 'label':
