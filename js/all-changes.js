@@ -63,7 +63,7 @@ function loadContent(data) {
                         newElem = document.createElement('h1');
                         newElem.classList.add('my-5');
                         newElem.classList.add('notranslate');
-                        newElem.textContent = val.content;
+                        newElem.innerHTML = val.content;
                         elem.appendChild(newElem);
                     }
                     break;
@@ -125,7 +125,7 @@ function loadContent(data) {
                         newElem = document.createElement('h2');
                         newElem.classList.add('my-4');
                         newElem.classList.add('notranslate');
-                        newElem.textContent = val.content;
+                        newElem.innerHTML = val.content;
                         elem.prepend(newElem);
                     } else { // All the lines
                         newElem = document.createElement('div');
@@ -171,7 +171,7 @@ function loadContent(data) {
                                 if (val.line != 55) {
                                     newElem.classList.add('notranslate');
                                 }
-                                newElem.textContent = val.content + ' ';
+                                newElem.innerHTML = val.content + ' ';
                             } else {
                                 switch(LANG) {
                                     case 'es':
@@ -226,7 +226,7 @@ function loadContent(data) {
                             if (val.content != null) {
                                 // discontinued lines (no schedule)
                                 newElem.classList.add('notranslate');
-                                newElem.textContent = val.content;
+                                newElem.innerHTML = val.content;
                                 elem.appendChild(newElem);
                             }
                         }

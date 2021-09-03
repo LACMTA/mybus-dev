@@ -13,14 +13,15 @@ const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINE + '-changes.json';
 
 const STOP_CHANGE_CATEGORY_LABELS = {
-    'service_canceled': 'Service Canceled',
-    'service_changed': 'Service Changed', 
-    'service_replaced': 'Service Replaced',
-    'stop_canceled': 'Stop Canceled',
-    'stop_relocated': 'Stop Relocated',
-    'route_changed': 'Route Changed',
-    'owl_service_canceled': 'Owl Service Canceled',
-    'replaced_by_micro': 'Service Replaced By Metro Micro'
+    'service_canceled': 'Service canceled',
+    'service_changed': 'Service changed', 
+    'service_replaced': 'Service replaced',
+    'stop_canceled': 'Stop canceled',
+    'stop_relocated': 'Stop relocated across the intersection',
+    'route_changed': 'Route changed',
+    'owl_service_canceled': 'Owl service canceled',
+    'replaced_by_micro': 'Service replaced by Metro Micro',
+    'service_restored': 'Service to this stop restored'
 };
 
 let STOP1_CHANGES = {
@@ -33,7 +34,8 @@ let STOP1_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     },
     'southbound': {
         'service_canceled': false,
@@ -43,7 +45,8 @@ let STOP1_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     },
     'eastbound' : {
         'service_canceled': false,
@@ -53,7 +56,8 @@ let STOP1_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     },
     'westbound' : {
         'service_canceled': false,
@@ -63,7 +67,8 @@ let STOP1_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     }
 };
 let STOP2_CHANGES = {
@@ -76,7 +81,8 @@ let STOP2_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     },
     'southbound': {
         'service_canceled': false,
@@ -86,7 +92,8 @@ let STOP2_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     },
     'eastbound' : {
         'service_canceled': false,
@@ -96,7 +103,8 @@ let STOP2_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     },
     'westbound' : {
         'service_canceled': false,
@@ -106,7 +114,8 @@ let STOP2_CHANGES = {
         'stop_relocated': false,
         'route_changed': false,
         'owl_service_canceled': false,
-        'replaced_by_micro': false
+        'replaced_by_micro': false,
+        'service_restored': false
     }
 };
 
