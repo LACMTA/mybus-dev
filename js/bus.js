@@ -13,35 +13,111 @@ const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINE + '-changes.json';
 
 const STOP_CHANGE_CATEGORY_LABELS = {
-    'service_canceled': 'Service Canceled',
-    'service_changed': 'Service Changed', 
-    'service_replaced': 'Service Replaced',
-    'stop_canceled': 'Stop Canceled',
-    'stop_relocated': 'Stop Relocated',
-    'route_changed': 'Route Changed',
-    'owl_service_canceled': 'Owl Service Canceled'
+    'service_canceled': 'Service canceled',
+    'service_changed': 'Service changed', 
+    'service_replaced': 'Service replaced',
+    'stop_canceled': 'Stop canceled',
+    'stop_relocated': 'Stop relocated across the intersection',
+    'route_changed': 'Route changed',
+    'owl_service_canceled': 'Owl service canceled',
+    'replaced_by_micro': 'Service replaced by Metro Micro',
+    'service_restored': 'Service to this stop restored'
 };
 
 let STOP1_CHANGES = {
-    'service_canceled': false,
-    'service_changed': false, 
-    'service_replaced': false,
-    'stop_canceled': false,
-    'stop_relocated': false,
-    'route_changed': false,
-    'owl_service_canceled': false
+    'directions': [],
+    'northbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    },
+    'southbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    },
+    'eastbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    },
+    'westbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    }
 };
 let STOP2_CHANGES = {
-    'service_canceled': false,
-    'service_changed': false,
-    'service_replaced': false,
-    'stop_canceled': false,
-    'stop_relocated': false,
-    'route_changed': false,
-    'owl_service_canceled': false
+    'directions': [],
+    'northbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    },
+    'southbound': {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    },
+    'eastbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    },
+    'westbound' : {
+        'service_canceled': false,
+        'service_changed': false,
+        'service_replaced': false,
+        'stop_canceled': false,
+        'stop_relocated': false,
+        'route_changed': false,
+        'owl_service_canceled': false,
+        'replaced_by_micro': false,
+        'service_restored': false
+    }
 };
-
-
 
 let THIS_LINE = {};
 let THIS_STOP1 = {};
@@ -136,17 +212,23 @@ function showStopData(data) {
 
             for (let i=0; i<STOP1_ID_ARR.length; i++) {
                 if (val.stop_id.toString() == STOP1_ID_ARR[i]) {
-                    for (let category in STOP1_CHANGES) {
-                        STOP1_CHANGES[category] = STOP1_CHANGES[category] || val[category];
+                    let dir = val.direction.toLowerCase();
+                    STOP1_CHANGES.directions.push(dir);
+
+                    for (let category in STOP1_CHANGES[dir]) {
+                        STOP1_CHANGES[dir][category] = STOP1_CHANGES[dir][category] || val[category];
                     }
                     stop1Found = true;
                 }
             }
 
             for (let i=0; i<STOP2_ID_ARR.length; i++) {
-                if (val.stop_id.toString() == STOP2_ID_ARR[i])  {
-                    for (let category in STOP2_CHANGES) {
-                        STOP2_CHANGES[category] = STOP2_CHANGES[category] || val[category];
+                if (val.stop_id.toString() == STOP2_ID_ARR[i]) {
+                    let dir = val.direction.toLowerCase();
+                    STOP2_CHANGES.directions.push(dir);
+
+                    for (let category in STOP2_CHANGES[dir]) {
+                        STOP2_CHANGES[dir][category] = STOP2_CHANGES[dir][category] || val[category];
                     }
                     stop2Found = true;
                 }
@@ -178,21 +260,27 @@ function showStopData(data) {
 /* Return a node */
 function stopChangesHelper(stopName, stopChanges) {
     let resultNode = document.createElement('div');
-    let label = document.createElement('p');
+    
 
-    label.textContent = 'The ' + stopName + ' stop has the following updates:';
-    resultNode.appendChild(label);
+    for (let i = 0; i<stopChanges.directions.length; i++) {
+        let direction = stopChanges.directions[i];
+        let label = document.createElement('p');
 
-    let list = document.createElement('ul');
+        label.textContent = 'The ' + direction + ' ' + stopName + ' stop has the following updates:';
+        resultNode.appendChild(label);
 
-    for (let category in stopChanges) {
-        if (stopChanges[category]) {
-            let listItem = document.createElement('li');
-            listItem.textContent = STOP_CHANGE_CATEGORY_LABELS[category];
-            list.appendChild(listItem);
+        let list = document.createElement('ul');
+
+        for (let category in stopChanges[direction]) {
+            if (stopChanges[direction][category]) {
+                let listItem = document.createElement('li');
+                listItem.textContent = STOP_CHANGE_CATEGORY_LABELS[category];
+                list.appendChild(listItem);
+            }
         }
+
+        resultNode.appendChild(list);
     }
-    resultNode.appendChild(list);
 
     return resultNode;
 }
@@ -216,30 +304,49 @@ function showLineData(data) {
             let title = document.createElement('h3');
             let content = document.createElement('p');
 
-            // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
-            if (THIS_LINE['card-1'] != '') {
-                title.textContent = 'Service';
-                content.innerHTML = THIS_LINE['card-1'];
+            // September Shakeup Update - only show one card
+            if (THIS_LINE.details == '' && THIS_LINE['schedule-url'] != '') {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.  See new schedule linked below.';
+                lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details == '' && THIS_LINE['schedule-url'] == '' && THIS_LINE['current-schedule-url'] == '') {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.  Schedule coming soon.';
+                lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details != '') {
+                title.textContent = 'Details';
+                content.innerHTML = THIS_LINE.details;
+                lineSection.appendChild(cardHelper(title, content));
+            } else {
+                title.textContent = 'Details';
+                content.innerHTML = 'No major changes to this line.';
                 lineSection.appendChild(cardHelper(title, content));
             }
 
-            title = document.createElement('h3');
-            content = document.createElement('p');
-            // show card 2
-            if (THIS_LINE['card-2'] != '') {
-                title.textContent = 'Route';
-                content.innerHTML = THIS_LINE['card-2'];
-                lineSection.appendChild(cardHelper(title, content));
-            }
+            // // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
+            // if (THIS_LINE['card-1'] != '') {
+            //     title.textContent = 'Service';
+            //     content.innerHTML = THIS_LINE['card-1'];
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
 
-            title = document.createElement('h3');
-            content = document.createElement('p');
-            // show card 3
-            if (THIS_LINE['card-3'] != '') {
-                title.textContent = 'Schedule';
-                content.innerHTML = THIS_LINE['card-3'];
-                lineSection.appendChild(cardHelper(title, content));
-            }
+            // title = document.createElement('h3');
+            // content = document.createElement('p');
+            // // show card 2
+            // if (THIS_LINE['card-2'] != '') {
+            //     title.textContent = 'Route';
+            //     content.innerHTML = THIS_LINE['card-2'];
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
+
+            // title = document.createElement('h3');
+            // content = document.createElement('p');
+            // // show card 3
+            // if (THIS_LINE['card-3'] != '') {
+            //     title.textContent = 'Schedule';
+            //     content.innerHTML = THIS_LINE['card-3'];
+            //     lineSection.appendChild(cardHelper(title, content));
+            // }
 
             // link to schedule
             let scheduleSection = document.querySelector('#timetable-content');
@@ -281,12 +388,18 @@ function showLineData(data) {
                     noNewSchedule.textContent = 'This line has been discontinued.';
                     scheduleSection.appendChild(noNewSchedule);
 
+                } else if (THIS_LINE['current-schedule-url'] == '' && THIS_LINE.details == '') {
+                    noNewSchedule.textContent = 'Schedule coming soon.';
+                    scheduleSection.appendChild(noNewSchedule);
+
                 } else if (THIS_LINE['current-schedule-url'] != '') {
-                    if (THIS_LINE['card-2'] == 'No route changes.') {
-                        noNewSchedule.textContent = 'No changes to your line.';
-                    } else {
-                        noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
-                    }
+                    noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+
+                    // if (THIS_LINE['card-2'] == 'No route changes.') {
+                    //     noNewSchedule.textContent = 'No changes to your line.';
+                    // } else {
+                    //     noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+                    // }
 
                     let buttonDiv = document.createElement('div');
                     let button = document.createElement('button');

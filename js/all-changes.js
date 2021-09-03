@@ -63,7 +63,7 @@ function loadContent(data) {
                         newElem = document.createElement('h1');
                         newElem.classList.add('my-5');
                         newElem.classList.add('notranslate');
-                        newElem.textContent = val.content;
+                        newElem.innerHTML = val.content;
                         elem.appendChild(newElem);
                     }
                     break;
@@ -97,8 +97,26 @@ function loadContent(data) {
                             elem.appendChild(linkElem);  
                         }
                     } else {
-                        elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
-                        elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
+                        if (order == 7 ) {
+                            let linkWrapper = document.createElement('div');
+                            linkWrapper.classList.add('mt-4');
+                            linkWrapper.classList.add('px-5');
+                            linkWrapper.classList.add('translate');
+
+                            let scheduleLinkP = document.createElement('p');
+                            let scheduleLink = document.createElement('a');
+                            scheduleLink.classList.add('scheduleLink');
+                            scheduleLink.href = 'files/schedules/802_TT_09-12-21.pdf';
+                            scheduleLink.textContent = 'Download new schedule for B Line (Red) & D Line (Purple)';
+                            scheduleLinkP.appendChild(scheduleLink);
+
+                            elem.appendChild(contentHelper(val.content + ' ', 'label'));
+                            linkWrapper.appendChild(scheduleLinkP);
+                            elem.appendChild(linkWrapper);
+                        } else {
+                            elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
+                            elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
+                        }
                     }
                     break;
                 case 'details':
@@ -107,7 +125,7 @@ function loadContent(data) {
                         newElem = document.createElement('h2');
                         newElem.classList.add('my-4');
                         newElem.classList.add('notranslate');
-                        newElem.textContent = val.content;
+                        newElem.innerHTML = val.content;
                         elem.prepend(newElem);
                     } else { // All the lines
                         newElem = document.createElement('div');
@@ -139,19 +157,21 @@ function loadContent(data) {
 
                             switch (val.line) {
                                 case 901:
-                                    scheduleLink.textContent = 'Download new schedule for the 901 / G Line (Orange).';
+                                    scheduleLink.textContent = 'Download new schedule for 901 / G Line (Orange).';
                                     break;
                                 case 910:
                                 case 950:
-                                    scheduleLink.textContent = 'Download new schedule for the ' + val.line + ' / J Line (Silver).';
+                                    scheduleLink.textContent = 'Download new schedule for  ' + val.line + ' / J Line (Silver).';
                                     break;
                                 default:
                                     scheduleLink.textContent = 'Download new schedule for Line ' + val.line + '.';
                             }
 
                             if (val.content != '' && val.content != null) {
-                                newElem.classList.add('notranslate');
-                                newElem.textContent = val.content + ' ';
+                                if (val.line != 55) {
+                                    newElem.classList.add('notranslate');
+                                }
+                                newElem.innerHTML = val.content + ' ';
                             } else {
                                 switch(LANG) {
                                     case 'es':
@@ -206,7 +226,7 @@ function loadContent(data) {
                             if (val.content != null) {
                                 // discontinued lines (no schedule)
                                 newElem.classList.add('notranslate');
-                                newElem.textContent = val.content;
+                                newElem.innerHTML = val.content;
                                 elem.appendChild(newElem);
                             }
                         }
@@ -226,7 +246,7 @@ function contentHelper(content, type) {
     let elem = document.createElement('div');
     elem.classList.add('mt-4');
     elem.classList.add('notranslate');
-    elem.textContent= content;
+    elem.innerHTML = content;
 
     switch(type) {
         case 'label':
