@@ -206,14 +206,14 @@ function loadContent(data) {
                             newElem.classList.add('translate');
                             switch(LANG) {
                                 case 'es':
-                                    newElem.textContent = 'Línea ' + val.line + ': No changes that affect schedule.';
+                                    newElem.textContent = 'Línea ' + val.line + ': No changes that affect schedule. ';
                                     break;
                                 case 'hy':
-                                    newElem.textContent = val.line + '՝ No changes that affect schedule.';
+                                    newElem.textContent = val.line + '՝ No changes that affect schedule. ';
                                     newElem.textContent = val.line + '՝ ';
                                     break;
                                 default:
-                                    newElem.textContent = val.line + ' – No changes that affect schedule.';
+                                    newElem.textContent = val.line + ' – No changes that affect schedule. ';
                             }    
 
                             newElem.appendChild(scheduleLink);
@@ -246,7 +246,7 @@ function contentHelper(content, type) {
     let elem = document.createElement('div');
     elem.classList.add('mt-4');
     elem.classList.add('notranslate');
-    elem.innerHTML = content;
+    elem.innerHTML = content + ' ';
 
     switch(type) {
         case 'label':
