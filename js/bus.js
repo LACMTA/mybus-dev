@@ -213,7 +213,9 @@ function showStopData(data) {
             for (let i=0; i<STOP1_ID_ARR.length; i++) {
                 if (val.stop_id.toString() == STOP1_ID_ARR[i]) {
                     let dir = val.direction.toLowerCase();
-                    STOP1_CHANGES.directions.push(dir);
+                    if (!STOP1_CHANGES.directions.includes(dir)) {
+                        STOP1_CHANGES.directions.push(dir);
+                    }
 
                     for (let category in STOP1_CHANGES[dir]) {
                         STOP1_CHANGES[dir][category] = STOP1_CHANGES[dir][category] || val[category];
@@ -226,6 +228,9 @@ function showStopData(data) {
                 if (val.stop_id.toString() == STOP2_ID_ARR[i]) {
                     let dir = val.direction.toLowerCase();
                     STOP2_CHANGES.directions.push(dir);
+                    if (!STOP2_CHANGES.directions.includes(dir)) {
+                        STOP2_CHANGES.directions.push(dir);
+                    }
 
                     for (let category in STOP2_CHANGES[dir]) {
                         STOP2_CHANGES[dir][category] = STOP2_CHANGES[dir][category] || val[category];
