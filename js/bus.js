@@ -318,40 +318,42 @@ function showLineData(data) {
                 title.textContent = 'Details';
                 content.innerHTML = 'No major changes to this line.  Schedule coming soon.';
                 lineSection.appendChild(cardHelper(title, content));
-            } else if (THIS_LINE.details != '') {
-                title.textContent = 'Details';
-                content.innerHTML = THIS_LINE.details;
-                lineSection.appendChild(cardHelper(title, content));
-            } else {
+            // } else if (THIS_LINE.details != '') {  // Uncomment this section if the 3 cards (below) are not being used.
+            //     title.textContent = 'Details';
+            //     content.innerHTML = THIS_LINE.details;
+            //     lineSection.appendChild(cardHelper(title, content));
+            } else if (THIS_LINE.details == '') {
                 title.textContent = 'Details';
                 content.innerHTML = 'No major changes to this line.';
                 lineSection.appendChild(cardHelper(title, content));
             }
 
-            // // show card 1 - just do as generic "Service" without filtering for merged, discontinued, restored?
-            // if (THIS_LINE['card-1'] != '') {
-            //     title.textContent = 'Service';
-            //     content.innerHTML = THIS_LINE['card-1'];
-            //     lineSection.appendChild(cardHelper(title, content));
-            // }
+            // Show 3 cards for Service, Route, and Schedule changes
+            // These three should be the same info as the Details column from the Google Sheet
+            // plus the info from the More Trips columns
+            if (THIS_LINE['card-1'] != '') {
+                title.textContent = 'Service';
+                content.innerHTML = THIS_LINE['card-1'];
+                lineSection.appendChild(cardHelper(title, content));
+            }
 
-            // title = document.createElement('h3');
-            // content = document.createElement('p');
-            // // show card 2
-            // if (THIS_LINE['card-2'] != '') {
-            //     title.textContent = 'Route';
-            //     content.innerHTML = THIS_LINE['card-2'];
-            //     lineSection.appendChild(cardHelper(title, content));
-            // }
+            title = document.createElement('h3');
+            content = document.createElement('p');
+            
+            if (THIS_LINE['card-2'] != '') {
+                title.textContent = 'Route';
+                content.innerHTML = THIS_LINE['card-2'];
+                lineSection.appendChild(cardHelper(title, content));
+            }
 
-            // title = document.createElement('h3');
-            // content = document.createElement('p');
-            // // show card 3
-            // if (THIS_LINE['card-3'] != '') {
-            //     title.textContent = 'Schedule';
-            //     content.innerHTML = THIS_LINE['card-3'];
-            //     lineSection.appendChild(cardHelper(title, content));
-            // }
+            title = document.createElement('h3');
+            content = document.createElement('p');
+            
+            if (THIS_LINE['card-3'] != '') {
+                title.textContent = 'Schedule';
+                content.innerHTML = THIS_LINE['card-3'];
+                lineSection.appendChild(cardHelper(title, content));
+            }
 
             // link to schedule
             let scheduleSection = document.querySelector('#timetable-content');
