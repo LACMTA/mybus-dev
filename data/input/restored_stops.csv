@@ -1,0 +1,47 @@
+line,stop_id,stop_name,direction
+110,65300037,Waters Edge / Jefferson,Eastbound
+110,65300037,Waters Edge / Jefferson,Westbound
+110,176153,Jefferson / Concert Park Dr,Eastbound
+110,2701,Jefferson / Beethoven,Eastbound
+110,11194,Jefferson / McConnell,Eastbound
+110,2702,Jefferson / McConnell,Westbound
+110,2703,Jefferson / Westlawn,Eastbound
+110,11197,Jefferson / Westlawn,Westbound
+110,2704,Jefferson / Campus Center Dr,Eastbound
+110,140878,Jefferson / Centinela,Eastbound
+110,20501,Jefferson / Centinela,Westbound
+110,2705,Jefferson / Mesmer,Eastbound
+110,11195,Jefferson / Mesmer,Westbound
+110,2706,Jefferson / Slauson,Eastbound
+110,16943,Jefferson / Slauson,Westbound
+110,14660,Slauson / Sepulveda,Westbound
+110,12124,Jefferson / Inglewood,Westbound
+110,8683,Jefferson / Alla Rd,Westbound
+550,30005,Harbor Gateway Transit Center / Bay 05,Northbound
+550,2321,Harbor Transit Way / Rosecrans,Northbound
+550,10855,Harbor Transit Way / I105 C Line (Green) Station,Northbound
+550,2320,Harbor Transit Way / Manchester,Northbound
+550,2322,Harbor Transit Way / Slauson,Northbound
+550,7262,39th St / Figueroa,Northbound
+550,1886,Exposition / Figueroa,Northbound
+550,10378,Exposition / Trousdale Walk,Northbound
+550,10390,Exposition / Watt Way,Northbound
+550,5635,Vermont / Exposition,Northbound
+550,5656,Vermont / 36th Pl,Northbound
+550,7766,Jefferson / Vermont,Northbound
+550,7752,Jefferson / McClintock,Northbound
+550,2457,McClintock / Jefferson,Northbound
+550,2457,McClintock / Jefferson,Southbound
+550,2458,Jefferson / McClintock,Southbound
+550,140951,Vermont / Jefferson,Southbound
+550,14039,Vermont / 36th Pl,Southbound
+550,1841,Exposition / Vermont,Southbound
+550,12002,Exposition / Watt Way,Southbound
+550,1830,Exposition / University Walk,Southbound
+550,10437,Exposition / Figueroa,Southbound
+550,13424,Figueroa / State,Southbound
+550,15616,39th St / Figueroa,Southbound
+550,10994,Harbor Transit Way / Slauson,Southbound
+550,10853,Harbor Transit Way / Manchester,Southbound
+550,2324,Harbor Transit Way / I105 C Line (Green) Station,Southbound
+550,10846,Harbor Transit Way / Rosecrans,Southbound
