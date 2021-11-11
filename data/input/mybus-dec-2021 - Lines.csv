@@ -1,0 +1,126 @@
+Line Number,Line Label,AltLine,Line Description,New Line,Notes,Has Changes?,Area
+2,2,,Downtown LA - Westwood via Sunset Bl,FALSE,,FALSE,
+4,4,,Downtown LA - Santa Monica via Santa Monica Bl,FALSE,,FALSE,
+10,10,10,Pico Rimpau Transit Center - Downtown LA via Melrose Av,FALSE,,TRUE,Westside Central
+14,14,14,Beverly Center - Downtown LA via Beverly Bl,FALSE,,TRUE,Westside Central
+37,37,14,Downtown LA - Washington/Fairfax via Adams Bl,FALSE,,TRUE,Westside Central
+16,16,,Downtown LA - West Hollywood via West 3rd St,FALSE,,TRUE,Westside Central
+18,18,,Wilshire Western Station - Montebello Metrolink Station via 6th St-Whittier Bl,FALSE,,TRUE,Westside Central
+20,20,,Downtown LA - Westwood/Santa Monica via Wilshire Bl,FALSE,,FALSE,
+28,28,,Century City - Downtown LA via Olympic Bl,FALSE,,TRUE,"Westside Central, San Gabriel Valley"
+30,30,,Pico Rimpau Transit Center - Downtown LA - Indiana Station via Pico Bl-1st St,FALSE,,TRUE,Westside Central
+33,33,,Downtown LA - Santa Monica via Venice Bl,FALSE,,FALSE,
+35,35,35,Downtown LA - Washington/Fairfax via Washington Bl,FALSE,Split 35/38 into separate entries.,TRUE,Westside Central
+38,38,35,Downtown LA - Washington/Fairfax via Jefferson Bl,FALSE,,FALSE,
+40,40,,Downtown LA - South Bay Galleria via ML King Bl-Hawthorne Bl,FALSE,,TRUE,South Bay Cities
+45,45,,Lincoln Heights - Downtown LA - Harbor Freeway Station via Broadway,FALSE,,TRUE,Gateway Cities
+48,48,10,Downtown LA - Avalon Station via Main St,FALSE,,TRUE,Westside Central
+51,51,,Wilshire Center - Downtown LA - CSU University Dominguez Hills via 7th St-Avalon Bl,FALSE,,TRUE,Gateway Cities
+53,53,,Downtown LA - CSU Dominguez Hills via Central Av,FALSE,,TRUE,Gateway Cities
+55,55,,Downtown LA - Willowbrook Station via Compton Av,FALSE,,TRUE,Gateway Cities
+60,60,,Downtown LA - Artesia Station via Long Beach Bl,FALSE,,FALSE,
+62,62,,Downtown LA - Hawaiian Gardens via Telegraph Rd,FALSE,,FALSE,
+66,66,,Wilshire Center - Downtown LA - Montebello via 8th St - Olympic Bl,FALSE,,TRUE,Gateway Cities
+70,70,,Downtown LA - El Monte via Cesar Chavez Av-Atlantic Bl-Garvey Av,FALSE,,TRUE,San Gabriel Valley
+76,76,,Downtown LA - El Monte via Valley Bl,FALSE,,FALSE,
+78,78,78,Downtown LA - Arcadia via Las Tunas-Huntington Dr,FALSE,Split 78/79 into separate entries.,TRUE,San Gabriel Valley
+79,79,78,Downtown LA - Arcadia via Las Tunas-Huntington Dr,FALSE,,FALSE,
+81,81,,Eagle Rock - Downtown LA - Harbor Freeway Station via Figueroa St,FALSE,,TRUE,San Gabriel Valley
+90,90,,LA Civic Center - Sunland - North Hollywood via Glendale Av-Foothill Bl-Vineland Av,FALSE,,TRUE,San Fernando Valley
+92,92,,Downtown LA - Sylmar Station via Glendale-Glenoaks Bl,FALSE,,TRUE,San Fernando Valley
+94,94,,Downtown LA - Glendale - Burbank - North Hollywood via San Fernando Rd-Magnolia Bl,FALSE,,TRUE,San Fernando Valley
+96,96,,Chinatown - Burbank Station via Griffith Park Dr,FALSE,,TRUE,San Fernando Valley
+102,102,,LAX City Bus Center - South Gate via La Tijera-Exposition Bl,FALSE,,FALSE,
+105,105,,West Hollywood - Vernon via La Cienega Bl-Vernon Av,FALSE,,FALSE,
+106,106,,Monterey Park - Cal State LA - LA Union Station - Little Tokyo - Montebello via Garvey Av & 1st St,FALSE,,TRUE,San Gabriel Valley
+108,108,,Marina Del Rey - Pico Rivera via Slauson Av,FALSE,,FALSE,
+110,110,,Playa Vista - Bell Gardens via Jefferson Bl-Gage Av,FALSE,,TRUE,South Bay Cities
+111,111,,LAX City Bus Center - Norwalk Station via Florence Av,FALSE,,FALSE,
+115,115,,Playa Del Rey - Norwalk via Manchester Av - Firestone Bl,FALSE,,TRUE,South Bay Cities
+117,117,,LAX City Bus Center - Downey via Century Bl-Imperial Hwy,FALSE,,FALSE,
+120,120,,Aviation/LAX Station - Whittwood Center via Imperial Hwy,FALSE,,FALSE,
+125,125,,El Segundo - Norwalk Station via Rosecrans Av,FALSE,,FALSE,
+127,127,,Harbor Freeway Station - Comption Station - Downey via Compton Bl-Broadway,FALSE,,TRUE,South Bay Cities
+128,128,,Compton Station - Cerritos Towne Center via Alondra Bl,FALSE,,FALSE,
+130,130,,Cerritos - Artesia Station via Artesia Bl,FALSE,,TRUE,Gateway Cities
+150,150,,Chatsworth - Canoga Park - Tarzana via Topanga Canyon Bl-Ventura Bl,FALSE,,TRUE,San Fernando Valley
+152,152,,West Hills Medical Center - North Hollywood Station via Roscoe Bl,FALSE,,TRUE,San Fernando Valley
+154,154,,Sepulveda Bl - Burbank Station via Oxnard St-Burbank Bl,FALSE,,TRUE,San Fernando Valley
+155,155,,Sherman Oaks - Burbank Station via Riverside Dr-Olive St,FALSE,,TRUE,San Fernando Valley
+158,158,,Chatsworth Station - Sherman Oaks via Devonshire-Woodman,FALSE,,FALSE,
+161,161,,Thousand Oaks - Agoura Hills - Calbasas - Warner Center,FALSE,,FALSE,
+162,162,,Woodland Hills - West Hills - North Hollywood via Sherman Way-Vineland Av,FALSE,,TRUE,San Fernando Valley
+164,164,,West Hills - Burbank via Victory Bl,FALSE,,FALSE,
+165,165,,West Hills - Burbank via Vanowen St,FALSE,,FALSE,
+166,166,,Canoga Av - Sun Valley via Nordhoff St-Osborne St,FALSE,,TRUE,San Fernando Valley
+167,167,,Chatsworth Station - Studio City via Plummer-Coldwater Canyon,FALSE,,FALSE,
+169,169,,Warner Center - Burbank Airport via Valley Circle-Saticoy St,FALSE,,FALSE,
+177,177,,JPL - Pasadena (Caltech),FALSE,,TRUE,San Gabriel Valley
+179,179,,Rose Hill Transit Center - L Line (Gold) Arcadia Station,TRUE,,FALSE,
+180,180,,Hollywood - Glendale - Pasadena via Los Feliz-Colorado,FALSE,,TRUE,San Gabriel Valley
+182,182,,NorthEast LA - East Hollywood,FALSE,,FALSE,
+200,200,,Echo Park - Exposition Park via Alvarado St-Hoover St,FALSE,,TRUE,Westside Central
+202,202,,Willowbrook - Compton - Del Amo Station,FALSE,,TRUE,South Bay Cities
+204,204,,Hollywood - Athens via Vermont Av,FALSE,,FALSE,
+205,205,,Willowbrook Station - San Pedro via Wilmington Av-Vermont Av,FALSE,,FALSE,
+206,206,,Hollywood - Athens via Normandie Av,FALSE,,FALSE,
+207,207,,Hollywood - Athens via Western Av,FALSE,,TRUE,South Bay Cities
+209,209,,Expo/Crenshaw Station - Crenshaw C Line (Green) Station via Van Ness Av-Arlington Av,FALSE,,FALSE,
+210,210,,Hollywood/Vine Station - South Bay Galleria via Vine St-Wilshire/Western Station-Crenshaw Bl,FALSE,,TRUE,South Bay Cities
+211,211,211,Inglewood-South Bay Galleria via Prairie Av-Inglewood Av,FALSE,Split 211/215 into separate entries.,FALSE,
+215,215,211,Inglewood-South Bay Galleria via Prairie Av-Inglewood Av,FALSE,,FALSE,
+212,212,,Hollywood/Vine Station - Hawthorne/Lennox Station via La Brea Av ,FALSE,,FALSE,
+217,217,,Hollywood/Vine Station - La Cienega Station via Hollywood Bl-Fairfax Av,FALSE,,TRUE,Westside Central
+218,218,,Studio City - Cedars Sinai Medical Center via Laurel Canyon Bl-Fairfax Bl,FALSE,,FALSE,
+222,222,222,Lankershim/Tuxford - Burbank Airport - Hollywood via Hollywood Way & Cahuenga Bl,FALSE,,TRUE,San Fernando Valley
+224,224,,Sylmar Station - Universal City Station via San Fernando Rd-Lankershim Bl,FALSE,,TRUE,San Fernando Valley
+230,230,,Mission College - Studio City via Laurel Canyon Bl,FALSE,,TRUE,San Fernando Valley
+232,232,,LAX City Bus Center - Long Beach - via Sepulveda Bl-Pacific Coast Hwy,FALSE,,FALSE,
+233,233,,Lake View Terrace - Sherman Oaks via Van Nuys Bl (+ Westside Owl service),FALSE,,TRUE,San Fernando Valley
+234,234,,Mission College - Sylmar Station - Sherman Oaks via Sepulveda Bl,FALSE,,TRUE,San Fernando Valley
+235,235,236,Sylmar - Encino via Balboa Bl-Glenoaks Bl,FALSE,,FALSE,
+236,236,236,Sylmar Station - Encino via Balboa Bl,FALSE,,TRUE,San Fernando Valley
+237,237,,Encino-Granada Hill-Mission Hills-North Hollywood via White Oak Av-Woodley Av-Chandler,FALSE,,TRUE,San Fernando Valley
+240,240,,Northridge - Universal City Station via Reseda Bl-Ventura Bl,FALSE,,FALSE,
+242,242,243,Devonshire St - Woodland Hills via Tampa Av-Winnetka Av,FALSE,Split 242/243 into separate entries.,TRUE,San Fernando Valley
+243,243,243,Devonshire St - Woodland Hills via Tampa Av-Winnetka Av,FALSE,,FALSE,
+244,244,,Chatsworth Station - Ventura Bl via De Soto Av,FALSE,,TRUE,San Fernando Valley
+246,246,,San Pedro - Harbor Gateway Transit Center via Avalon Bl,FALSE,,FALSE,
+251,251,,Eagle Rock - Cypress Park - Long Beach Blvd C Line (Green) Station via Eagle Rock Bl-Soto St,FALSE,,TRUE,San Gabriel Valley
+256,256,,Commerce - Sierra Madre Villa Station via Eastern Ave-Ave 64-Washington Bl,FALSE,,TRUE,San Gabriel Valley
+258,258,,Highland Park/South Pasadena - Paramount via Fremont Av-Eastern Av,FALSE,,FALSE,
+260,260,,Altadena - Artesia Station via Fair Oaks Av-Atlantic Bl,FALSE,,FALSE,
+265,265,,Pico Rivera - Lakewood Center Mall via Paramount Bl,FALSE,,FALSE,
+266,266,,Sierra Madre Villa Station - Lakewood Center Mall via Rosemead Bl,FALSE,,FALSE,
+267,267,,Pasadena - El Monte Station via Del Mar Bl-Temple City Bl,FALSE,,FALSE,
+268,268,,Sierra Madre Villa Station - El Monte Station via Baldwin Av,FALSE,,TRUE,San Gabriel Valley
+287,287,,El Monte Station - Arcadia Station via Santa Anita Av,FALSE,,FALSE,
+294,294,,Burbank Station - Sylmar Station via San Fernando Rd,FALSE,,FALSE,
+344,344,,Harbor Gateway Transit Center - Palos Verdes via Hawthorne Bl,FALSE,,FALSE,
+460,460,,Downtown LA - Disneyland via Harbor Transitway-105 Freeway-Norwalk C Line (Green) Station,FALSE,,TRUE,Gateway Cities
+487,487,487,Downtown LA - Sierra Madre Villa Station,FALSE,Split 487/489 into separate entries. Route changes,TRUE,San Gabriel Valley
+489,489,487,Downtown LA - Temple City,FALSE,,FALSE,
+501,501,,North Hollywood - Pasadena Express,FALSE,,TRUE,San Fernando Valley
+534,534,,Malibu - Santa Monica,FALSE,,FALSE,
+550,550,,Jefferson Park - San Pedro via Harbor Transitway,FALSE,,FALSE,
+577,577,,El Monte Station - Long Beach VA Medical Center via I-605 Freeway,FALSE,,TRUE,Gateway Cities
+601,601,,Warner Center Circulator,FALSE,,FALSE,
+602,602,,Westwood - Pacific Palisades via Sunset Bl,FALSE,,TRUE,Westside Central
+603,603,,Glendale - Grand Station via San Fernando Rd-Rampart St-Hoover St,FALSE,,FALSE,
+605,605,,LAC+USC Medical Center - Boyle Heights Shuttle,FALSE,,FALSE,
+611,611,,Huntington Park Shuttle,FALSE,,FALSE,
+617,617,,Beverly Dr - Burton Wy - Robertson Bl Shuttle,FALSE,,FALSE,
+622,622,,Sun Valley - Burbank Airport via Hollywood Wy-Glenoaks Bl-Roscoe Bl,FALSE,,FALSE,
+656,656,222,Panorama - Hollywood Owl via Chandler-Cahuenga,FALSE,,FALSE,
+660,660,,L Line (Gold) Del Mar Station - Fair Oaks St/ Loma Alta Dr ,TRUE,,FALSE,
+662,662,,Altadena-Pasadena Shuttle,FALSE,,FALSE,
+665,665,,Cal State LA - City Terrace Shuttle,FALSE,,FALSE,
+686,686,,Altadena - Pasadena via Allen Av,FALSE,,TRUE,San Gabriel Valley
+690,690,,Sunland-Sylmar,FALSE,,TRUE,San Gabriel Valley
+720,720,,Santa Monica - Downtown LA via Wilshire Bl,FALSE,,TRUE,Westside Central
+754,754,,Hollywood - Athens via Vermont Ave,FALSE,,FALSE,
+761,761,,Sylmar Station - E Line (Expo) Line via Van Nuys Bl-Sepulveda Bl,FALSE,,FALSE,
+854,854 / L Line (Gold) Shuttle,,Union Station - Pico/Aliso Station,FALSE,,FALSE,
+901,901 / G Line (Orange),,Chatsworth - Canoga Park - North Hollywood,FALSE,,FALSE,
+910,910 / J Line (Silver),910,San Pedro - Harbor Gateway Transit Center - Downtown LA - El Monte Station,FALSE,Split 910/950 into separate lookups. ,FALSE,
+950,950 / J Line (Silver),910,San Pedro - Harbor Gateway Transit Center - Downtown LA - El Monte Station,FALSE,,FALSE,

@@ -22,13 +22,22 @@ const SCHEDULE_LINK_TRANLSATED = {
 };
 
 const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
-    ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf'],
-    ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
-    ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
-    ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
-    ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
-    ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
-    ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
+    ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf']];
+    // ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
+    // ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
+    // ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
+    // ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
+    // ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
+    // ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
+
+// const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
+//     ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf'],
+//     ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
+//     ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
+//     ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
+//     ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
+//     ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
+//     ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
 
 function loadContent(data) {
     let summaryContentCombined = '';
@@ -106,9 +115,12 @@ function loadContent(data) {
                             let scheduleLinkP = document.createElement('p');
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
+                            // Albert 11/11/21:
+                            // be sure to change this to the correct schedule link
                             scheduleLink.href = 'files/schedules/802_TT_09-12-21.pdf';
-                            scheduleLink.textContent = 'Download new schedule for B Line (Red) & D Line (Purple)';
-                            scheduleLinkP.appendChild(scheduleLink);
+                            scheduleLink.textContent = 'Download new schedule for A Line (Blue), C Line (Green), E Line (Expo), L Line (Gold)';
+                            // no schedule pdf for the lines yet, so commenting out for now
+                            // scheduleLinkP.appendChild(scheduleLink);
 
                             elem.appendChild(contentHelper(val.content + ' ', 'label'));
                             linkWrapper.appendChild(scheduleLinkP);
