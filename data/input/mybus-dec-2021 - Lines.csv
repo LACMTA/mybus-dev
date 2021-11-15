@@ -124,3 +124,9 @@ Line Number,Line Label,AltLine,Line Description,New Line,Notes,Has Changes?,Area
 901,901 / G Line (Orange),,Chatsworth - Canoga Park - North Hollywood,FALSE,,FALSE,
 910,910 / J Line (Silver),910,San Pedro - Harbor Gateway Transit Center - Downtown LA - El Monte Station,FALSE,Split 910/950 into separate lookups. ,FALSE,
 950,950 / J Line (Silver),910,San Pedro - Harbor Gateway Transit Center - Downtown LA - El Monte Station,FALSE,,FALSE,
+801,Metro A Line (Blue)
+802,Metro B Line (Red)
+803,Metro C Line (Green)
+804,Metro L Line (Gold)
+806,Metro E Line (Expo)
+805,Metro D Line (Purple)
