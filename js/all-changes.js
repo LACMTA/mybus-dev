@@ -22,22 +22,13 @@ const SCHEDULE_LINK_TRANLSATED = {
 };
 
 const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
-    ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf']];
-    // ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
-    // ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
-    // ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
-    // ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
-    // ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
-    // ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
-
-// const TRANSLATED_FILES = [['English', 'files/NextGen_Changes_English.pdf'],
-//     ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf'],
-//     ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
-//     ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
-//     ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
-//     ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
-//     ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
-//     ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
+    ['Español (Spanish)', 'files/NextGen_Changes_Spanish.pdf'],
+    ['中文 (Chinese Traditional)', 'files/NextGen_Changes_Chinese.pdf'],
+    ['한국어 (Korean)', 'files/NextGen_Changes_Korean.pdf'],
+    ['Tiếng Việt (Vietnamese)', 'files/NextGen_Changes_Vietnamese.pdf'],
+    ['日本語 (Japanese)', 'files/NextGen_Changes_Japanese.pdf'],
+    ['русский (Russian)', 'files/NextGen_Changes_Russian.pdf'],
+    ['Армянский (Armenian)', 'files/NextGen_Changes_Armenian.pdf']];
 
 function loadContent(data) {
     let summaryContentCombined = '';
