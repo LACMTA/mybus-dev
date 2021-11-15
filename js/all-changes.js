@@ -70,10 +70,10 @@ function loadContent(data) {
                 case 'summary':
                     elem = document.querySelector('#all-summary .row');
                     
-                    if (order < 3) {
+                    if (order < 2) { // 3) {
                         summaryContentCombined += val.content + ' ';
 
-                        if (order == 2) {
+                        if (order == 1) { //2) {
                             elem.appendChild(contentHelper(summaryContentCombined, 'label'));
 
                             // Insert the links to the PDFs
