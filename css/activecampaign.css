@@ -49,9 +49,9 @@
   font-weight: 700;
   width: 100%;
   text-align: center;
-  background: #000 !important;
+  background: #fff !important;
   border: 0 !important;
-  color: #fff !important;
+  color: #000 !important;
   padding: 12px;
 }
 #_form_75_ ._close-icon {
@@ -379,7 +379,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   *zoom: 1;
-  background: #fff;
+  background: #030000 !important;
   border: 0px solid #b0b0b0 !important;
   width: 100%;
   /*max-width: 500px;*/
@@ -454,12 +454,6 @@
 }
 
 ._form_75 #email::placeholder {
-	color: #6e7073 !important;
-	font-family: 'Open Sans';
-}
-
-#_form_75_ ._form_element input[type="text"], #_form_75_ {
-  border-radius: 1pt;
-  border: 1pt solid #000;
-	background-color: white;
+    color: #fff;
+    font-family: 'Open Sans';
 }
