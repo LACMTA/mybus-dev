@@ -1,0 +1,21 @@
+name: Clone from Dev to Dev site
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+    types: [closed]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pushes to another repository
+        uses: LACMTA/github-action-push-to-another-repo@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
+        with:
+          destination-github-username: 'LACMTA-devops'
+          destination-repository-name: 'mybus-dev'
+          user-email: CSInteractive@metro.net
