@@ -70,10 +70,10 @@ function loadContent(data) {
                 case 'summary':
                     elem = document.querySelector('#all-summary .row');
                     
-                    if (order < 3) {
+                    if (order < 1) { // 3) {
                         summaryContentCombined += val.content + ' ';
 
-                        if (order == 2) {
+                        if (order == 0) { //2) {
                             elem.appendChild(contentHelper(summaryContentCombined, 'label'));
 
                             // Insert the links to the PDFs
@@ -97,7 +97,7 @@ function loadContent(data) {
                             elem.appendChild(linkElem);  
                         }
                     } else {
-                        if (order == 7 ) {
+                        if (order == 4 ) {
                             let linkWrapper = document.createElement('div');
                             linkWrapper.classList.add('mt-4');
                             linkWrapper.classList.add('px-5');
@@ -106,9 +106,12 @@ function loadContent(data) {
                             let scheduleLinkP = document.createElement('p');
                             let scheduleLink = document.createElement('a');
                             scheduleLink.classList.add('scheduleLink');
+                            // Albert 11/11/21:
+                            // be sure to change this to the correct schedule link
                             scheduleLink.href = 'files/schedules/802_TT_09-12-21.pdf';
-                            scheduleLink.textContent = 'Download new schedule for B Line (Red) & D Line (Purple)';
-                            scheduleLinkP.appendChild(scheduleLink);
+                            scheduleLink.textContent = 'Download new schedule for A Line (Blue), C Line (Green), E Line (Expo), L Line (Gold)';
+                            // no schedule pdf for the lines yet, so commenting out for now
+                            // scheduleLinkP.appendChild(scheduleLink);
 
                             elem.appendChild(contentHelper(val.content + ' ', 'label'));
                             linkWrapper.appendChild(scheduleLinkP);
