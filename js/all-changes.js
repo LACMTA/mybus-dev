@@ -97,7 +97,7 @@ function loadContent(data) {
                             elem.appendChild(linkElem);  
                         }
                     } else {
-                        if (order == 7 ) {
+                        if (order == 4 ) {
                             let linkWrapper = document.createElement('div');
                             linkWrapper.classList.add('mt-4');
                             linkWrapper.classList.add('px-5');
