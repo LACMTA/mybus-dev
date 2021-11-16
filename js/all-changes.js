@@ -117,8 +117,10 @@ function loadContent(data) {
                             linkWrapper.appendChild(scheduleLinkP);
                             elem.appendChild(linkWrapper);
                         } else {
-                            elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
-                            elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
+                            elem.appendChild(contentHelper(val.content.match(/.*[:：՝]/g), 'label'));
+                            elem.appendChild(contentHelper(val.content.match(/(?<=[:：՝])(\s?(Tuyến\s?(số)?)?\s?\d+[、,\s\d]+)/g), 'lines'));
+                            // elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
+                            // elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
                         }
                     }
                     break;
