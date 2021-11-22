@@ -161,6 +161,15 @@ function loadContent(data) {
                             scheduleLink.href = val['new-schedule'];
 
                             switch (val.line) {
+                                case 801:
+                                    scheduleLink.textContent = 'Download new schedule for A Line (Blue).';
+                                    break;
+                                case 803:
+                                    scheduleLink.textContent = 'Download new schedule for C Line (Green).';
+                                    break;
+                                case 806:
+                                    scheduleLink.textContent = 'Download new schedule for E Line (Expo).';
+                                    break;
                                 case 901:
                                     scheduleLink.textContent = 'Download new schedule for 901 / G Line (Orange).';
                                     break;
@@ -180,23 +189,13 @@ function loadContent(data) {
                             } else {
                                 switch(LANG) {
                                     case 'es':
-                                        newElem.textContent = 'Línea ' + val.line + ': ';
+                                        newElem.textContent = 'Línea ' + lineLetterHelper(val.line) + ': ';
                                         break;
                                     case 'hy':
-                                        newElem.textContent = val.line + '՝ ';
+                                        newElem.textContent = lineLetterHelper(val.line) + '՝ ';
                                         break;
                                     default:
-                                        switch (val.line) {
-                                            case 901:
-                                                newElem.textContent = val.line + ' / G Line (Orange) – ';
-                                                break;
-                                            case 910:
-                                            case 950:
-                                                newElem.textContent = val.line + ' / J Line (Silver) - ';
-                                                break;
-                                            default:
-                                                newElem.textContent = val.line + ' – ';
-                                        }
+                                        newElem.textContent = lineLetterHelper(val.line) + ' - ';
                                 }                                
                             }
                             newElem.appendChild(scheduleLink);
@@ -245,6 +244,24 @@ function loadContent(data) {
             }
         }
     );
+}
+
+function lineLetterHelper(number) {
+    switch (number) {
+        case 801:
+            return 'A Line (Blue)';
+        case 803:
+            return 'C Line (Green)';
+        case 806:
+            return 'E Line (Expo)';
+        case 901:
+            return number + ' / G Line (Orange)';
+        case 910:
+        case 950:
+            return number + ' / J Line (Silver)';
+        default:
+            return number;
+    }
 }
 
 function contentHelper(content, type) {
