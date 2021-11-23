@@ -97,7 +97,8 @@ function loadContent(data) {
                             elem.appendChild(linkElem);  
                         }
                     } else {
-                        if (order == 7 ) {
+                        // TODO: refactor the hard-coded numbers
+                        if (order == 8 ) {
                             let linkWrapper = document.createElement('div');
                             linkWrapper.classList.add('mt-4');
                             linkWrapper.classList.add('px-5');
