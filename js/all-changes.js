@@ -43,10 +43,10 @@ function loadContent(data) {
             
             
             // TODO: fix this in the data
-            if (section == 'summary' && order == 6) {
-                section = 'details';
-                order = 0;
-            }
+            // if (section == 'summary' && order == 6) {
+            //     section = 'details';
+            //     order = 0;
+            // }
 
             switch(section) {
                 /*
@@ -70,10 +70,10 @@ function loadContent(data) {
                 case 'summary':
                     elem = document.querySelector('#all-summary .row');
                     
-                    if (order < 1) { // 3) {
+                    if (order < 1) {
                         summaryContentCombined += val.content + ' ';
 
-                        if (order == 0) { //2) {
+                        if (order == 0) {
                             elem.appendChild(contentHelper(summaryContentCombined, 'label'));
 
                             // Insert the links to the PDFs
@@ -97,7 +97,7 @@ function loadContent(data) {
                             elem.appendChild(linkElem);  
                         }
                     } else {
-                        if (order == 4 ) {
+                        if (order == 7 ) {
                             let linkWrapper = document.createElement('div');
                             linkWrapper.classList.add('mt-4');
                             linkWrapper.classList.add('px-5');
@@ -117,10 +117,15 @@ function loadContent(data) {
                             linkWrapper.appendChild(scheduleLinkP);
                             elem.appendChild(linkWrapper);
                         } else {
-                            elem.appendChild(contentHelper(val.content.match(/.*[:：՝]/g), 'label'));
-                            elem.appendChild(contentHelper(val.content.match(/(?<=[:：՝])(\s?(Tuyến\s?(số)?)?\s?\d+[、,\s\d]+)/g), 'lines'));
-                            // elem.appendChild(contentHelper(val.content.match(/^\D*/g), 'label'));
-                            // elem.appendChild(contentHelper(val.content.match(/\d+.*\d+/g), 'lines'));
+                            /*
+                                11/23/21 - Nina - Take One translation doc modified to ensure the lists of line numbers
+                                in the summary section start with a digit and are on their own table rows.
+                            */
+                            if (val.content.match(/^\d+/g) != null) {
+                                elem.appendChild(contentHelper(val.content, 'lines'));
+                            } else {
+                                elem.appendChild(contentHelper(val.content, 'label'));
+                            }
                         }
                     }
                     break;
