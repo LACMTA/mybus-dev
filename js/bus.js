@@ -400,7 +400,8 @@ function showLineData(data) {
                     scheduleSection.appendChild(noNewSchedule);
 
                 } else if (THIS_LINE['current-schedule-url'] != '') {
-                    noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+                    // noNewSchedule.textContent = 'Minor service changes to your line, but no changes to the schedule.';
+                    noNewSchedule.textContent = 'No changes to your line\'s schedule.';
 
                     // if (THIS_LINE['card-2'] == 'No route changes.') {
                     //     noNewSchedule.textContent = 'No changes to your line.';

@@ -173,6 +173,9 @@ function loadContent(data) {
                                 case 803:
                                     scheduleLink.textContent = 'Download new schedule for C Line (Green).';
                                     break;
+                                case 804:
+                                    scheduleLink.textContent = 'Download new schedule for L Line (Gold).';
+                                    break;
                                 case 806:
                                     scheduleLink.textContent = 'Download new schedule for E Line (Expo).';
                                     break;
@@ -195,13 +198,13 @@ function loadContent(data) {
                             } else {
                                 switch(LANG) {
                                     case 'es':
-                                        newElem.textContent = 'Línea ' + lineLetterHelper(val.line) + ': ';
+                                        newElem.textContent = lineLetterHelper(val.line) + ': ';
                                         break;
                                     case 'hy':
-                                        newElem.textContent = lineLetterHelper(val.line) + '՝ ';
+                                        newElem.textContent = lineLetterHelper(val.line) + ' – ';
                                         break;
                                     default:
-                                        newElem.textContent = lineLetterHelper(val.line) + ' - ';
+                                        newElem.textContent = lineLetterHelper(val.line) + ' – ';
                                 }                                
                             }
                             newElem.appendChild(scheduleLink);
@@ -214,17 +217,37 @@ function loadContent(data) {
                             scheduleLink.textContent = 'Download current schedule for Line ' + val.line + '.';
                             
                             newElem.classList.add('translate');
-                            switch(LANG) {
-                                case 'es':
-                                    newElem.textContent = 'Línea ' + val.line + ': No changes that affect schedule. ';
-                                    break;
-                                case 'hy':
-                                    newElem.textContent = val.line + '՝ No changes that affect schedule. ';
-                                    newElem.textContent = val.line + '՝ ';
-                                    break;
-                                default:
-                                    newElem.textContent = val.line + ' – No changes that affect schedule. ';
-                            }    
+
+                            if (val.content != null) {
+                                if (parseInt(val.content[0]) == NaN) {
+                                    switch(LANG) {
+                                        case 'es':
+                                            newElem.textContent += lineLetterHelper(val.line) + ': ';
+                                            break;
+                                        case 'hy':
+                                            newElem.textContent += `${val.line} – `;
+                                            break;
+                                        default:
+                                            newElem.textContent = `${val.line} – `;
+                                    }
+                                    newElem.textContent += `${val.content} No changes that affect schedule. `;
+                                } else {
+                                    newElem.textContent += `${val.content} No changes that affect schedule. `;
+                                }
+                            } else {
+                                switch(LANG) {
+                                    case 'es':
+                                        newElem.textContent += lineLetterHelper(val.line) + ': ';
+                                        break;
+                                    case 'hy':
+                                        newElem.textContent += `${val.line} – `;
+                                        break;
+                                    default:
+                                        newElem.textContent = `${val.line} – `;
+                                }
+                                newElem.textContent += ` No changes that affect schedule. `;
+                            }
+                            
 
                             newElem.appendChild(scheduleLink);
                             elem.appendChild(newElem);
@@ -258,6 +281,8 @@ function lineLetterHelper(number) {
             return 'A Line (Blue)';
         case 803:
             return 'C Line (Green)';
+        case 804:
+                return 'L Line (Gold)';
         case 806:
             return 'E Line (Expo)';
         case 901:
