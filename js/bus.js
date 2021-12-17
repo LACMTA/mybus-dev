@@ -491,7 +491,7 @@ document.querySelector('#btnAllChanges').addEventListener('click', function() {
 var center = [-33.8650, 150.2094];
 
 // Create the map
-var map = L.map('routeMapContainer').setView([-34.8650, 152.2094], 8);
+var map = L.map('map').setView([-34.8650, 152.2094], 8);
 map.options.minZoom = 8;
 map.options.maxZoom = 14;
 
