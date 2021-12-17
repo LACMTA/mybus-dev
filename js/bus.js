@@ -494,6 +494,7 @@ var center = [-33.8650, 150.2094];
 var map = L.map('map').setView([-34.8650, 152.2094], 8);
 map.options.minZoom = 8;
 map.options.maxZoom = 14;
+map.setMaxBounds(map.getBounds());
 
 var imageUrl = 'https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fpaper-attachments.dropbox.com%2Fs_82CDBCCDC92C7B9BA5A044F99D4526AD5BF57B51DEDEC862B776F807459DB11E_1638208231673_image.png',
   imageBounds = [center, [-35.8650, 154.2094]];

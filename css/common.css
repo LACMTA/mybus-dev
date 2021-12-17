@@ -29,7 +29,7 @@ hr {
 /************ Map ************/
 #map {
     width: 100%;
-    height: 500px;
+    height: 300px;
 }
 
 #mapContainer {
@@ -371,6 +371,10 @@ h4.l-footer-info__head {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
+    #map {
+        width: 100%;
+        height: 500px;
+    }
 
     .l-container {
         padding: 20px 40px;
