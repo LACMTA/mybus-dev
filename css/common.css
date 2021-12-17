@@ -1,7 +1,8 @@
-body {
+html, body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 400;
     overflow-x: hidden; /*  HORRIBLE STOPGAP. Something is making the page show a horizontal scrollbar!  */
+    height: 100%;
 }
 
 h1 {
@@ -26,9 +27,14 @@ hr {
 }
 
 /************ Map ************/
-#routeMapContainer {
-    width: 100%;
+#routeMap {
+    width: 500px;
     height: 500px;
+}
+
+#routeMapContainer {
+    width: 500px;
+    height: 100%;
 }
 /************ End Map ************/
 
