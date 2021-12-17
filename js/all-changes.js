@@ -97,7 +97,7 @@ function loadContent(data) {
                             elem.appendChild(linkElem);
                             // Added the new system map link here
                             var systemMapLink = '<a href="https://www.dropbox.com/s/fy4auwjppt1rugp/22-0986_blt_system_map_47x47.5_DCR.pdf?dl=0">Bus and Rail System Detail Map</a>'
-                            var systemMapCopy = 'View the new '+systemMapLink+' (effective Sunday 19, 2021).'
+                            var systemMapCopy = 'View the new '+systemMapLink+' (effective Sunday, December 19, 2021).'
                             elem.appendChild(addNewDivContent(systemMapCopy));
                         }
                     } else {
