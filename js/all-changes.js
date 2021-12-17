@@ -95,9 +95,10 @@ function loadContent(data) {
                                 }
                             }
                             elem.appendChild(linkElem);
+                            // Added the new system map link here
                             var systemMapLink = '<a href="https://www.dropbox.com/s/fy4auwjppt1rugp/22-0986_blt_system_map_47x47.5_DCR.pdf?dl=0">Bus and Rail System Detail Map</a>'
                             var systemMapCopy = 'View the new '+systemMapLink+' (effective Sunday 19, 2021).'
-                            elem.appendChild(addNewDivElementContent(systemMapCopy));
+                            elem.appendChild(addNewDivContent(systemMapCopy));
                         }
                     } else {
                         // TODO: refactor the hard-coded numbers
@@ -277,7 +278,8 @@ function loadContent(data) {
         }
     );
 }
-function addNewDivElementContent(the_new_content){
+
+function addNewDivContent(the_new_content){
     let newElem = document.createElement('div');
     newElem.classList.add('mt-4');
     newElem.classList.add('px-5');                            
