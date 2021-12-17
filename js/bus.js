@@ -484,3 +484,19 @@ document.querySelector('#btnAllChanges').addEventListener('click', function() {
         window.location = 'all-changes.html?lang=' + lang;
     }
 });
+
+// Maps!
+
+// center of the map
+var center = [-33.8650, 150.2094];
+
+// Create the map
+var map = L.map('routeMapContainer').setView([-34.8650, 152.2094], 8);
+map.options.minZoom = 8;
+map.options.maxZoom = 14;
+
+var imageUrl = 'https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fpaper-attachments.dropbox.com%2Fs_82CDBCCDC92C7B9BA5A044F99D4526AD5BF57B51DEDEC862B776F807459DB11E_1638208231673_image.png',
+  imageBounds = [center, [-35.8650, 154.2094]];
+
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
+L.imageOverlay(imageUrl, imageBounds).bringToFront();

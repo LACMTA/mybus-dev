@@ -25,6 +25,13 @@ hr {
     color: #FFF;
 }
 
+/************ Map ************/
+#routeMapContainer {
+    width: 100%;
+    height: 500px;
+}
+/************ End Map ************/
+
 /************ Accessibility ************/
 
 /************ Header ************/
