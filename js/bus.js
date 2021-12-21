@@ -305,7 +305,7 @@ function loadTheMap(url){
     .then(response => response.json())
     .then((data) => {
         // see if this line exist in the route maps data
-        if (Object.values(data).indexOf(LINE) > -1){
+        if (typeof data[LINE] !== 'undefined') {
             let imageUrl = data[LINE][0];
             console.log(imageUrl)
             // center of the map
