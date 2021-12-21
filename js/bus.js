@@ -9,6 +9,7 @@ let STOP2_ID_ARR = [];
 const STOP1_NAME = URLPARAMS.get('stop1name');
 const STOP2_NAME = URLPARAMS.get('stop2name');
 
+const DATA_ROUTE_CHANGES_MAPS = 'data/route-change-maps.json';
 const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINE + '-changes.json';
 
