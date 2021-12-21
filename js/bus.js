@@ -304,23 +304,40 @@ function loadTheMap(url){
     fetch(url)
     .then(response => response.json())
     .then((data) => {
-        // see if this line exist in the route maps data
+        // only add the map if this line exists in the route maps data
         if (typeof data[LINE] !== 'undefined') {
+
+            // get the image url for the map
             let imageUrl = data[LINE][0];
-            console.log(imageUrl)
-            // center of the map
-            let center = [-33.8650, 150.2094];
-            // Create the map
-            let map = L.map('map').setView([-34.8650, 152.2094], 8);
-            map.options.minZoom = 8;
-            map.options.maxZoom = 14;
-            map.setMaxBounds(map.getBounds());              
-            imageBounds = [center, [-35.8650, 154.2094]];
+
+            // the bounds of the map
+            let topLeftCorner = [-33.8650, 150.2094];
+            let bottomRightCorner = [-35.8650, 154.2094];
+            
+            // create the map
+            let map = L.map('map');
+           
+            imageBounds = [topLeftCorner, bottomRightCorner];
+            
+            // add the image layer
             L.imageOverlay(imageUrl, imageBounds).addTo(map);
             L.imageOverlay(imageUrl, imageBounds).bringToFront()
+
+            // add the bounds of the map
+            let markerBoundsLayer = L.featureGroup();
+            L.marker([-33.8650, 150.2094]).addTo(markerBoundsLayer);
+            L.marker(bottomRightCorner).addTo(markerBoundsLayer);
+            markerBoundsLayer.addTo(map);
+            map.fitBounds(markerBoundsLayer.getBounds());
+
+            // set the minimum zoom level to the current zoom of the map after the bounds has been set
+            // this is for the responsive map
+            map.options.minZoom = map.getZoom();
+            map.options.maxZoom = 10;
+            map.removeLayer(markerBoundsLayer)
         }
-        // if the line does not exist in the route maps data remove the map container
         else{
+            // if the line does not exist in the route maps data, remove the map container
             var element = document.getElementById('mapContainer');
             element.parentNode.removeChild(element);
         };
