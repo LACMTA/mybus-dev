@@ -13,6 +13,6 @@ for file in folder_path:
     if file.endswith(".png"):        
         img = Image.open(file)
         img = resizeimage.resize_contain(img, [desired_size_w, desired_size_h])
-        img.save("./resized/" + file)
+        img.save("../../maps/route-changes/" + file)
         print("finished resizing " + file)
 print('resizing script finished')
