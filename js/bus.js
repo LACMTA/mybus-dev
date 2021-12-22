@@ -329,7 +329,7 @@ function loadTheMap(url){
             L.marker(bottomRightCorner).addTo(markerBoundsLayer);
             markerBoundsLayer.addTo(map);
             map.fitBounds(markerBoundsLayer.getBounds());
-
+            map.setMaxBounds(markerBoundsLayer.getBounds());
             // set the minimum zoom level to the current zoom of the map after the bounds has been set
             // this is for the responsive map
             map.options.minZoom = map.getZoom();
