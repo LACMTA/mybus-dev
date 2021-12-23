@@ -40,5 +40,5 @@ button#btnAllChanges, button#getSchedule {
 
 /* used to change the background of the map */
 .leaflet-container {
-    background-color:rgba(134, 134, 134, 0.726)
+    background-color:#F5F7FB
 }
