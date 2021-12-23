@@ -9,8 +9,12 @@ let STOP2_ID_ARR = [];
 const STOP1_NAME = URLPARAMS.get('stop1name');
 const STOP2_NAME = URLPARAMS.get('stop2name');
 
+const DATA_ROUTE_CHANGES_MAPS = 'data/route-change-maps.json';
 const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINE + '-changes.json';
+
+
+
 
 const STOP_CHANGE_CATEGORY_LABELS = {
     'service_canceled': 'Service canceled',
@@ -294,6 +298,36 @@ function noStopData(jqxhr, textStatus, error) {
     console.log('Request failed: ' + error); 
 }
 
+
+
+function loadTheMap(url){
+    fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+        // see if this line exist in the route maps data
+        if (typeof data[LINE] !== 'undefined') {
+            let imageUrl = data[LINE][0];
+            console.log(imageUrl)
+            // center of the map
+            let center = [-33.8650, 150.2094];
+            // Create the map
+            let map = L.map('map').setView([-34.8650, 152.2094], 8);
+            map.options.minZoom = 8;
+            map.options.maxZoom = 14;
+            map.setMaxBounds(map.getBounds());              
+            imageBounds = [center, [-35.8650, 154.2094]];
+            L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            L.imageOverlay(imageUrl, imageBounds).bringToFront()
+        }
+        // if the line does not exist in the route maps data remove the map container
+        else{
+            var element = document.getElementById('mapContainer');
+            element.parentNode.removeChild(element);
+        };
+    })
+    .catch(error => console.log(error));
+}
+
 function showLineData(data) {
     for (let i = 0; i < data.length; i++) {
         // find matching line
@@ -484,3 +518,9 @@ document.querySelector('#btnAllChanges').addEventListener('click', function() {
         window.location = 'all-changes.html?lang=' + lang;
     }
 });
+
+// Maps!
+
+loadTheMap('./data/route-change-maps.json')
+
+// console.log(imageUrl);
