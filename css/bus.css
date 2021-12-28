@@ -37,3 +37,8 @@ button#btnAllChanges, button#getSchedule {
 .stop1-name {
     padding-bottom: 15px;
 }
+
+/* used to change the background of the map */
+.leaflet-container {
+    background-color:#F5F7FB;
+}

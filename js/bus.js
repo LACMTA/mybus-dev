@@ -9,8 +9,12 @@ let STOP2_ID_ARR = [];
 const STOP1_NAME = URLPARAMS.get('stop1name');
 const STOP2_NAME = URLPARAMS.get('stop2name');
 
+const DATA_ROUTE_CHANGES_MAPS = 'data/route-change-maps.json';
 const DATA_LINE_CHANGES = 'data/line-changes.json';
 const DATA_STOP_CHANGES = 'data/stop-changes/' + LINE + '-changes.json';
+
+
+
 
 const STOP_CHANGE_CATEGORY_LABELS = {
     'service_canceled': 'Service canceled',
@@ -294,6 +298,53 @@ function noStopData(jqxhr, textStatus, error) {
     console.log('Request failed: ' + error); 
 }
 
+
+
+function loadTheMap(url){
+    fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+        // only add the map if this line exists in the route maps data
+        if (typeof data[LINE] !== 'undefined') {
+
+            // get the image url for the map
+            let imageUrl = data[LINE][0];
+
+            // the bounds of the map
+            let topLeftCorner = [-33.8650, 150.2094];
+            let bottomRightCorner = [-35.8650, 154.2094];
+            
+            // create the map
+            let map = L.map('map');
+           
+            imageBounds = [topLeftCorner, bottomRightCorner];
+            
+            // add the image layer
+            L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            L.imageOverlay(imageUrl, imageBounds).bringToFront()
+
+            // add the bounds of the map
+            let markerBoundsLayer = L.featureGroup();
+            L.marker([-33.8650, 150.2094]).addTo(markerBoundsLayer);
+            L.marker(bottomRightCorner).addTo(markerBoundsLayer);
+            markerBoundsLayer.addTo(map);
+            map.fitBounds(markerBoundsLayer.getBounds());
+            map.setMaxBounds(markerBoundsLayer.getBounds());
+            // set the minimum zoom level to the current zoom of the map after the bounds has been set
+            // this is for the responsive map
+            map.options.minZoom = map.getZoom();
+            map.options.maxZoom = 10;
+            map.removeLayer(markerBoundsLayer)
+        }
+        else{
+            // if the line does not exist in the route maps data, remove the map container
+            var element = document.getElementById('mapContainer');
+            element.parentNode.removeChild(element);
+        };
+    })
+    .catch(error => console.log(error));
+}
+
 function showLineData(data) {
     for (let i = 0; i < data.length; i++) {
         // find matching line
@@ -484,3 +535,9 @@ document.querySelector('#btnAllChanges').addEventListener('click', function() {
         window.location = 'all-changes.html?lang=' + lang;
     }
 });
+
+// Maps!
+
+loadTheMap('./data/route-change-maps.json')
+
+// console.log(imageUrl);

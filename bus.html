@@ -31,12 +31,17 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" rel="stylesheet" />
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link href="css/common.css" rel="stylesheet">
     <link href="css/activecampaign.css" rel="stylesheet">
     <link href="css/bus.css" rel="stylesheet">
-
+    
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    
     <!-- Facebook Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -60,6 +65,19 @@
     <!-- StackAdapt Universal Pixel Code -->
     <script>!function (s, a, e, v, n, t, z) { if (s.saq) return; n = s.saq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!s._saq) s._saq = n; n.push = n; n.loaded = !0; n.version = '1.0'; n.queue = []; t = a.createElement(e); t.async = !0; t.src = v; z = a.getElementsByTagName(e)[0]; z.parentNode.insertBefore(t, z) }(window, document, 'script', 'https://tags.srv.stackadapt.com/events.js'); saq('ts', 'QaVjAwgftZpBJMIVlvENsQ');</script>
     <!-- End StackAdapt Universal Pixel Code -->
+
+    <!-- Hotjar Tracking Code for https://mybus.metro.net -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2090649,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- End Hotjar Tracking Code for https://mybus.metro.net -->
 </head>
 
 <body>
@@ -106,6 +124,17 @@
 
         <div class="mx-lg-3">
             <hr class="mx-lg-3">
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 offset-lg-1 col-lg-10" id="routeMap">
+                <div id="mapContainer" class="pb-3 px-3">
+                    <div id="map">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
