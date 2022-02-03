@@ -107,13 +107,15 @@
     <section id="all-header">
         <div class="container">
             <div class="row">
+                <h1 class="my-5">Metro is making more service changes.</h1>
             </div>
         </div>
     </section>
 
-    <section id="all-summary" class="pt-4 pb-5">
+    <section id="all-summary" class="py-4">
         <div class="container">
             <div class="row">
+                <p>Effective February 20, 2022, Metro will introduce schedule changes for most bus and all rail lines. These changes will adjust service levels slightly so that Metro can operate more reliably each day, significantly reducing missed service, and creating shorter wait times and more room on each bus for our customers. Service will be adjusted based on ridership patterns.</p>
             </div>
         </div>
     </section>
@@ -121,6 +123,60 @@
     <section id="all-details" class="pt-4">
         <div class="container">
             <div class="row">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="weekdays-tab" data-bs-toggle="tab" data-bs-target="#weekdays" type="button" role="tab" aria-controls="Weekdays" aria-selected="true">Weekdays</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="saturdays-tab" data-bs-toggle="tab" data-bs-target="#saturdays" type="button" role="tab" aria-controls="Saturdays" aria-selected="false">Saturdays</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="sundays-tab" data-bs-toggle="tab" data-bs-target="#sundays" type="button" role="tab" aria-controls="Sundays" aria-selected="false">Sundays</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="weekdays" role="tabpanel" aria-labelledby="weekdays-tab">
+                        <table class="table table-bordered my-4 align-middle">
+                            <caption>Table of weekday frequencies for Metro bus and rail.</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" width="12%">Line</th>
+                                    <th scope="col" width="22%">Morning Peak</th>
+                                    <th scope="col" width="22%">Midday</th>
+                                    <th scope="col" width="22%">Evening Peak</th>
+                                    <th scope="col" width="22%">Evening</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="saturdays" role="tabpanel" aria-labelledby="saturdays-tab">
+                        <table class="table table-bordered my-4 align-middle">
+                            <caption>Table of Saturday frequencies for Metro bus and rail.</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" width="12%">Line</th>
+                                    <th scope="col">Daytime</th>
+                                    <th scope="col">Evening</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="sundays" role="tabpanel" aria-labelledby="sundays-tab">
+                        <table class="table table-bordered my-4 align-middle">
+                            <caption>Table of Sunday frequencies for Metro bus and rail.</caption>
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" width="12%">Line</th>
+                                    <th scope="col">Daytime</th>
+                                    <th scope="col">Evening</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                  </div>
             </div>
         </div>
     </section>

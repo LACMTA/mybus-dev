@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Details for Bus Line </title>
+    <title>Is my bus line changing? - All Service Changes</title>
     
     <!-- Global site tag (gtag.js) - Google Analytics (UA) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10002990-14"></script>
@@ -31,17 +31,11 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" rel="stylesheet" />
-    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link href="css/common.css" rel="stylesheet">
-    <link href="css/activecampaign.css" rel="stylesheet">
-    <link href="css/bus.css" rel="stylesheet">
-    
-    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    
+    <link href="css/all-changes.css" rel="stylesheet">
+
     <!-- Facebook Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
@@ -110,144 +104,57 @@
     </header>
     <!---------------------- End Header ---------------------->
 
-    <div id="results-header" class="pb-3">
-        <div class="container-fluid">
+    <section id="all-header">
+        <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="px-3" id="headerLine">
-                        <h1 id="lineNumber" class="mt-4"></h1>
-                        <p id="lineDescription" class="fw-bold mb-3"></p>
-                    </div>
-                </div>
             </div>
         </div>
+    </section>
 
-        <div class="mx-lg-3">
-            <hr class="mx-lg-3">
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 offset-lg-1 col-lg-10" id="routeMap">
-                <div id="mapContainer" class="pb-3 px-3">
-                    <div id="map">
-                    </div>
-                </div>
+    <section id="all-summary" class="pt-4 pb-5">
+        <div class="container">
+            <div class="row">
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 offset-lg-1 col-lg-3 d-none" id="stopSelection">
-                <div class="px-3" id="headerStopsLabel">
-                    <div class="card mb-3 card-green">
-                        <div class="card-body d-flex flex-row align-items-center">
-                            <img src="img/bus.png" alt="bus icon" width=20>
-                            <div style="width: 12px;"></div>
-                            <div class="card-text">
-                                Bus Line Stops Selected
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="px-3" id="headerStops">
-                    <div id="stopPath">
-                        <svg width='30px' height='60px'>
-                            <circle cx='9' cy='10' r='4' fill='white' />
-                            <line x1='9' y1='16' x2='9' y2='44' stroke='white' stroke-width='2' stroke-linecamp='square' stroke-dasharray='4' />
-                            <circle cx='9' cy='50' r='4' fill='white' />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-7" id="changes">
-                <div id="results-stops" class="px-3">
-                </div>
-                <div id="results-line" class="px-3">
-                </div>
+    <section id="all-details" class="pt-4">
+        <div class="container">
+            <div class="row">
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 d-lg-none px-0" id="results-timetable-image-container">
-                <img class="img-fluid d-md-none" width="100%" src="img/schedule-covers-mobile.jpg" alt="system map">
-            </div>
-            <div class="col-12 offset-lg-1 col-lg-5" id="results-timetable-container">
-                <div id="results-timetable" class="d-flex flex-column px-3">
-                    <img class="img-fluid d-none d-md-block my-3" width="100%" src="img/schedule-covers-desktop.jpg" alt="an illustration showing people waiting at a bus stop" />
-                    <div class="py-4">
-                        <h2>Schedule</h2>
-                        <div id="timetable-content"></div>
-                    </div>
+    <section id="all-end" class="mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class='d-flex mt-4'>
+                    <img src='img/phone-lang-icon.png' alt='' /> <span class="phone">323.466.3876</span>
                 </div>
-            </div>
-            <div class="col-12 d-lg-none px-0" id="all-changes-image-container">
-                <img class="img-fluid d-md-none" width="100%" src="img/bus-boarding-mobile.png" alt="an illustration showing people waiting at a bus stop">
-            </div>
-            <div class="col-12 col-lg-5">
-                <div id="results-all-changes" class="d-flex flex-column px-3" id="all-changes-container">
-                    <img class="img-fluid d-none d-md-block my-3" width="100%" src="img/bus-boarding-desktop.png" alt="an illustration showing people waiting at a bus stop" />
-                    <div class="py-4">
-                        <h2>All Bus Service Updates</h2>
-                        <p>To operate reliably and reduce missed service, bus and train schedules will be updated on Feb 20.</p>
-                        <button type="button" class="btn btn-dark col-12 offset-lg-3 col-lg-6 my-4" id="btnAllChanges">See All Updates</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="section-signup">
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center py-5">
-                <div class="offset-lg-1 col-lg-4">
-                    <div class="px-3">
-                        <h2>
-                            Get Updates on Future Improvements
-                        </h2>
-                    </div>
-                </div>
-            
-                <div class="_form_75 offset-lg-1 col-lg-5">
-                    <div>
-                        <p class="px-3">
-                            Metro is relentlessly focused on making your bus system better. Get advanced notice of future improvements to your bus line.
-                        </p>
-                        <form method="POST" action="https://metro77073.activehosted.com/proc.php" id="_form_75_"
-                            class="_form _form_75 _inline-form px-3" novalidate>
-                            <input type="hidden" name="u" value="75" />
-                            <input type="hidden" name="f" value="75" />
-                            <input type="hidden" name="s" />
-                            <input type="hidden" name="c" value="0" />
-                            <input type="hidden" name="m" value="0" />
-                            <input type="hidden" name="act" value="sub" />
-                            <input type="hidden" name="v" value="2" />
-                            <div class="_form-content d-lg-flex">
-                                <div class="_form_element _x68633660 col-lg-8">
-                                    <div class="_field-wrapper">
-                                        <input type="text" id="email" name="email" placeholder="Enter email address" required />
-                                    </div>
-                                </div>
-                                <div class="_button-wrapper offset-lg-1 col-lg-3">
-                                    <button id="_form_75_submit" class="_submit mb-4" type="submit">
-                                        Sign up
-                                    </button>
-                                </div>
-                                <div class="_clear-element">
-                                </div>
-                            </div>
-                            <div class="_form-thank-you" style="display:none;">
-                            </div>
-                        </form>
-                    </div>
+                <div class="notranslate">
+                    <p><strong>x2</strong> Español (Spanish)<br>
+                    <strong>x3</strong> 中文 (Chinese Traditional)<br>
+                    <strong>x4</strong> 한국어 (Korean)<br>
+                    <strong>x5</strong> Tiếng Việt (Vietnamese)<br>
+                    <strong>x6</strong> 日本語 (Japanese)<br>
+                    <strong>x7</strong> русский (Russian)<br>
+                    <strong>x8</strong> Армянский (Armenian)</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- <section id="all-download" class='py-5'>
+        <div class="container">
+            <div class="row">
+                <h2>Downloadable PDF</h2>
+                <p>Download a printable PDF version of all changes.</p>
+                <div>
+                    <button type="button" class="btn btn-dark col-12 mb-4" id="btnDownloadTimetables">Download PDF</button>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <!---------------------- Start Footer ---------------------->
     <footer>
@@ -534,8 +441,7 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         defer></script>
     <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/bus.js"></script>
-    <script type="text/javascript" src="js/activecampaign.js"></script>
+    <script type="text/javascript" src="js/all-changes.js"></script>
     <!-- Active Campaign tracking -->
     <script type="text/javascript">
         (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
