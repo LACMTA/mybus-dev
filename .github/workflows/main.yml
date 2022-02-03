@@ -16,6 +16,9 @@ jobs:
         uses: LACMTA/github-action-push-to-another-repo@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
+          DESTINATION_GITHUB_USERNAME: 'LACMTA-devops'
+          DESTINATION_REPOSITORY_NAME: 'mybus-dev'
+          DESTINATION_GITHUB_EMAIL: 'CSInteractive@metro.net'
         with:
           destination-github-username: 'LACMTA-devops'
           destination-repository-name: 'mybus-dev'
