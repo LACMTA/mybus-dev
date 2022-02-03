@@ -12,11 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
+        run: |
           git config user.name LACMTA-devops
           git config user.email CSInteractive@Metro.net
           git remote add mybus-dev "https://${{ secrets.METRO_GITHUB_TOKEN }}@github.com/LACMTA/mybus-dev.git"
           git push mybus-dev dev
+          
       #- name: Pushes to another repository
       #  uses: LACMTA/github-action-push-to-another-repo@main
       #  env:
