@@ -10,11 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      METRO_GITHUB_TOKEN: ${{ secrets.METRO_GITHUB_TOKEN }}
     steps:
-      # - uses: actions/checkout@v2
-      - name: Pushes to another repository
-        uses: LACMTA/github-action-push-to-another-repo@testing
-        # env:
-          # METRO_GITHUB_TOKEN: ${{ secrets.METRO_GITHUB_TOKEN }}
-        with:
-          github-token: ${{ secrets.METRO_GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Push to Dev Repository
+        run: python update-dev.py
