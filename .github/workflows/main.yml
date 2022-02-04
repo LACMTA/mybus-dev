@@ -17,7 +17,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
         with:
-          # destination-github-username: 'LACMTA-devops'
-          # destination-repository-name: 'mybus-dev'
-          # user-email: CSInteractive@metro.net
-          github_token: ${{ secrets.METRO_GITHUB_TOKEN }}
+          user-email: CSInteractive@metro.net
+          user-name: 'LACMTA-devops'
+          github-token: ${{ secrets.METRO_GITHUB_TOKEN }}
+          destination-repository-name: 'mybus-dev'
