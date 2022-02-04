@@ -20,4 +20,3 @@ jobs:
           user-email: CSInteractive@metro.net
           user-name: 'LACMTA-devops'
           github-token: ${{ secrets.METRO_GITHUB_TOKEN }}
-          destination-repository-name: 'mybus-dev'
