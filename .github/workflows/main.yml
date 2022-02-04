@@ -15,8 +15,6 @@ jobs:
       - name: Pushes to another repository
         uses: LACMTA/github-action-push-to-another-repo@testing
         # env:
-        #   API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
+          # METRO_GITHUB_TOKEN: ${{ secrets.METRO_GITHUB_TOKEN }}
         with:
-          # user-email: CSInteractive@metro.net
-          # user-name: 'LACMTA-devops'
           github-token: ${{ secrets.METRO_GITHUB_TOKEN }}
