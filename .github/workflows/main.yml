@@ -1,4 +1,4 @@
-name: Clone from Dev to Dev site with Docker and Python
+name: Clone from Dev-branch to Dev site with Python
 
 on:
   # Triggers the workflow on push or pull request events but only for the dev branch
