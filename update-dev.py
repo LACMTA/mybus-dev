@@ -5,7 +5,7 @@ def push_to_github():
 	arg3 = os.environ.get("METRO_GITHUB_TOKEN")
 	try:
 		os.system('git clone --single-branch --branch dev "https://'+arg3+'@github.com/LACMTA/mybus.git" "mybus"')
-		os.system('cd mybus')
+		os.chdir('mybus')
 		os.system('git remote add mybus-dev "https://'+arg3+'@github.com/LACMTA/mybus-dev.git"')
 		os.system('git push mybus-dev dev')
 		print('Successfully pushed to mybus-dev')
