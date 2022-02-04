@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
       - name: Pushes to another repository
         uses: LACMTA/github-action-push-to-another-repo@testing
         # env:
