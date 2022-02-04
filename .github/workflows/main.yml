@@ -11,13 +11,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Pushes to another repository
         uses: LACMTA/github-action-push-to-another-repo@testing
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
-        # with:
+        # env:
+        #   API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
+        with:
           # user-email: CSInteractive@metro.net
           # user-name: 'LACMTA-devops'
-          # github-token: ${{ secrets.METRO_GITHUB_TOKEN }}
-# 
+          github-token: ${{ secrets.METRO_GITHUB_TOKEN }}
