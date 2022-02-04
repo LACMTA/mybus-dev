@@ -2,71 +2,12 @@ const QUERYSTRING = window.location.search;
 const URLPARAMS = new URLSearchParams(QUERYSTRING);
 const LANG = URLPARAMS.get('lang');
 const DATA_PATH = 'data/takeones/';
-const FREQ_TABLE_PATH = 'data/frequency-table.json';
-const FREQ_PERIODS = {
-    "weekdays": ["weekdays-peak", "weekdays-midday", "weekdays-evening"],
-    "saturdays": ["saturdays-daytime", "saturdays-evening"],
-    "sundays": ["sundays-daytime", "sundays-evening"]
-};
-
-$.getJSON(FREQ_TABLE_PATH, loadFrequencyTable);
-
-
-function loadFrequencyTable(data) {
-    weekdays_table = document.querySelector('#weekdays table tbody');
-    saturdays_table = document.querySelector('#saturdays table tbody');
-    sundays_table = document.querySelector('#sundays table tbody');
-
-    for (let i = 0; i < data.length; i++) {
-        let weekday_row = document.createElement('tr');
-        
-        let line_number = document.createElement('th');
-        line_number.innerHTML = data[i].line;
-        line_number.setAttribute('scope', 'row');
-        weekday_row.appendChild(line_number);
-
-        let saturday_row = weekday_row.cloneNode(true);
-        let sunday_row = weekday_row.cloneNode(true);
-
-        weekday_peak = document.createElement('td');
-        weekday_peak.innerHTML = data[i]["weekday-peak"];
-        weekday_mid = document.createElement('td');
-        weekday_mid.innerHTML = data[i]["weekday-midday"];
-        weekday_evening = document.createElement('td');
-        weekday_evening.innerHTML = data[i]["weekday-evening"];
-
-        weekday_row.appendChild(weekday_peak);
-        weekday_row.appendChild(weekday_mid);
-        weekday_row.appendChild(weekday_peak.cloneNode(true));
-        weekday_row.appendChild(weekday_evening);
-
-        saturdays_daytime = document.createElement('td');
-        saturdays_daytime.innerHTML = data[i]["saturday-daytime"];
-        saturdays_evening = document.createElement('td');
-        saturdays_evening.innerHTML = data[i]["saturday-evening"];
-        sundays_daytime = document.createElement('td');
-        sundays_daytime.innerHTML = data[i]["sunday-daytime"];
-        sundays_evening = document.createElement('td');
-        sundays_evening.innerHTML = data[i]["sunday-evening"];
-
-        saturday_row.appendChild(saturdays_daytime);
-        saturday_row.appendChild(saturdays_evening);
-        sunday_row.appendChild(sundays_daytime);
-        sunday_row.appendChild(sundays_evening);    
-
-        weekdays_table.appendChild(weekday_row);
-        saturdays_table.appendChild(saturday_row);
-        sundays_table.appendChild(sunday_row);
-    }
-}
-
-
 
 if (LANG == null || LANG == 'undefined' || LANG == '' || LANG == 'en') {
-    // $.getJSON(DATA_PATH + 'takeone-en.json', loadContent);
+    $.getJSON(DATA_PATH + 'takeone-en.json', loadContent);
 
 } else {
-    // $.getJSON(DATA_PATH + 'takeone-' + LANG + '.json', loadContent);
+    $.getJSON(DATA_PATH + 'takeone-' + LANG + '.json', loadContent);
 }
 
 const SCHEDULE_LINK_TRANLSATED = {
