@@ -13,15 +13,42 @@ $.getJSON(FREQ_TABLE_PATH, loadFrequencyTable);
 
 
 function loadFrequencyTable(data) {
-    weekdays_table = document.querySelector('#weekdays table tbody');
-    saturdays_table = document.querySelector('#saturdays table tbody');
-    sundays_table = document.querySelector('#sundays table tbody');
+    named_lines = {
+        801: 'A Line (Blue)',
+        802: 'B Line (Red)',
+        803: 'C Line (Green)',
+        804: 'L Line (Gold)',
+        805: 'D Line (Purple)',
+        806: 'E Line (Expo)',
+        854: 'L Line (Gold) Shuttle',
+        901: 'G Line (Orange)',
+        910: 'J Line/910 (Silver)',
+        950: 'J Line/950 (Silver)',
+    };
+    day_of_week = {
+        'weekday': '#weekdays',
+        'saturday': '#saturdays',
+        'sunday': '#sundays'
+    };    
+    line_type = {
+        'bus': '.busLinesPanel',
+        'rail': '.railLinesPanel'
+    };
+    table_selector = 'table tbody';
+
+    weekdays_tab = document.querySelector(day_of_week.weekday);
+    saturdays_tab = document.querySelector(day_of_week.saturday);
+    sundays_tab = document.querySelector(day_of_week.sunday);
 
     for (let i = 0; i < data.length; i++) {
         let weekday_row = document.createElement('tr');
         
         let line_number = document.createElement('th');
-        line_number.innerHTML = data[i].line;
+        if (data[i].line in named_lines) {
+            line_number.innerHTML = named_lines[data[i].line];
+        } else {
+            line_number.innerHTML = data[i].line;
+        }
         line_number.setAttribute('scope', 'row');
         weekday_row.appendChild(line_number);
 
@@ -54,9 +81,16 @@ function loadFrequencyTable(data) {
         sunday_row.appendChild(sundays_daytime);
         sunday_row.appendChild(sundays_evening);    
 
-        weekdays_table.appendChild(weekday_row);
-        saturdays_table.appendChild(saturday_row);
-        sundays_table.appendChild(sunday_row);
+        // Find appropriate table to append to
+        if (data[i].line > 800 && data[i].line < 900) {
+            weekdays_tab.querySelector(line_type.rail + ' '  + table_selector).appendChild(weekday_row);
+            saturdays_tab.querySelector(line_type.rail + ' '  + table_selector).appendChild(saturday_row);
+            sundays_tab.querySelector(line_type.rail + ' '  + table_selector).appendChild(sunday_row);
+        } else {
+            weekdays_tab.querySelector(line_type.bus + ' '  + table_selector).appendChild(weekday_row);
+            saturdays_tab.querySelector(line_type.bus + ' '  + table_selector).appendChild(saturday_row);
+            sundays_tab.querySelector(line_type.bus + ' '  + table_selector).appendChild(sunday_row);
+        }
     }
 }
 

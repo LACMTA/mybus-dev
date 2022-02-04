@@ -1298,7 +1298,7 @@
    "sunday-evening": "20"
  },
  {
-   "line": "A Line (Blue)",
+   "line": 801,
    "owl": "",
    "weekday-peak": "10",
    "weekday-midday": "12",
@@ -1309,7 +1309,7 @@
    "sunday-evening": "15-20"
  },
  {
-   "line": "B Line (Red)",
+   "line": 802,
    "owl": "",
    "weekday-peak": "15",
    "weekday-midday": "15",
@@ -1320,7 +1320,7 @@
    "sunday-evening": "15-20"
  },
  {
-   "line": "C Line (Green)",
+   "line": 803,
    "owl": "",
    "weekday-peak": "10",
    "weekday-midday": "15",
@@ -1331,7 +1331,7 @@
    "sunday-evening": "15-20"
  },
  {
-   "line": "D Line (Purple)",
+   "line": 805,
    "owl": "",
    "weekday-peak": "15",
    "weekday-midday": "15",
@@ -1342,7 +1342,7 @@
    "sunday-evening": "15-20"
  },
  {
-   "line": "E Line (Expo)",
+   "line": 806,
    "owl": "",
    "weekday-peak": "10",
    "weekday-midday": "12",
@@ -1353,7 +1353,7 @@
    "sunday-evening": "15-20"
  },
  {
-   "line": "L Line (Gold)",
+   "line": 804,
    "owl": "",
    "weekday-peak": "10",
    "weekday-midday": "12",
@@ -1364,7 +1364,7 @@
    "sunday-evening": "15-20"
  },
  {
-   "line": "G Line (Orange/901)",
+   "line": 901,
    "owl": "Y",
    "weekday-peak": "7.5",
    "weekday-midday": "10",
@@ -1375,7 +1375,7 @@
    "sunday-evening": "12-20"
  },
  {
-   "line": "J Line (Silver/910)",
+   "line": 910,
    "owl": "Y",
    "weekday-peak": "7.5",
    "weekday-midday": "10",
@@ -1386,7 +1386,7 @@
    "sunday-evening": "15-40"
  },
  {
-   "line": "J Line (Silver/950)",
+   "line": 950,
    "owl": "",
    "weekday-peak": "15",
    "weekday-midday": "30",

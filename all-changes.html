@@ -107,7 +107,7 @@
     <section id="all-header">
         <div class="container">
             <div class="row">
-                <h1 class="my-5">Metro is making more service changes.</h1>
+                <h1 class="my-5">Metro is making service changes.</h1>
             </div>
         </div>
     </section>
@@ -115,7 +115,7 @@
     <section id="all-summary" class="py-4">
         <div class="container">
             <div class="row">
-                <p>Effective February 20, 2022, Metro will introduce schedule changes for most bus and all rail lines. These changes will adjust service levels slightly so that Metro can operate more reliably each day, significantly reducing missed service, and creating shorter wait times and more room on each bus for our customers. Service will be adjusted based on ridership patterns.</p>
+                <p>Effective February 20, 2022, Metro will introduce schedule changes for most bus and all rail lines. These changes will adjust service levels so that Metro can operate more reliably each day, significantly reducing missed service, and creating shorter wait times and more room on each bus for our customers. Service will be adjusted based on ridership patterns.</p>
             </div>
         </div>
     </section>
@@ -134,47 +134,157 @@
                       <button class="nav-link" id="sundays-tab" data-bs-toggle="tab" data-bs-target="#sundays" type="button" role="tab" aria-controls="Sundays" aria-selected="false">Sundays</button>
                     </li>
                   </ul>
+                  <!---------------------------Weekdays---------------------------->
                   <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="weekdays" role="tabpanel" aria-labelledby="weekdays-tab">
-                        <table class="table table-bordered my-4 align-middle">
-                            <caption>Table of weekday frequencies for Metro bus and rail.</caption>
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col" width="12%">Line</th>
-                                    <th scope="col" width="22%">Morning Peak</th>
-                                    <th scope="col" width="22%">Midday</th>
-                                    <th scope="col" width="22%">Evening Peak</th>
-                                    <th scope="col" width="22%">Evening</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                    <div class="tab-pane fade show active py-5" id="weekdays" role="tabpanel" aria-labelledby="weekdays-tab">
+                        <div class="accordion" id="weekdayAccordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="busLinesHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#weekdayAccordionBus" aria-expanded="true" aria-controls="weekdayAccordionBus">
+                                  Bus Lines
+                                </button>
+                              </h2>
+                              <div id="weekdayAccordionBus" class="accordion-collapse collapse show busLinesPanel" aria-labelledby="busLinesHeading" >
+                                <div class="accordion-body">
+                                    <table class="table table-bordered my-4 align-middle caption-top">
+                                        <caption>Frequency in minutes for Metro buses on weekdays.</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col" width="12%">Line</th>
+                                                <th scope="col" width="22%">6 - 9am</th>
+                                                <th scope="col" width="22%">9am - 3pm</th>
+                                                <th scope="col" width="22%">3 - 7pm</th>
+                                                <th scope="col" width="22%">7pm - 12am</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="railLinesHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#weekdayAccordionRail" aria-expanded="false" aria-controls="weekdayAccordionRail">
+                                  Rail Lines
+                                </button>
+                              </h2>
+                              <div id="weekdayAccordionRail" class="accordion-collapse collapse show railLinesPanel" aria-labelledby="railLinesHeading" >
+                                <div class="accordion-body">
+                                    <table class="table table-bordered my-4 align-middle caption-top">
+                                        <caption>Frequency in minutes for Metro trains on weekdays.</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col" width="12%">Line</th>
+                                                <th scope="col" width="22%">6 - 9am</th>
+                                                <th scope="col" width="22%">9am - 3pm</th>
+                                                <th scope="col" width="22%">3 - 7pm</th>
+                                                <th scope="col" width="22%">7pm - 12am</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="saturdays" role="tabpanel" aria-labelledby="saturdays-tab">
-                        <table class="table table-bordered my-4 align-middle">
-                            <caption>Table of Saturday frequencies for Metro bus and rail.</caption>
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col" width="12%">Line</th>
-                                    <th scope="col">Daytime</th>
-                                    <th scope="col">Evening</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                    <!---------------------------Saturdays---------------------------->
+                    <div class="tab-pane fade py-5" id="saturdays" role="tabpanel" aria-labelledby="saturdays-tab">
+                        <div class="accordion" id="saturdayAccordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="busLinesHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#saturdayAccordionBus" aria-expanded="true" aria-controls="saturdayAccordionBus">
+                                  Bus Lines
+                                </button>
+                              </h2>
+                              <div id="saturdayAccordionBus" class="accordion-collapse collapse show busLinesPanel" aria-labelledby="busLinesHeading" >
+                                <div class="accordion-body">
+                                    <table class="table table-bordered my-4 align-middle caption-top">
+                                        <caption>Frequency in minutes for Metro buses on Saturdays.</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col" width="12%">Line</th>
+                                                <th scope="col">9am - 7pm</th>
+                                                <th scope="col">7pm - 12am</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="railLinesHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#saturdayAccordionRail" aria-expanded="false" aria-controls="saturdayAccordionRail">
+                                  Rail Lines
+                                </button>
+                              </h2>
+                              <div id="saturdayAccordionRail" class="accordion-collapse collapse show railLinesPanel" aria-labelledby="railLinesHeading" >
+                                <div class="accordion-body">
+                                    <table class="table table-bordered my-4 align-middle caption-top">
+                                        <caption>Frequency in minutes for Metro trains on Saturdays.</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col" width="12%">Line</th>
+                                                <th scope="col">9am - 7pm</th>
+                                                <th scope="col">7pm - 12am</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="sundays" role="tabpanel" aria-labelledby="sundays-tab">
-                        <table class="table table-bordered my-4 align-middle">
-                            <caption>Table of Sunday frequencies for Metro bus and rail.</caption>
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col" width="12%">Line</th>
-                                    <th scope="col">Daytime</th>
-                                    <th scope="col">Evening</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                    <!---------------------------Sundays---------------------------->
+                    <div class="tab-pane fade py-5" id="sundays" role="tabpanel" aria-labelledby="sundays-tab">
+                        <div class="accordion" id="sundayAccordion">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="busLinesHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sundayAccordionBus" aria-expanded="true" aria-controls="sundayAccordionBus">
+                                  Bus Lines
+                                </button>
+                              </h2>
+                              <div id="sundayAccordionBus" class="accordion-collapse collapse show busLinesPanel" aria-labelledby="busLinesHeading" >
+                                <div class="accordion-body">
+                                    <table class="table table-bordered my-4 align-middle caption-top">
+                                        <caption>Frequency in minutes for Metro buses on Sundays.</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col" width="12%">Line</th>
+                                                <th scope="col">9am - 7pm</th>
+                                                <th scope="col">7pm - 12am</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="railLinesHeading">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sundayAccordionRail" aria-expanded="false" aria-controls="sundayAccordionRail">
+                                  Rail Lines
+                                </button>
+                              </h2>
+                              <div id="sundayAccordionRail" class="accordion-collapse collapse show railLinesPanel" aria-labelledby="railLinesHeading" >
+                                <div class="accordion-body">
+                                    <table class="table table-bordered my-4 align-middle caption-top">
+                                        <caption>Frequency in minutes for Metro trains on Sundays.</caption>
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col" width="12%">Line</th>
+                                                <th scope="col">9am - 7pm</th>
+                                                <th scope="col">7pm - 12am</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                     </div>
                   </div>
             </div>

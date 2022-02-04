@@ -12,10 +12,10 @@
 
 #all-summary, #all-end {
     /* background: #334996; */
-    color: #fff;
+    color: #000;
 
     /* For Feb 2022 shakeup */
-    background: #000;
+    background: #fff;
 }
 
 #all-details {
