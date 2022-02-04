@@ -6,11 +6,9 @@ def push_to_github():
 	try:
 		os.system('git clone --single-branch --branch dev "https://'+arg3+'@github.com/LACMTA/mybus.git" "mybus"')
 		os.chdir('mybus')
-		os.system('git pull')
 		os.system('git remote add mybus-dev "https://'+arg3+'@github.com/LACMTA/mybus-dev.git"')
-		os.system('git fetch --all')
 		os.system('git pull')
-		os.system('git push mybus-dev dev')
+		os.system('git push mybus-dev dev -f')
 		print('Successfully pushed to mybus-dev')
 	except Exception as e:
 		print('Error pushing to mybus-dev: ' + str(e))
