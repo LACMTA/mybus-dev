@@ -3,21 +3,31 @@
 /* dark gray: #242021 */
 
 #all-header {
-    background: #f26b31;
-    color: #fff;
+    /* background: #f26b31; */
+    /* color: #fff; */
+
+    /* For Feb 2022 shakeup */
+    color: #000;
 }
 
 #all-summary, #all-end {
-    background: #334996;
+    /* background: #334996; */
     color: #fff;
+
+    /* For Feb 2022 shakeup */
+    background: #000;
 }
 
 #all-details {
-    color: #242021;
+    /* color: #242021; */
+
+    /* For Feb 2022 shakeup */
+    color: #000;
+    background-color: #fff;
 }
 
 #all-details .row div {
-    border-bottom: solid 2px #f25b31;
+    /* border-bottom: solid 2px #f25b31; */
 }
 
 #all-end {
@@ -31,4 +41,8 @@
 
 #all-summary a, #all-end a {
     color: #fff;
+}
+
+table {
+    text-align: center;
 }

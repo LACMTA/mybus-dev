@@ -410,7 +410,7 @@ function showLineData(data) {
             let scheduleSection = document.querySelector('#timetable-content');
             if (THIS_LINE['schedule-url'] != '') {                
                 let scheduleExists1 = document.createElement('p');
-                scheduleExists1.textContent = 'Download the new schedule and map for this bus line.';
+                scheduleExists1.textContent = 'Download the current schedule and map for this bus line. New timetables for the Feb 20 service changes will be available very soon.';
                 
                 let buttonDiv = document.createElement('div');
                 let button = document.createElement('button');
@@ -420,8 +420,8 @@ function showLineData(data) {
                 button.classList.add('my-4');
                 button.id = 'getSchedule';
                 button.type = 'button';
-                button.textContent = 'Download New Schedule PDF';
-                button.ariaLabel = 'Download new schedule PDF';
+                button.textContent = 'Download Current Schedule PDF';
+                button.ariaLabel = 'Download current schedule PDF';
 
                 button.classList.add('offset-lg-3');
                 button.classList.add('col-lg-6');
