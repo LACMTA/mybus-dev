@@ -1,25 +1,18 @@
-name: Clone from Dev to Dev site
+name: Clone from Dev-branch to Dev site with Python
+
 on:
   # Triggers the workflow on push or pull request events but only for the dev branch
   push:
-    branches: [ dev ]
+    branches: [ dev, testing-actions ]
   pull_request:
     branches: [ dev ]
     types: [closed]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      METRO_GITHUB_TOKEN: ${{ secrets.METRO_GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-      - name: Pushes to another repository
-        uses: LACMTA/github-action-push-to-another-repo@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.METRO_GITHUB_TOKEN }}
-        with:
-          source-directory: '.'
-          destination-github-username: 'LACMTA'
-          destination-repository-name: 'mybus-dev'
-          user-email: CSInteractive@metro.net
-          user-name: 'LACMTA-devops'
-          target-branch: 'dev'
-
+      - name: Push to Dev Repository
+        run: python update-dev.py
