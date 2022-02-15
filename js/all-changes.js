@@ -67,6 +67,8 @@ const METRO_NET_SCHEDULE_LINKS = {
     805: "https://media.metro.net/documents/b4f1f223-c6b4-4b6e-bd18-648dbca1e7e9.pdf"
 }
 
+const NO_CHANGES = [35,96,106,125,128,130,154,155,158,167,169,177,202,205,209,211,215,218,232,235,236,237,242,243,256,265,266,294,501,550,577,601,603,605,611,660,665,686,854];
+
 $.getJSON(FREQ_TABLE_PATH, loadFrequencyTable);
 $.getJSON(SCHEDULES_LIST_PATH, loadSchedulesList);
 
@@ -87,7 +89,7 @@ function loadSchedulesList(data) {
 
         let current_cell = document.createElement('td');
         let current_cell_link = document.createElement('a');
-        current_cell_link.innerText = 'Current Schedule for the ' + lineLetterHelper(line);
+        current_cell_link.innerText = 'Current schedule for the ' + lineLetterHelper(line);
 
         if (line in current_schedules) {
             current_cell_link.setAttribute('href', current_schedules[line]);
@@ -98,11 +100,17 @@ function loadSchedulesList(data) {
         row.appendChild(current_cell);
 
         let new_cell = document.createElement('td');
-        if (line in new_schedules) {
+        if (NO_CHANGES.includes(line)) {
+            let no_changes_text = 'No changes for the ' + lineLetterHelper(line);
+            new_cell.innerText = no_changes_text;
+        } else if (line in new_schedules) {
             let new_cell_link = document.createElement('a');
             new_cell_link.setAttribute('href', new_schedules[line]);
-            new_cell_link.innerText = 'New Schedule for the ' + lineLetterHelper(line);
+            new_cell_link.innerText = 'New schedule for the ' + lineLetterHelper(line);
             new_cell.appendChild(new_cell_link);
+        } else {
+            let changes_soon_text = 'New schedule for the ' + lineLetterHelper(line) + ' is coming soon';
+            new_cell.innerText = changes_soon_text;
         }
         row.appendChild(new_cell);
 
