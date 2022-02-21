@@ -410,7 +410,7 @@ function showLineData(data) {
             let scheduleSection = document.querySelector('#timetable-content');
             if (THIS_LINE['schedule-url'] != '') {                
                 let scheduleExists1 = document.createElement('p');
-                scheduleExists1.textContent = 'Download the current schedule and map for this bus line. New timetables for the Feb 20 service changes will be available very soon.';
+                scheduleExists1.textContent = 'Download the current schedule and map for this bus line. New timetables for the Feb 20 service changes will be available soon.';
                 
                 let buttonDiv = document.createElement('div');
                 let button = document.createElement('button');
