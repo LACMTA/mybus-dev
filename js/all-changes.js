@@ -87,7 +87,7 @@ function loadSchedulesList(data) {
         line_cell.classList.add('line-' + line);
         row.appendChild(line_cell);
 
-        let current_cell = document.createElement('td');
+        // let current_cell = document.createElement('td');
         let current_cell_link = document.createElement('a');
         current_cell_link.innerText = 'Current schedule for the ' + lineLetterHelper(line);
 
@@ -96,22 +96,36 @@ function loadSchedulesList(data) {
         } else {
             current_cell_link.setAttribute('href', METRO_NET_SCHEDULE_LINKS[line]);
         }
-        current_cell.appendChild(current_cell_link);
-        row.appendChild(current_cell);
+		// commented out because not needed
+		// current_cell.appendChild(current_cell_link);
+        // row.appendChild(current_cell);
 
         let new_cell = document.createElement('td');
-        if (NO_CHANGES.includes(line)) {
-            let no_changes_text = 'No changes for the ' + lineLetterHelper(line);
-            new_cell.innerText = no_changes_text;
-        } else if (line in new_schedules) {
+
+        // if (NO_CHANGES.includes(line)) {
+		// 	new_cell_link.setAttribute('href', new_schedules[line]);
+        //     let no_changes_text = 'No changes for the ' + lineLetterHelper(line);
+        //     new_cell.innerText = no_changes_text;
+        // } else if (line in new_schedules) {
+        //     let new_cell_link = document.createElement('a');
+        //     new_cell_link.setAttribute('href', new_schedules[line]);
+        //     new_cell_link.innerText = 'Current schedule for the ' + lineLetterHelper(line);
+        //     new_cell.appendChild(new_cell_link);
+        // } else {
+        //     let changes_soon_text = 'Current schedule for the ' + lineLetterHelper(line) + ' is coming soon';
+        //     new_cell.innerText = changes_soon_text;
+        // }
+
+        if (line in new_schedules) {
             let new_cell_link = document.createElement('a');
             new_cell_link.setAttribute('href', new_schedules[line]);
-            new_cell_link.innerText = 'New schedule for the ' + lineLetterHelper(line);
+            new_cell_link.innerText = 'Current schedule for the ' + lineLetterHelper(line);
             new_cell.appendChild(new_cell_link);
+			new_cell.innerHTML += ' (updated February 2022)';			
         } else {
-            let changes_soon_text = 'New schedule for the ' + lineLetterHelper(line) + ' is coming soon';
-            new_cell.innerText = changes_soon_text;
+            new_cell.appendChild(current_cell_link);
         }
+
         row.appendChild(new_cell);
 
         if (line > 800 && line < 900) {
