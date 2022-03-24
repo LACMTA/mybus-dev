@@ -32,7 +32,6 @@
 #_form_75_ textarea {
   padding: 6px;
   height: auto;
-  color: #fff ;
   font-size: 16px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -49,11 +48,13 @@
   font-weight: 700;
   width: 100%;
   text-align: center;
-  background: #fff !important;
   border: 0 !important;
-  color: #000 !important;
   padding: 12px;
 }
+
+
+
+
 #_form_75_ ._close-icon {
   cursor: pointer;
   background-image: url("https://d226aj4ao1t61q.cloudfront.net/esfkyjh1u_forms-close-dark.png");
@@ -374,20 +375,17 @@
   position: relative;
   text-align: left;
   margin: 0 auto;
-  
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   *zoom: 1;
-  background: #030000 !important;
-  border: 0px solid #b0b0b0 !important;
   width: 100%;
   /*max-width: 500px;*/
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   border-radius: 0px !important;
-  color: #fff !important;
 }
+
 /*
 #_form_75_._inline-form,
 #_form_75_._inline-form ._form-content,
@@ -431,13 +429,7 @@
   margin: 27px 12.5px 0 20px;
 }
 */
-#_form_75_ ._form-thank-you {
-  position: relative;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 18px;
-}
+
 @media all and (min-width: 320px) and (max-width: 767px) {
   #_form_75_._inline-form._inline-style ._inline-style._button-wrapper {
     margin-top: 20px !important;
@@ -445,15 +437,69 @@
   }
 }
 
-#_form_75_ ._x68633660 input {
+#section-signup #_form_75_ {
+  background: #030000 !important;
+  border: 0px solid #b0b0b0 !important;
+  color: #fff !important;
+}
+
+#section-signup #_form_75_ ._x68633660 input {
   background-color: #000;
   border-radius: 0px;
   border-style: none;
   border-bottom: 2px solid #fff;
   font-family: "Open Sans";
+  color: #fff;
 }
 
-._form_75 #email::placeholder {
+#section-signup ._form_75 #email::placeholder {
     color: #fff;
     font-family: 'Open Sans';
+}
+
+#section-signup #_form_75_ ._submit {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+#section-signup #_form_75_ ._form-thank-you {
+  position: relative;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+#section-select #_form_75_ {
+  background: #fff !important;
+  border: 0px solid #fff !important;
+  color: #000 !important;
+  padding-bottom: 48px;
+}
+
+#section-select #_form_75_ ._x68633660 input {
+  background-color: #fff;
+  border-radius: 0px;
+  border-style: none;
+  border-bottom: 2px solid #000;
+  font-family: "Open Sans";
+  color: #000;
+}
+
+#section-select ._form_75 #email::placeholder {
+    color: #000;
+    font-family: 'Open Sans';
+}
+
+#section-select #_form_75_ ._submit {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+#section-select #_form_75_ ._form-thank-you {
+  position: relative;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
 }
